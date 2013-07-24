@@ -1,0 +1,72 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone1</th>
+        <th>Phone2</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Country</th>
+        <th>Role</th>
+        <th>Branch</th>
+        <th>Active</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <select name="dropdown">
+              <option value="option1"><%=t(:choose_action)%></option>
+              <option value="option3"><%=t(:destroy)%></option>
+            </select>
+            <a class="button" href="#"><%=t(:applay_to_selected)%></a>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+
+      <% @users.each do |user| %>
+        <% @model = user %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.phone1 %></td>
+          <td><%= user.phone2 %></td>
+          <td><%= user.address1 %></td>
+          <td><%= user.address2 %></td>
+          <td><%= user.city %></td>
+          <td><%= user.state %></td>
+          <td><%= user.zip %></td>
+          <td><%= user.country %></td>
+          <td><%#= user.role %></td>
+          <td><%#= user.branch %></td>
+          <td><%= user.active %></td>
+          <%= render "layouts/index_links" %>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+    <%= render "layouts/action_links" %>
+</div> 
+
+
