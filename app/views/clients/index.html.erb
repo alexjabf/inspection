@@ -1,0 +1,51 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.fullname' %></th>
+        <th><%= t'.email' %></th>
+        <th><%= t'.phone1' %></th>
+        <th><%= t'.address1' %></th>
+        <th><%= t'.city' %></th>
+        <th><%= t'.state' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Client %>
+            <td><%=link_to client.id, client, :class => 'button'%></td>
+          <%else%>
+            <td><%= label client.id, client.id, :class => 'button'%></td>
+          <%end%>
+          <%= @model = client %> %>
+          <td><%= client.fullname %></td>
+          <td><%= client.email %></td>
+          <td><%= client.phone1 %></td>
+          <td><%= client.address1 %></td>
+          <td><%= client.city %></td>
+          <td><%= client.state %></td>
+          <%= render "layouts/index_links" %>
+        <% end %>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%= render "layouts/second_tab" %>

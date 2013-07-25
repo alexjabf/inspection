@@ -3,6 +3,7 @@ class Devise::SessionsController < DeviseController
   prepend_before_filter :allow_params_authentication!, :only => [ :new, :create ]
   skip_before_filter :verify_authenticity_token
 
+
   # GET /resource/sign_in
   def new
     resource = build_resource

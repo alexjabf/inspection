@@ -24,30 +24,27 @@
         <%= link_to t(:sign_in), new_user_session_path%>
       <%end%>
     </div>     
-
     <ul id="main-nav">  <!-- Accordion Menu -->
-
-      <li>
-        <a href="http://www.google.com" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
-          Dashboard
-        </a>       
+      <li>     
+        <%= link_to t(:home), root_path, :class=> "nav-top-item no-submenu"%>
       </li>
-      <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
-      <% @models -= %w{Ability} %>
-      <%id = 1%>
-      <% @models.each do |model|%>
-        <li> 
-          <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=id%>');" id="<%=id%>main"> <!-- Add the class "current" to current menu item -->
-            <%=eval("t(:#{model.pluralize.downcase})")%>
-          </a>
-          <ul>
-            <li><%=link_to eval("t(:#{model.pluralize.downcase})"), eval("#{model.downcase.pluralize}_path") %></li>
-            <li><%=link_to eval("t(:new_#{model.downcase})"), eval("new_#{model.downcase}_path") %></li>
-          </ul>
-        </li>
+      <%if signed_in?%>
+        <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
+        <% @models -= %w{Ability} %>
+        <%id = 1%>
+        <% @models.each do |model|%>
+          <li> 
+            <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=id%>');" id="<%=id%>main"> <!-- Add the class "current" to current menu item -->
+              <%=eval("t(:#{model.pluralize.downcase})")%>
+            </a>
+            <ul>
+              <li><%=link_to eval("t(:#{model.pluralize.downcase})"), eval("#{model.downcase.pluralize}_path") %></li>
+              <li><%=link_to eval("t(:new_#{model.downcase})"), eval("new_#{model.downcase}_path") %></li>
+            </ul>
+          </li>
+        <%end%>
         <%id = id + 1%> 
       <%end%>
-
     </ul> <!-- End #main-nav -->
 
     <div id="messages" style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->

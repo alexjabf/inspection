@@ -1,5 +1,5 @@
 Inspection::Application.routes.draw do
-  resources :dogs
+  resources :clients
 
 
   get "welcome/index"

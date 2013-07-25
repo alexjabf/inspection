@@ -30,8 +30,26 @@ Inspection::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Do not compress assets
-  config.assets.compress = false
-
+  config.assets.compress = true
+  config.assets.compile = true
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+    
+  config.active_support.deprecation = :stderr 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default :charset => "utf-8"
+  
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :domain => 'localhost:3000',
+    :authentication => :plain,
+    :user_name => 'emobile.chihuahua',
+    :password => 'emobilej2011'
+  }
+  
 end

@@ -1,0 +1,51 @@
+<div class="row-fluid">
+  <div class="block span6">
+    <a href="#client-info" class="block-heading" data-toggle="collapse"><%= t(:general_information) %></a>
+    <div id="client-info" class="block-body collapse in show-details">
+              <p>
+          <b><%= t'.first_name' %>:</b>
+          <%= @client.first_name %>
+        </p>
+              <p>
+          <b><%= t'.last_name' %>:</b>
+          <%= @client.last_name %>
+        </p>
+              <p>
+          <b><%= t'.email' %>:</b>
+          <%= @client.email %>
+        </p>
+              <p>
+          <b><%= t'.phone1' %>:</b>
+          <%= @client.phone1 %>
+        </p>
+              <p>
+          <b><%= t'.phone2' %>:</b>
+          <%= @client.phone2 %>
+        </p>
+              <p>
+          <b><%= t'.address1' %>:</b>
+          <%= @client.address1 %>
+        </p>
+              <p>
+          <b><%= t'.address2' %>:</b>
+          <%= @client.address2 %>
+        </p>
+              <p>
+          <b><%= t'.city' %>:</b>
+          <%= @client.city %>
+        </p>
+              <p>
+          <b><%= t'.state' %>:</b>
+          <%= @client.state %>
+        </p>
+              <p>
+          <b><%= t'.country' %>:</b>
+          <%= @client.country %>
+        </p>
+              <p>
+          <b><%= t'.zip' %>:</b>
+          <%= @client.zip %>
+        </p>
+          </div>
+  </div>
+</div>

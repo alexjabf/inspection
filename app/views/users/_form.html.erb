@@ -4,9 +4,9 @@
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
   <div class="field">
     <%= f.label :phone1 %><br />
@@ -52,18 +56,10 @@
     <%= f.text_field :country %>
   </div>
   <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role %>
-  </div>
-  <div class="field">
-    <%= f.label :branch_id %><br />
-    <%= f.text_field :branch_id %>
-  </div>
-  <div class="field">
     <%= f.label :active %><br />
     <%= f.check_box :active %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
   </div>
 <% end %>
