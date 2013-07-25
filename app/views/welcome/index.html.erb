@@ -1,13 +1,5 @@
-<h1>Welcome Index</h1>
 <%if signed_in?%>
-  <ul class="dropdown-menu">
-    <li><%= link_to t(:my_account), user_path(current_user)%></li>
-    <li><%= link_to t(:logout) + current_user.username, destroy_user_session_path%></li>
-    <%#*<li><%= link_to t(:companies), companies_path%></li>%>
-    <%#*<li><%= link_to t(:branches), branches_path%></li>%>
-    <%#*<li><%= link_to t(:roles), roles_path%></li>%>
-    <li><%= link_to t(:users), users_path%></li>
-  </ul>
+
 <%else%>
-  <li><%= link_to t(:signin), new_user_session_path %></li>
+
 <%end%>

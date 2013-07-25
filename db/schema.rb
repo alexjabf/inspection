@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710214455) do
+ActiveRecord::Schema.define(:version => 20130724234657) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(:version => 20130710214455) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "dogs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.boolean  "protected"
@@ -60,6 +66,12 @@ ActiveRecord::Schema.define(:version => 20130710214455) do
     t.integer  "branch_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "stores", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

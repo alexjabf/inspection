@@ -4,11 +4,7 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-        <th> <%=  t'.fullname' %></th>
-        <th> <%= t'.email' %> </th>
-        <th> <%= t'.phone1'  %></th>
-        <th><%= t'.role_id' %></th>
-        <th><%= t'.branch' %></th>
+        <th><%= t'.name' %></th>
       </tr>
 
     </thead>
@@ -19,32 +15,25 @@
           <div class="bulk-actions align-left">
             <%= render "layouts/select_action" %>
           </div>
-          <%= render "layouts/pagination" %>
+<%#= render "layouts/pagination" %>
           <div class="clear"></div>
         </td>
       </tr>
     </tfoot>
 
     <tbody>
-
-      <% @users.each do |user| %>
-        <% @model = user %>
+      <% @dogs.each do |dog| %>
         <tr>
           <td><input type="checkbox" /></td>
-          <%if can? :show, User%>
-            <td><%=link_to user.id, user%></td>
+          <%if can? :show, Dog %>
+            <td><%=link_to dog.id, dog, :class => 'button'%></td>
           <%else%>
-            <td><%= label user.id, user.id%></td>
+            <td><%= label dog.id, dog.id, :class => 'button'%></td>
           <%end%>
-          <td><%= user.fullname %></td>
-          <td><%= user.email %></td>
-          <td><%= user.phone1 %></td>
-          <td><%= "user.role.name" %></td>
-          <td><%= "user.branch.name" %></td>
+          <%= @model = dog %> %>
+          <td><%= dog.name %></td>
           <%= render "layouts/index_links" %>
-        </tr>
-      <% end %>
-
+        <% end %>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>

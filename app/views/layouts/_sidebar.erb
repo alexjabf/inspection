@@ -1,0 +1,100 @@
+<script>
+  function setCurrentClass(id) {
+    $(".mainlinks").removeClass('current');
+    $("#" + id + "main").addClass('current');
+  }
+
+</script>
+
+<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+
+    <h1 id="sidebar-title"><a href="#">Inspectium</a></h1>
+
+    <!-- Logo (221px wide) -->
+    <a href="#" style="margin-left: 20%"><img id="logo" src="/assets/ok.png" alt="Inspectium" /></a>
+
+    <!-- Sidebar Profile links -->
+    <div id="profile-links">
+      <%if signed_in?%>
+        <%= t(:home)%>, <%= link_to current_user.fullname, current_user%>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
+        <br />
+        <%= link_to t(:home), root_path%> | 
+        <%= link_to t(:logout), destroy_user_session_path%>
+      <%else%>
+        <%= link_to t(:sign_in), new_user_session_path%>
+      <%end%>
+    </div>     
+
+    <ul id="main-nav">  <!-- Accordion Menu -->
+
+      <li>
+        <a href="http://www.google.com" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+          Dashboard
+        </a>       
+      </li>
+      <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
+      <% @models -= %w{Ability} %>
+      <%id = 1%>
+      <% @models.each do |model|%>
+        <li> 
+          <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=id%>');" id="<%=id%>main"> <!-- Add the class "current" to current menu item -->
+            <%=eval("t(:#{model.pluralize.downcase})")%>
+          </a>
+          <ul>
+            <li><%=link_to eval("t(:#{model.pluralize.downcase})"), eval("#{model.downcase.pluralize}_path") %></li>
+            <li><%=link_to eval("t(:new_#{model.downcase})"), eval("new_#{model.downcase}_path") %></li>
+          </ul>
+        </li>
+        <%id = id + 1%> 
+      <%end%>
+
+    </ul> <!-- End #main-nav -->
+
+    <div id="messages" style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+
+      <h3>3 Messages</h3>
+
+      <p>
+        <strong>17th May 2009</strong> by Admin<br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue.
+        <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+      </p>
+
+      <p>
+        <strong>2nd May 2009</strong> by Jane Doe<br />
+        Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+        <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+      </p>
+
+      <p>
+        <strong>25th April 2009</strong> by Admin<br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue.
+        <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+      </p>
+
+      <form action="" method="post">
+
+        <h4>New Message</h4>
+
+        <fieldset>
+          <textarea class="textarea" name="textfield" cols="79" rows="5"></textarea>
+        </fieldset>
+
+        <fieldset>
+
+          <select name="dropdown" class="small-input">
+            <option value="option1">Send to...</option>
+            <option value="option2">Everyone</option>
+            <option value="option3">Admin</option>
+            <option value="option4">Jane Doe</option>
+          </select>
+
+          <input class="button" type="submit" value="Send" />
+
+        </fieldset>
+
+      </form>
+
+    </div> <!-- End #messages -->
+
+  </div></div> <!-- End #sidebar -->

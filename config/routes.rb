@@ -1,4 +1,7 @@
 Inspection::Application.routes.draw do
+  resources :dogs
+
+
   get "welcome/index"
 
   devise_for :users
