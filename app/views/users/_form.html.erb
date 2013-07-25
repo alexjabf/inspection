@@ -1,3 +1,19 @@
+<style>
+
+  #columns1{
+    padding: 10px;
+    display: inline-block;
+  }
+
+  #left-column{
+    float: left;
+  }
+  #right-column{
+    float: right;
+  }
+
+</style>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -10,56 +26,61 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone1 %><br />
-    <%= f.text_field :phone1 %>
-  </div>
-  <div class="field">
-    <%= f.label :phone2 %><br />
-    <%= f.text_field :phone2 %>
-  </div>
-  <div class="field">
-    <%= f.label :address1 %><br />
-    <%= f.text_field :address1 %>
-  </div>
-  <div class="field">
-    <%= f.label :address2 %><br />
-    <%= f.text_field :address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.number_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'button' %>
+  <div id="columns">
+    <div id="left-columns">
+      <p class="field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, :class=>"text-input small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :phone1 %>
+        <%= f.text_field :phone1, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :phone2 %>
+        <%= f.text_field :phone2, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :address1 %>
+        <%= f.text_field :address1, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :address2 %>
+        <%= f.text_field :address2, :class=>"text-input small-input" %> 
+      </p>
+    </div>
+    <div id="right-column">
+      <p class="field">
+        <%= f.label :city %>
+        <%= f.text_field :city, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :state %>
+        <%= f.text_field :state, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :zip %>
+        <%= f.number_field :zip, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :country %>
+        <%= f.text_field :country, :class=>"text-input small-input" %> 
+      </p>
+      <p class="field">
+        <%= f.label :active %>
+        <%= f.check_box :active %>
+      </p>
+      <p class="form-actions">
+        <%= f.submit nil, :class => 'button' %>
+      </p>
+    </div>
   </div>
 <% end %>

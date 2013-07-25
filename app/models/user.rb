@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :branch
   attr_accessible :active, :address1, :address2, :city, :country, :first_name, :last_name, :phone1, :phone2, :state, :zip, :role_id, :branch_id, :username, :confirmed_at
-
   attr_accessor :login, :fullname
+  
   belongs_to :role
   belongs_to :branch
   validates :first_name, :last_name, :presence => true
