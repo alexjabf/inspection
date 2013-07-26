@@ -1,32 +1,32 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@driver) do |f| %>
-<% if @driver.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@driver.errors.count, "error") %> prohibited this driver from being saved:</h2>
+  <% if @driver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@driver.errors.count, "error") %> prohibited this driver from being saved:</h2>
 
-  <ul>
-    <% @driver.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @driver.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :user_id %>
-    <%#= f.collection_select(:user_id, @users, :id, :fullname, :prompt => true), :class=>"text-input small-input" %>
+    <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, :class =>'small-input')%>
   </p>
   <p class="field">
-    <%= f.label :user_id %>
-    <%#= f.collection_select(:truck_id, @trucks, :id, :modelbrand, :prompt => true), :class=>"text-input small-input" %>
+    <%= f.label :truck_id %>
+    <%= f.collection_select(:truck_id, @trucks, :id, :modelbrand, {:prompt => true}, :class =>'small-input')%>
   </p>
   <p class="field">
-    <%= f.label :user_id %>
-    <%#= f.collection_select(:brahch_id, @branches, :id, :modelbrand, :prompt => true), :class=>"text-input small-input" %>
+    <%= f.label :brahch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'small-input') %>  
   </p>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 
 <% end %>

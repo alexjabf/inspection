@@ -4,10 +4,10 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-                  <th><%= t'.user' %></th>
-                  <th><%= t'.truck' %></th>
-                  <th><%= t'.branch' %></th>
-              </tr>
+        <th><%= t'.user' %></th>
+        <th><%= t'.truck' %></th>
+        <th><%= t'.branch' %></th>
+      </tr>
 
     </thead>
 
@@ -25,23 +25,25 @@
 
     <tbody>
       <% @drivers.each do |driver| %>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <%if can? :show, Driver %>
-        <td><%=link_to driver.id, driver, :class => 'button'%></td>
-        <%else%>
-        <td><%= label driver.id, driver.id, :class => 'button'%></td>
-        <%end%>
-        
-                  
-            <% @model = driver %> 
-                    
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Driver %>
+            <td><%=link_to driver.id, driver, :class => 'button'%></td>
+          <%else%>
+            <td><%= label driver.id, driver.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = driver %> 
+
           <td><%= driver.user.fullname %></td>
-                            
+
           <td><%= driver.truck.modelbrand %></td>
-                            
+
           <td><%= driver.branch.name %></td>
-                <%= render "layouts/index_links" %>
+
+          <%= render "layouts/index_links" %>
+
         <% end %>
       </tr>
     </tbody>

@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
       @cellphones = current_user.role.super_admin == true ? Cellphone.order('id DESC').paginate(:page => params[:page]) : Cellphone.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @trucks = current_user.role.super_admin == true ? Truck.order('id DESC').paginate(:page => params[:page]) : Truck.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])   
+      @drivers = current_user.role.super_admin == true ? Driver.order('id DESC').paginate(:page => params[:page]) : Driver.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])       
     end
   end
   

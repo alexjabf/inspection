@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726165242) do
+ActiveRecord::Schema.define(:version => 20130726181750) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -156,6 +156,25 @@ ActiveRecord::Schema.define(:version => 20130726165242) do
   end
 
   add_index "roles", ["branch_id"], :name => "index_roles_on_branch_id"
+
+  create_table "schedules", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "driver_id"
+    t.integer  "client_id"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "schedules", ["branch_id"], :name => "index_schedules_on_branch_id"
+  add_index "schedules", ["client_id"], :name => "index_schedules_on_client_id"
+  add_index "schedules", ["driver_id"], :name => "index_schedules_on_driver_id"
 
   create_table "trucks", :force => true do |t|
     t.string   "model"
