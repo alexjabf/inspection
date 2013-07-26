@@ -10,7 +10,7 @@ class Ability
     elsif @user and @user.role.branch_admin == true
       can [:show], Company, :id => @user.branch.company_id 
       can [:edi, :update, :show], Branch, :id => @user.branch_id 
-      can [:manage], User, :id => @user.id
+      can [:manage], User, :branch_id =>  @user.branch_id 
       can [:index, :show], Role, :branch_id => @user.branch_id 
       can [:manage], Client, :branch_id => @user.branch_id
       can [:manage], Bill, :branch_id => @user.branch_id

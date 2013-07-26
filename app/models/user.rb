@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   
   belongs_to :role
   belongs_to :branch
+  has_many :cellphones
+  has_many :drivers, :dependent => :destroy
   validates :first_name, :last_name, :presence => true
   validates :username, :uniqueness => true
   validates_length_of :email, :maximum => 120

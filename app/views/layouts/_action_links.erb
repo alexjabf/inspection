@@ -1,5 +1,3 @@
-
-<br /><br />
 <%if controller.action_name == "new" or controller.action_name == "create"%>
   <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
     <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
@@ -23,6 +21,9 @@
   <%end%>
   <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
     <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+  <%end%>
+  <%if can? :destory, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+    <%= link_to eval("t(:destroy_#{controller_name.singularize})"), eval("@#{controller_name.singularize}"), :class=>"button" %>
   <%end%>
 <%elsif controller.action_name == "index" %>
   <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
