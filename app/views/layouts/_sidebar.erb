@@ -19,7 +19,7 @@
     <!-- Sidebar Profile links -->
     <div id="profile-links">
       <%if signed_in?%>
-        <%= t(:home)%>, <%= link_to current_user.fullname, current_user%>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
+        <%= t(:welcome)%>, <%= link_to current_user.fullname, current_user%><br /><a href="#messages" rel="modal" title="3 Messages"><%= link_to t(:edit_my_account), edit_user_registration_path(current_user)%></a><br />
         <br />
         <%= link_to t(:home), root_path%> | 
         <%= link_to t(:logout), destroy_user_session_path%>
@@ -40,28 +40,28 @@
         <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
         <% @models -= %w{Ability} %>
         <% @models.each do |model|%>
-          <li> 
-            <% if can? :new, eval(model) or can? :index, eval(model)%>
+          <% if can? :new, eval(model) or can? :index, eval(model)%>
+            <li> 
               <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=model.pluralize.downcase%>');" id="<%=model.pluralize.downcase%>"> <!-- Add the class "current" to current menu item -->
                 <%=eval("t(:#{model.underscore.pluralize})")%>
               </a>
-            <%end%> 
-            <ul>
-              <%if can? :index, eval(model)%>
-                <li><%=link_to eval("t(:#{model.underscore.downcase.pluralize})"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
-              <%end%>
-              <%if can? :new, eval(model) %>
-                <li><%=link_to eval("t(:new_#{model.underscore.downcase})"), eval("new_#{model.underscore.downcase}_path") %></li>
-              <%end%>
-            </ul>
-          </li>
+              <ul>
+                <%if can? :index, eval(model)%>
+                  <li><%=link_to eval("t(:#{model.underscore.downcase.pluralize})"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
+                <%end%>
+                <%if can? :new, eval(model) %>
+                  <li><%=link_to eval("t(:new_#{model.underscore.downcase})"), eval("new_#{model.underscore.downcase}_path") %></li>
+                <%end%>
+              </ul>
+            </li>
+          <%end%> 
         <%end%>
       <%end%>
     </ul> <!-- End #main-nav -->
 
     <div id="messages" style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
 
-      <h3>3 Messages</h3>
+      <h3<%= link_to t(:edit_my_account), edit_user_registration_path(current_user)%></h3>
 
       <p>
         <strong>17th May 2009</strong> by Admin<br />

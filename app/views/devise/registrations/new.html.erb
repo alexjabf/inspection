@@ -3,69 +3,66 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-      <p class="field">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, :class=>"text-input small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :email %>
-        <%= f.text_field :email, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :phone1 %>
-        <%= f.text_field :phone1, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :phone2 %>
-        <%= f.text_field :phone2, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :address1 %>
-        <%= f.text_field :address1, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :address2 %>
-        <%= f.text_field :address2, :class=>"text-input small-input" %> 
-      </p>
-    </div>
-    <div id="right-custom-column">
-      <p class="field">
-        <%= f.label :city %>
-        <%= f.text_field :city, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :state %>
-        <%= f.text_field :state, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :zip %>
-        <%= f.number_field :zip, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :country %>
-        <%= f.text_field :country, :class=>"text-input small-input" %> 
-      </p>
-      <p class="field">
-        <%= f.label :role_id %>
-        <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, :class =>'.small-input')%>
-      </p>
-      <p class="field">
-        <%= f.label :branch_id %>
-        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
-      </p>
-      <p class="field">
-        <%= f.label :active %>
-        <%= f.check_box :active %>
-      </p>
-      <p class="form-actions">
-        <%= f.submit nil, :class => 'button' %>
-      </p>
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'button' %>
+  <p class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, :class=>"text-input small-input" %> 
+  </p>
+  <p class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class=>"text-input small-input" %> 
+  </p>
+  <p class="field">
+    <%= f.label :phone1 %>
+    <%= f.text_field :phone1, :class=>"text-input small-input" %> 
+  </p>
+  <p class="field">
+    <%= f.label :phone2 %>
+    <%= f.text_field :phone2, :class=>"text-input small-input" %> 
+  </p>
+  <p class="field">
+    <%= f.label :address1 %>
+    <%= f.text_field :address1, :class=>"text-input small-input" %> 
+  </p>
+  <p class="field">
+    <%= f.label :address2 %>
+    <%= f.text_field :address2, :class=>"text-input small-input" %> 
+  </p>
   </div>
-<% end %>
+  <div id="right-custom-column">
+    <p class="field">
+      <%= f.label :city %>
+      <%= f.text_field :city, :class=>"text-input small-input" %> 
+    </p>
+    <p class="field">
+      <%= f.label :state %>
+      <%= f.text_field :state, :class=>"text-input small-input" %> 
+    </p>
+    <p class="field">
+      <%= f.label :zip %>
+      <%= f.number_field :zip, :class=>"text-input small-input" %> 
+    </p>
+    <p class="field">
+      <%= f.label :country %>
+      <%= f.text_field :country, :class=>"text-input small-input" %> 
+    </p>
+    <p class="field">
+      <%= f.label :role_id %>
+      <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    </p>
+    <p class="field">
+      <%= f.label :branch_id %>
+      <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    </p>
+    <p class="field">
+      <%= f.label :active %>
+      <%= f.check_box :active %>
+    </p>
+    <p class="form-actions">
+      <%= f.submit nil, :class => 'button' %>
+    </p>
+  <% end %>
 

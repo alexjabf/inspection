@@ -1,60 +1,63 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@schedule) do |f| %>
-<% if @schedule.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
-  <ul>
-    <% @schedule.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-  <p class="field">
-    <%= f.label :driver_id %>
-          <%= f.collection_select(:driver_id, @drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}) %>
-  </p>
-  <p class="field">
-    <%= f.label :client_id %>
-    <%= f.collection_select(:client_id, @clients, :id, :fullname, {:prompt => true}, :class =>'small-input')%>
-  </p>
-  <p class="field">
-    <%= f.label :brahch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'small-input') %>  
-  </p>
-  <p class="field">
-    <%= f.label :monday %>
-    <%= f.check_box :monday, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :tuesday %>
-    <%= f.check_box :tuesday, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :wednesday %>
-    <%= f.check_box :wednesday, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :thursday %>
-    <%= f.check_box :thursday, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :friday %>
-    <%= f.check_box :friday, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :saturday %>
-    <%= f.check_box :saturday, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :sunday %>
-    <%= f.check_box :sunday, :class=>"text-input small-input" %>
-  </p>
-
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
-
+      <ul>
+        <% @schedule.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="columns-container">
+    <div id="left-custom-column">
+      <p class="field">
+        <%= f.label :driver_id %>
+        <%= f.collection_select(:driver_id, @drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}, :class =>'small-input') %>
+      </p>
+      <p class="field">
+        <%= f.label :client_id %>
+        <%= f.collection_select(:client_id, @clients, :id, :fullname, {:prompt => true}, :class =>'small-input')%>
+      </p>
+      <p class="field">
+        <%= f.label :brahch_id %>
+        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'small-input') %>  
+      </p>
+    </div>
+    <div id="right-custom-column">
+      <p class="field">
+        <%= f.label :monday, :style => "position: absolute"  %>
+        <%= f.check_box :monday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :tuesday, :style => "position: absolute"  %>
+        <%= f.check_box :tuesday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :wednesday, :style => "position: absolute"  %>
+        <%= f.check_box :wednesday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :thursday, :style => "position: absolute"  %>
+        <%= f.check_box :thursday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :friday, :style => "position: absolute"  %>
+        <%= f.check_box :friday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :saturday, :style => "position: absolute"  %>
+        <%= f.check_box :saturday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+      <p class="field">
+        <%= f.label :sunday, :style => "position: absolute"  %>
+        <%= f.check_box :sunday, :style => "margin-left: 120px", :class=>"small-input" %>
+      </p>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button custom-submit' %>
+  </div>
 <% end %>

@@ -8,10 +8,16 @@ class Ability
     if @user and @user.role.super_admin == true
       can :manage, :all
     elsif @user and @user.role.branch_admin == true
-      can [:show, :edit, :update], User, :id => @user.id
       can [:show], Company, :id => @user.branch.company_id 
-      can [:edi, :update, :read], Branch, :id => @user.branch_id 
-      can [:index, :show], Role, :branch_id => @user.branch_id  
+      can [:edi, :update, :show], Branch, :id => @user.branch_id 
+      can [:manage], User, :id => @user.id
+      can [:index, :show], Role, :branch_id => @user.branch_id 
+      can [:manage], Client, :branch_id => @user.branch_id
+      can [:manage], Bill, :branch_id => @user.branch_id
+      can [:manage], Cellphone, :branch_id => @user.branch_id
+      can [:manage], Truck, :branch_id => @user.branch_id
+      can [:manage], Driver, :branch_id => @user.branch_id
+      can [:manage], Schedule, :branch_id => @user.branch_id
     else
       can :read, Branch 
     end
