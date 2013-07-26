@@ -1,4 +1,4 @@
-<%= render "layouts/first_tab" %>
+<%#= render "layouts/first_tab" %>
 <%= form_for(@driver) do |f| %>
   <% if @driver.errors.any? %>
     <div id="error_explanation">
@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+  
   <p class="field">
     <%= f.label :user_id %>
     <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, :class =>'small-input')%>
