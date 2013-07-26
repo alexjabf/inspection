@@ -1,0 +1,24 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+          <tr>
+        <td>
+          <b><%= t'.user' %>:</b> <%= @driver.user.fullname %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.truck' %>:</b> <%= @driver.truck.modelbrand %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.branch' %>:</b> <%= @driver.branch.name %>
+        </td>
+      </tr>
+      </table>
+</div>
+
+
+<%= render "layouts/action_links" %>

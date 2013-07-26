@@ -1,4 +1,7 @@
 Inspection::Application.routes.draw do
+  resources :drivers
+
+
   resources :cellphones
 
 

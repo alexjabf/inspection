@@ -6,3 +6,4 @@ rails g scaffold client first_name:string last_name:string email:string phone1:s
 rails g scaffold bill name:string rfc:string email:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string client:references branch:references
 rails d scaffold cellphone phone_number:string model:string brand:string color:string ope_system:string condition:text imei:string description:text user:references branch:references
 rails g scaffold truck model:string brand:string year:integer truck_type:string plate_no:string serial_no:string color:string wheels_no:integer other:string identifier:string branch:references
+rails g scaffold driver user:references truck:references branch:references

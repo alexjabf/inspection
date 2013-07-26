@@ -58,3 +58,7 @@ Bill.create(name: "Jhon Smit", rfc: "jsa8546325418", client_id: 4, fax: "(758) 9
 Bill.create(name: "Laurie Kirschner", rfc: "rfc1234567345", client_id: 5, fax: "(614) 345-4567", phone1: "(614) 345-4567", phone2: "(854) 986-6536", address1: "Street No. 8965", address2: "Ina", city: "Beverly Hills", state: "California", zip: 89657, country: "USA", branch_id: 1)
 Bill.create(name: "Alberto Montes Velazquez", rfc: "mov1965081298", client_id: 6, fax: "(652) 103-8542", phone1: "(652) 103-8542", phone2: "(652) 103-8542", address1: "Calle No. 987 ", address2: "Col. Centro", city: "Guadalajara", state: "Jalisco", zip: 98653, country: "Mexico", branch_id: 1)
 
+Driver.create(user_id: 1, truck_id: 1, branch_id: 1)
+Driver.create(user_id: 2, truck_id: 2, branch_id: 1)
+Driver.create(user_id: 3, truck_id: 3, branch_id: 1)
+Driver.create(user_id: 4, truck_id: 4, branch_id: 1)

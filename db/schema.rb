@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726163844) do
+ActiveRecord::Schema.define(:version => 20130726165242) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -111,6 +111,18 @@ ActiveRecord::Schema.define(:version => 20130726163844) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "drivers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "truck_id"
+    t.integer  "branch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "drivers", ["branch_id"], :name => "index_drivers_on_branch_id"
+  add_index "drivers", ["truck_id"], :name => "index_drivers_on_truck_id"
+  add_index "drivers", ["user_id"], :name => "index_drivers_on_user_id"
 
   create_table "error_reports", :force => true do |t|
     t.string   "user"

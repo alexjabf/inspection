@@ -83,25 +83,27 @@
           <h2><%=t(:welcome) + " " + current_user.fullname%></h2>
           <p id="page-intro">What would you like to do?</p>
           <ul class="shortcut-buttons-set" style> <!-- Replace the icons URL's with your own -->
-
-            <li><a class="shortcut-button" href="#"><span>
-                  <img src="/assets/users.png" alt="icon" /><br />
-                  Write an Article
-                </span></a></li>
-
-            <li><a class="shortcut-button" href="#"><span>
-                  <img src="/assets/clients.png" alt="icon" /><br />
-                  Create a New Page
-                </span></a></li>
-
+            <%if can? :new, User %>
+              <li>
+                <a class="shortcut-button" href="<%=new_user_path%>"><span>
+                    <img src="/assets/users.png" alt="icon" /><br />
+                    <%=t(:new_user)%>
+                  </span></a></li>
+            <%end%>
+            <%if can? :client, Client %>
+              <li><a class="shortcut-button" href="<%=new_client_path%>"><span>
+                    <img src="/assets/clients.png" alt="icon" /><br />
+                    <%=t(:new_client)%>
+                  </span></a></li>
+            <%end%>
             <li><a class="shortcut-button" href="#"><span>
                   <img src="/assets/reports.png" alt="icon" /><br />
-                  Upload an Image
+                  <%=t(:new_schedule)%>
                 </span></a></li>
 
             <li><a class="shortcut-button" href="#"><span>
                   <img src="/assets/routes.png" alt="icon" /><br />
-                  Add an Event
+                  <%=t(:new_route)%>
                 </span></a></li>
           <%else%>        
             <h2><%=t(:welcome)%></h2>        

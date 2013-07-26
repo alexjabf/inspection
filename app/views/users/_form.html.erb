@@ -60,6 +60,14 @@
         <%= f.text_field :country, :class=>"text-input small-input" %> 
       </p>
       <p class="field">
+        <%= f.label :role_id %>
+        <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+      </p>
+      <p class="field">
+        <%= f.label :branch_id %>
+        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+      </p>
+      <p class="field">
         <%= f.label :active %>
         <%= f.check_box :active %>
       </p>
