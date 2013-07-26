@@ -10,7 +10,7 @@ development:
   schema: development
   port: 5432
   username: postgres
-  password: postgres
+  password: alexjabf990480as
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,10 +22,19 @@ test:
   schema: development
   port: 5432
   username: postgres
-  password: postgres
+  password: alexjabf990480as
 
 
 production:
+  adapter: postgresql
+  host: localhost
+  database: inspection
+  schema: development
+  port: 5432
+  username: postgres
+  password: alexjabf990480as
+
+local:
   adapter: postgresql
   host: localhost
   database: inspection
