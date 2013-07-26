@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  rfc: MyString
+  email: MyString
+  phone1: MyString
+  phone2: MyString
+  fax: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  country: MyString
+  client: 
+  branch: 
+
+two:
+  name: MyString
+  rfc: MyString
+  email: MyString
+  phone1: MyString
+  phone2: MyString
+  fax: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  country: MyString
+  client: 
+  branch: 

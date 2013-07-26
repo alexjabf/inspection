@@ -1,0 +1,64 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@truck) do |f| %>
+<% if @truck.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
+
+  <ul>
+    <% @truck.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :brand %>
+    <%= f.text_field :brand, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :year %>
+    <%= f.number_field :year, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :truck_type %>
+    <%= f.text_field :truck_type, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :plate_no %>
+    <%= f.text_field :plate_no, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :serial_no %>
+    <%= f.text_field :serial_no, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :wheels_no %>
+    <%= f.number_field :wheels_no, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :other %>
+    <%= f.text_field :other, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :identifier %>
+    <%= f.text_field :identifier, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

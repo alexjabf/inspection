@@ -1,0 +1,76 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@bill) do |f| %>
+<% if @bill.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+  <ul>
+    <% @bill.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :rfc %>
+    <%= f.text_field :rfc, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :phone1 %>
+    <%= f.text_field :phone1, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :phone2 %>
+    <%= f.text_field :phone2, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :fax %>
+    <%= f.text_field :fax, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :address1 %>
+    <%= f.text_field :address1, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :address2 %>
+    <%= f.text_field :address2, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :zip %>
+    <%= f.number_field :zip, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :country %>
+    <%= f.text_field :country, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :client_id %>
+      <%= f.collection_select(:client_id, @clients, :id, :fullname, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

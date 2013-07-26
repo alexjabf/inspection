@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726052108) do
+ActiveRecord::Schema.define(:version => 20130726163844) do
+
+  create_table "bills", :force => true do |t|
+    t.string   "name"
+    t.string   "rfc"
+    t.string   "email"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.integer  "client_id"
+    t.integer  "branch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bills", ["branch_id"], :name => "index_bills_on_branch_id"
+  add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -34,21 +56,43 @@ ActiveRecord::Schema.define(:version => 20130726052108) do
 
   add_index "branches", ["company_id"], :name => "index_branches_on_company_id"
 
+  create_table "cellphones", :force => true do |t|
+    t.string   "phone_number"
+    t.string   "model"
+    t.string   "brand"
+    t.string   "color"
+    t.string   "ope_system"
+    t.text     "condition"
+    t.string   "imei"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "branch_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "cellphones", ["branch_id"], :name => "index_cellphones_on_branch_id"
+  add_index "cellphones", ["user_id"], :name => "index_cellphones_on_user_id"
+
   create_table "clients", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "phone1"
     t.string   "phone2"
+    t.string   "fax"
     t.string   "address1"
     t.string   "address2"
     t.string   "city"
     t.string   "state"
-    t.string   "country"
     t.integer  "zip"
+    t.string   "country"
+    t.integer  "branch_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "clients", ["branch_id"], :name => "index_clients_on_branch_id"
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -100,6 +144,24 @@ ActiveRecord::Schema.define(:version => 20130726052108) do
   end
 
   add_index "roles", ["branch_id"], :name => "index_roles_on_branch_id"
+
+  create_table "trucks", :force => true do |t|
+    t.string   "model"
+    t.string   "brand"
+    t.integer  "year"
+    t.string   "truck_type"
+    t.string   "plate_no"
+    t.string   "serial_no"
+    t.string   "color"
+    t.integer  "wheels_no"
+    t.string   "other"
+    t.string   "identifier"
+    t.integer  "branch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "trucks", ["branch_id"], :name => "index_trucks_on_branch_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

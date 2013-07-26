@@ -1,0 +1,60 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@cellphone) do |f| %>
+<% if @cellphone.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@cellphone.errors.count, "error") %> prohibited this cellphone from being saved:</h2>
+
+  <ul>
+    <% @cellphone.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :brand %>
+    <%= f.text_field :brand, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :ope_system %>
+    <%= f.text_field :ope_system, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :imei %>
+    <%= f.text_field :imei, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :user_id %>
+    <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

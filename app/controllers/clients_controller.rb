@@ -1,14 +1,15 @@
 class ClientsController < ApplicationController
   before_filter :authenticate_user!
-    load_and_authorize_resource
-  # GET /clients
-  # GET /clients.json
+  load_and_authorize_resource
+
   def index
-    @clients = Client.order('first_name ASC').paginate(:page => params[:page])
+
+    @clients = current_user.role.super_admin == true ? Client.order('id DESC').paginate(:page => params[:page]) : Client.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clients }
+
     end
   end
 
@@ -27,7 +28,8 @@ class ClientsController < ApplicationController
   # GET /clients/new.json
   def new
     @client = Client.new
-
+    #@client.bills.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @client }

@@ -1,0 +1,53 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.name' %></th>
+        <th><%= t'.rfc' %></th>
+        <th><%= t'.client' %></th>
+        <th><%= t'.branch' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @bills.each do |bill| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Bill %>
+            <td><%=link_to bill.id, bill, :class => 'button'%></td>
+          <%else%>
+            <td><%= label bill.id, bill.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = bill %> 
+
+          <td><%= bill.name %></td>                           
+
+          <td><%= bill.rfc %></td>
+          
+          <td><%= bill.client.fullname %></td>
+          
+          <td><%= bill.branch.name %></td>
+          <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 

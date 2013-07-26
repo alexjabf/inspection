@@ -1,0 +1,62 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.phone_number' %></th>
+        <th><%= t'.model' %></th>
+        <th><%= t'.brand' %></th>
+        <th><%= t'.imei' %></th>
+        <th><%= t'.user' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @cellphones.each do |cellphone| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Cellphone %>
+            <td><%=link_to cellphone.id, cellphone, :class => 'button'%></td>
+          <%else%>
+            <td><%= label cellphone.id, cellphone.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = cellphone %> 
+
+          <td><%= cellphone.phone_number %></td>
+
+          <td><%= cellphone.model %></td>
+
+          <td><%= cellphone.brand %></td>
+
+          <td><%= cellphone.imei %></td>
+
+          <%unless cellphone.user.blank?%>
+            <td><%= cellphone.user.fullname %></td>
+          <%else%>
+            <td><%= link_to  "Asignar Celular a Usuario", edit_cellphone_path(cellphone)%></td>
+          <%end%>
+
+          <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%= render "layouts/second_tab" %>

@@ -4,13 +4,11 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-        <th><%= t'.fullname' %></th>
-        <th><%= t'.email' %></th>
-        <th><%= t'.phone1' %></th>
-        <th><%= t'.address1' %></th>
-        <th><%= t'.city' %></th>
-        <th><%= t'.state' %></th>
-      </tr>
+                  <th><%= t'.name' %></th>
+                  <th><%= t'.email' %></th>
+                  <th><%= t'.phone1' %></th>
+                  <th><%= t'.branch' %></th>
+              </tr>
 
     </thead>
 
@@ -28,24 +26,29 @@
 
     <tbody>
       <% @clients.each do |client| %>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <%if can? :show, Client %>
-            <td><%=link_to client.id, client, :class => 'button'%></td>
-          <%else%>
-            <td><%= label client.id, client.id, :class => 'button'%></td>
-          <%end%>
-          <%= @model = client %> %>
-          <td><%= client.fullname %></td>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <%if can? :show, Client %>
+        <td><%=link_to client.id, client, :class => 'button'%></td>
+        <%else%>
+        <td><%= label client.id, client.id, :class => 'button'%></td>
+        <%end%>
+        
+                  
+            <% @model = client %> 
+                    
+          <td><%= client.fullname %></td>                            
+                            
           <td><%= client.email %></td>
+                            
           <td><%= client.phone1 %></td>
-          <td><%= client.address1 %></td>
-          <td><%= client.city %></td>
-          <td><%= client.state %></td>
-          <%= render "layouts/index_links" %>
+                            
+          <td><%= client.branch.name %></td>
+                <%= render "layouts/index_links" %>
         <% end %>
+      </tr>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>
 </div> 
-<%= render "layouts/second_tab" %>
+<%#= render "layouts/second_tab" %>

@@ -1,4 +1,16 @@
 Inspection::Application.routes.draw do
+  resources :cellphones
+
+
+  resources :trucks
+
+
+  resources :bills
+
+
+  resources :clients
+
+
   resources :error_reports
 
 
@@ -9,9 +21,6 @@ Inspection::Application.routes.draw do
 
 
   resources :companies
-
-
-  resources :clients
 
 
   get "welcome/index"

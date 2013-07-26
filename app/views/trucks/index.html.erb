@@ -1,0 +1,58 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.model' %></th>
+        <th><%= t'.brand' %></th>
+        <th><%= t'.year' %></th>
+        <th><%= t'.plate_no' %></th>
+        <th><%= t'.serial_no' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @trucks.each do |truck| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Truck %>
+            <td><%=link_to truck.id, truck, :class => 'button'%></td>
+          <%else%>
+            <td><%= label truck.id, truck.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = truck %> 
+
+          <td><%= truck.model %></td>
+
+          <td><%= truck.brand %></td>
+
+          <td><%= truck.year %></td>                            
+
+          <td><%= truck.plate_no %></td>
+
+          <td><%= truck.serial_no %></td>
+
+          <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%= render "layouts/second_tab" %>
