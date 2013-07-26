@@ -1,10 +1,2 @@
-<%%content_for :breadcrumb do%>
-  <ul class="breadcrumb">
-    <li><%%=link_to @current_user.branch.name, @current_user.branch%><span class="divider">/</span></li>
-    <%%if can? :index, <%= singular_table_name.titlecase %> %>
-      <li><%%= link_to t(:index), <%= index_helper %>_path %><span class="divider">/</span></li>
-    <%%end%>
-    <li class="active"><%%=t(:new) + " " + t(:w<%= singular_table_name%>)%></li>
-  </ul>
-<%%end%>
 <%%= render 'form' %>
+<%%= render "layouts/action_links" %>

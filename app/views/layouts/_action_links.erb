@@ -1,1 +1,15 @@
-  <%= link_to "NEW", new_user_path, :class => "button"%>
+
+<br /><br />
+<%if controller.action_name == "new" or controller.action_name == "create"%>
+  <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+<%elsif controller.action_name == "edit" or controller.action_name == "update" %>
+  <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+  <%= link_to eval("t(:show_#{controller_name.singularize})"), eval("@#{controller_name.singularize}"), :class=>"button" %>
+  <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+<%elsif controller.action_name == "show" %>
+  <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+  <%= link_to eval("t(:edit_#{controller_name.singularize})"), eval("edit_#{controller_name.singularize}_path(@#{controller_name.singularize})"), :class=>"button" %>
+  <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+<%elsif controller.action_name == "index" %>
+  <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+<%end%>

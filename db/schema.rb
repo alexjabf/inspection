@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725170011) do
+ActiveRecord::Schema.define(:version => 20130726004714) do
+
+  create_table "branches", :force => true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "company_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "branches", ["company_id"], :name => "index_branches_on_company_id"
 
   create_table "clients", :force => true do |t|
     t.string   "first_name"
@@ -27,6 +48,24 @@ ActiveRecord::Schema.define(:version => 20130725170011) do
     t.integer  "zip"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

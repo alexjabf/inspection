@@ -1,0 +1,76 @@
+<%#= render "layouts/first_tab" %>
+<%= form_for(@company) do |f| %>
+<% if @company.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+  <ul>
+    <% @company.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :email1 %>
+    <%= f.text_field :email1, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :email2 %>
+    <%= f.text_field :email2, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :webpage %>
+    <%= f.text_field :webpage, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :phone1 %>
+    <%= f.text_field :phone1, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :phone2 %>
+    <%= f.text_field :phone2, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :address1 %>
+    <%= f.text_field :address1, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :address2 %>
+    <%= f.text_field :address2, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :zip %>
+    <%= f.number_field :zip, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :country %>
+    <%= f.text_field :country, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

@@ -15,3 +15,20 @@
 
 /********************************      Basic Structure      ********************************/
 
+
+#columns-container{
+    position:  inherit;
+    width: 1200px;
+    display: table;
+    padding-right: 0;
+}
+#left-custom-column{
+    float:left;
+    width:500px;
+    padding:10px;
+}
+#right-custom-column {
+    float:right;
+    width:500px;
+    padding:10px;
+}

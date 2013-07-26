@@ -1,4 +1,10 @@
 Inspection::Application.routes.draw do
+  resources :branches
+
+
+  resources :companies
+
+
   resources :clients
 
 

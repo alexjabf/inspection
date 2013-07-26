@@ -32,8 +32,12 @@
         <%%else%>
         <td><%%= label <%= singular_table_name %>.id, <%= singular_table_name %>.id, :class => 'button'%></td>
         <%%end%>
+        <%x = 0%>
         <% attributes.each do |attribute| -%>
+        <%if x == 0%>
              <%%= @model = <%= singular_table_name %> %> %>
+             <%end -%>
+             <%x = x +1%>
           <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
         <% end -%>
         <%%= render "layouts/index_links" %>

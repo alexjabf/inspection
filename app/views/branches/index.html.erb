@@ -1,0 +1,61 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.name' %></th>
+        <th><%= t'.email1' %></th>
+        <th><%= t'.webpage' %></th>
+        <th><%= t'.phone1' %></th>
+        <th><%= t'.address1' %></th>
+        <th><%= t'.city' %></th>
+        <th><%= t'.company' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @branches.each do |branch| %>
+        <%@model = branch%>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Branch %>
+            <td><%=link_to branch.id, branch, :class => 'button'%></td>
+          <%else%>
+            <td><%= label branch.id, branch.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <td><%= branch.name %></td>
+
+          <td><%= branch.email1 %></td>
+
+          <td><%= branch.webpage %></td>
+
+          <td><%= branch.phone1 %></td>
+
+          <td><%= branch.address1 %></td>
+
+          <td><%= branch.city %></td>
+
+          <td><%= branch.company.name %></td>
+          <%= render "layouts/index_links" %>
+        <% end %>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%= render "layouts/second_tab" %>

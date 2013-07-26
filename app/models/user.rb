@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
     first_name.titlecase + " " + last_name.titlecase + " (" + username + ")"
   end 
   
-  self.per_page = 5
+  self.per_page = 15
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names
