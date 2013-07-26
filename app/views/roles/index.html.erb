@@ -5,12 +5,11 @@
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
         <th><%= t'.name' %></th>
-        <th><%= t'.email1' %></th>
-        <th><%= t'.webpage' %></th>
-        <th><%= t'.phone1' %></th>
-        <th><%= t'.address1' %></th>
-        <th><%= t'.city' %></th>
-        <th><%= t'.company' %></th>
+        <th><%= t'.super_admin' %></th>
+        <th><%= t'.branch_admin' %></th>
+        <th><%= t'.routes_admin' %></th>
+        <th><%= t'.driver' %></th>
+        <th><%= t'.branch' %></th>
       </tr>
 
     </thead>
@@ -28,30 +27,28 @@
     </tfoot>
 
     <tbody>
-      <% @branches.each do |branch| %>
-        <%@model = branch%>
+      <% @roles.each do |role| %>
         <tr>
           <td><input type="checkbox" /></td>
-          <%if can? :show, Branch %>
-            <td><%=link_to branch.id, branch, :class => 'button'%></td>
+          <%if can? :show, Role %>
+            <td><%=link_to role.id, role, :class => 'button'%></td>
           <%else%>
-            <td><%= label branch.id, branch.id, :class => 'button'%></td>
+            <td><%= label role.id, role.id, :class => 'button'%></td>
           <%end%>
 
+          <% @model = role %>
 
-          <td><%= branch.name %></td>
+          <td><%= role.name %></td>
 
-          <td><%= branch.email1 %></td>
+          <td><%= role.super_admin %></td>
 
-          <td><%= branch.webpage %></td>
+          <td><%= role.branch_admin %></td>
 
-          <td><%= branch.phone1 %></td>
+          <td><%= role.routes_admin %></td>
 
-          <td><%= branch.address1 %></td>
+          <td><%= role.driver %></td>                             
 
-          <td><%= branch.city %></td>
-
-          <td><%= branch.company.name %></td>
+          <td><%= role.branch.name %></td>
           <%= render "layouts/index_links" %>
         <% end %>
       </tr>

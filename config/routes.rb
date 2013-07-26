@@ -1,4 +1,10 @@
 Inspection::Application.routes.draw do
+  resources :error_reports
+
+
+  resources :roles
+
+
   resources :branches
 
 

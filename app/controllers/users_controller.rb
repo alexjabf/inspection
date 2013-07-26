@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  #load_and_authorize_resource
+  load_and_authorize_resource
   
   def index
     @users = User.order('first_name ASC').paginate(:page => params[:page])

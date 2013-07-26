@@ -15,13 +15,5 @@ class Client < ActiveRecord::Base
   def name_client_id
     first_name.titlecase + " " + last_name.titlecase + " ( Client No: " + id + ")"
   end 
-  
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |model|
-        csv << model.attributes.values_at(*column_names)
-      end
-    end
-  end
+  self.per_page = 15
 end

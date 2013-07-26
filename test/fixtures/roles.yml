@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  protected: false
+  super_admin: false
+  branch_admin: false
+  routes_admin: false
+  driver: false
+  description: MyText
+  branch: 
+
+two:
+  name: MyString
+  protected: false
+  super_admin: false
+  branch_admin: false
+  routes_admin: false
+  driver: false
+  description: MyText
+  branch: 

@@ -1,9 +1,12 @@
 <script>
-  function setCurrentClass(id) {
+  function setCurrentClass(controller) {
     $(".mainlinks").removeClass('current');
-    $("#" + id + "main").addClass('current');
+    $("#" + controller).addClass('current');
   }
-
+  $(function() {
+    $(".mainlinks").removeClass('current');
+    $("#<%=controller_name%>").addClass('current');
+  });
 </script>
 
 <div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
@@ -26,24 +29,33 @@
     </div>     
     <ul id="main-nav">  <!-- Accordion Menu -->
       <li>     
-        <%= link_to t(:home), root_path, :class=> "nav-top-item no-submenu"%>
+        <%= link_to t(:home), root_path, :class=> "nav-top-item no-submenu mainlinks", :onclick=>"setCurrentClass('welcome');", :id=>"welcome"%>
       </li>
       <%if signed_in?%>
+        <% if can? :show, Company %>
+          <li> 
+            <%=link_to current_user.branch.company.name, current_user.branch, :class=> "nav-top-item no-submenu", :onclick=>"setCurrentClass('shoew_branch');", :id=>"show_branch"%>
+          </li>
+        <%end%>
         <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
         <% @models -= %w{Ability} %>
-        <%id = 1%>
         <% @models.each do |model|%>
           <li> 
-            <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=id%>');" id="<%=id%>main"> <!-- Add the class "current" to current menu item -->
-              <%=eval("t(:#{model.pluralize.downcase})")%>
-            </a>
+            <% if can? :new, eval(model) or can? :index, eval(model)%>
+              <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=model.pluralize.downcase%>');" id="<%=model.pluralize.downcase%>"> <!-- Add the class "current" to current menu item -->
+                <%=eval("t(:#{model.underscore.pluralize})")%>
+              </a>
+            <%end%> 
             <ul>
-              <li><%=link_to eval("t(:#{model.pluralize.downcase})"), eval("#{model.downcase.pluralize}_path") %></li>
-              <li><%=link_to eval("t(:new_#{model.downcase})"), eval("new_#{model.downcase}_path") %></li>
+              <%if can? :index, eval(model)%>
+                <li><%=link_to eval("t(:#{model.underscore.downcase.pluralize})"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
+              <%end%>
+              <%if can? :new, eval(model) %>
+                <li><%=link_to eval("t(:new_#{model.underscore.downcase})"), eval("new_#{model.underscore.downcase}_path") %></li>
+              <%end%>
             </ul>
           </li>
         <%end%>
-        <%id = id + 1%> 
       <%end%>
     </ul> <!-- End #main-nav -->
 

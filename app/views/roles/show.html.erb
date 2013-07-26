@@ -1,0 +1,49 @@
+  <%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <b><%= t'.name' %>:</b> <%= @role.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.protected' %>:</b> <%= @role.protected %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.super_admin' %>:</b> <%= @role.super_admin %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch_admin' %>:</b> <%= @role.branch_admin %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.routes_admin' %>:</b> <%= @role.routes_admin %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver' %>:</b> <%= @role.driver %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.description' %>:</b> <%= @role.description %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch' %>:</b> <%= @role.branch.name %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<%= render "layouts/action_links" %>

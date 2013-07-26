@@ -1,0 +1,55 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.user' %></th>
+        <th><%= t'.line_number' %></th>
+        <th><%= t'.referrer_url' %></th>
+        <th><%= t'.original_path' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @error_reports.each do |error_report| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, ErrorReport %>
+            <td><%=link_to error_report.id, error_report, :class => 'button'%></td>
+          <%else%>
+            <td><%= label error_report.id, error_report.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = error_report %> 
+
+          <td><%= error_report.user %></td>
+
+          <td><%= error_report.line_number %></td>
+
+          <td><%= error_report.referrer_url %></td>
+
+          <td><%= error_report.original_path %></td>
+
+          <td><%= error_report.error_time %></td>
+          <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 

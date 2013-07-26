@@ -1,5 +1,7 @@
 <select name="dropdown">
   <option value="option1"><%=t(:choose_action)%></option>
-  <option value="option3"><%=t(:destroy)%></option>
+  <%if can? :destroy, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+    <option value="option3"><%=t(:destroy)%></option>
+  <%end%>
 </select>
 <a class="button" href="#"><%=t(:applay_to_selected)%></a>

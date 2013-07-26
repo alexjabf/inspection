@@ -1,0 +1,52 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@role) do |f| %>
+<% if @role.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+  <ul>
+    <% @role.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :protected %>
+    <%= f.check_box :protected, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :super_admin %>
+    <%= f.check_box :super_admin, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :branch_admin %>
+    <%= f.check_box :branch_admin, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :routes_admin %>
+    <%= f.check_box :routes_admin, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :driver %>
+    <%= f.check_box :driver, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.text_field :branch_id, :class=>"text-input small-input" %>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

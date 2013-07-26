@@ -4,13 +4,10 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-        <th><%= t'.name' %></th>
-        <th><%= t'.email1' %></th>
-        <th><%= t'.webpage' %></th>
-        <th><%= t'.phone1' %></th>
-        <th><%= t'.address1' %></th>
-        <th><%= t'.city' %></th>
-        <th><%= t'.company' %></th>
+        <th><%= t'.user' %></th>
+        <th><%= t'.line_number' %></th>
+        <th><%= t'.referrer_url' %></th>
+        <th><%= t'.original_path' %></th>
       </tr>
 
     </thead>
@@ -28,30 +25,27 @@
     </tfoot>
 
     <tbody>
-      <% @branches.each do |branch| %>
-        <%@model = branch%>
+      <% ErrorReport.all.each do |error_report| %>
         <tr>
           <td><input type="checkbox" /></td>
-          <%if can? :show, Branch %>
-            <td><%=link_to branch.id, branch, :class => 'button'%></td>
+          <%if can? :show, ErrorReport %>
+            <td><%=link_to error_report.id, error_report, :class => 'button'%></td>
           <%else%>
-            <td><%= label branch.id, branch.id, :class => 'button'%></td>
+            <td><%= label error_report.id, error_report.id, :class => 'button'%></td>
           <%end%>
 
 
-          <td><%= branch.name %></td>
+          <% @model = error_report %> 
 
-          <td><%= branch.email1 %></td>
+          <td><%= error_report.user %></td>
 
-          <td><%= branch.webpage %></td>
+          <td><%= error_report.line_number %></td>
 
-          <td><%= branch.phone1 %></td>
+          <td><%= error_report.referrer_url %></td>
 
-          <td><%= branch.address1 %></td>
+          <td><%= error_report.original_path %></td>
 
-          <td><%= branch.city %></td>
-
-          <td><%= branch.company.name %></td>
+          <td><%= error_report.error_time %></td>
           <%= render "layouts/index_links" %>
         <% end %>
       </tr>

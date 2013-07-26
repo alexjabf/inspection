@@ -5,11 +5,13 @@
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
                   <th><%= t'.name' %></th>
-                  <th><%= t'.email1' %></th>
-                  <th><%= t'.webpage' %></th>
-                  <th><%= t'.phone1' %></th>
-                  <th><%= t'.address1' %></th>
-                  <th><%= t'.city' %></th>
+                  <th><%= t'.protected' %></th>
+                  <th><%= t'.super_admin' %></th>
+                  <th><%= t'.branch_admin' %></th>
+                  <th><%= t'.routes_admin' %></th>
+                  <th><%= t'.driver' %></th>
+                  <th><%= t'.description' %></th>
+                  <th><%= t'.branch' %></th>
               </tr>
 
     </thead>
@@ -27,34 +29,36 @@
     </tfoot>
 
     <tbody>
-      <% @companies.each do |company| %>
+      <% @roles.each do |role| %>
       <tr>
         <td><input type="checkbox" /></td>
-        <%if can? :show, Company %>
-        <td><%=link_to company.id, company, :class => 'button'%></td>
+        <%if can? :show, Role %>
+        <td><%=link_to role.id, role, :class => 'button'%></td>
         <%else%>
-        <td><%= label company.id, company.id, :class => 'button'%></td>
+        <td><%= label role.id, role.id, :class => 'button'%></td>
         <%end%>
         
                 
-             <%= @model = company %> %>
+             <%= @model = role %> %>
                           
-          <td><%= company.name %></td>
+          <td><%= role.name %></td>
                              
-          <td><%= company.email1 %></td>                             
+          <td><%= role.protected %></td>
                              
-          <td><%= company.webpage %></td>
+          <td><%= role.super_admin %></td>
                              
-          <td><%= company.phone1 %></td>
+          <td><%= role.branch_admin %></td>
                              
-          <td><%= company.address1 %></td>                            
+          <td><%= role.routes_admin %></td>
                              
-          <td><%= company.city %></td>
+          <td><%= role.driver %></td>
+                             
+          <td><%= role.description %></td>
+                             
+          <td><%= role.branch %></td>
                 <%= render "layouts/index_links" %>
         <% end %>
-            </tr>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>
 </div> 
-<%= render "layouts/second_tab" %>

@@ -5,7 +5,7 @@
     <% attributes.each do |attribute| -%>
       <tr>
         <td>
-          <b><%%= t'.<%= attribute.human_name.downcase.tr(" ", "_") %>' %>:<%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+          <b><%%= t'.<%= attribute.human_name.downcase.tr(" ", "_") %>' %>:</b> <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
         </td>
       </tr>
     <% end -%>

@@ -1,0 +1,64 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@error_report) do |f| %>
+<% if @error_report.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@error_report.errors.count, "error") %> prohibited this error_report from being saved:</h2>
+
+  <ul>
+    <% @error_report.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :user %>
+    <%= f.text_field :user, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :controller_name %>
+    <%= f.text_field :controller_name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :action_name %>
+    <%= f.text_field :action_name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :line_number %>
+    <%= f.text_field :line_number, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :referrer_url %>
+    <%= f.text_field :referrer_url, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :original_path %>
+    <%= f.text_field :original_path, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :environment %>
+    <%= f.text_field :environment, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.text_field :branch_id, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :backtrace %>
+    <%= f.text_area :backtrace, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :error_time %>
+    <%= f.date_select :error_time, :class=>"text-input small-input" %>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

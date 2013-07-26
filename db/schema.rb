@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726004714) do
+ActiveRecord::Schema.define(:version => 20130726052108) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -67,6 +67,39 @@ ActiveRecord::Schema.define(:version => 20130726004714) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "error_reports", :force => true do |t|
+    t.string   "user"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "line_number"
+    t.string   "referrer_url"
+    t.string   "original_path"
+    t.string   "environment"
+    t.integer  "branch_id"
+    t.text     "description"
+    t.text     "backtrace"
+    t.date     "error_time"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "error_reports", ["branch_id"], :name => "index_error_reports_on_branch_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.boolean  "protected"
+    t.boolean  "super_admin"
+    t.boolean  "branch_admin"
+    t.boolean  "routes_admin"
+    t.boolean  "driver"
+    t.text     "description"
+    t.integer  "branch_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "roles", ["branch_id"], :name => "index_roles_on_branch_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

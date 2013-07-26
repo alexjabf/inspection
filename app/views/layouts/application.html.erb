@@ -81,35 +81,33 @@
         <!-- Page Head -->
         <%if signed_in?%>
           <h2><%=t(:welcome) + " " + current_user.fullname%></h2>
-        <%else%>        
-          <h2><%=t(:welcome)%></h2>        
-        <%end%>
-        <p id="page-intro">What would you like to do?</p>
-<style>
-  .shortcut-button1 ul {list-style: none; padding: 0; margin: 0;}
-  </style>
-        <ul class="shortcut-buttons-set" style> <!-- Replace the icons URL's with your own -->
+          <p id="page-intro">What would you like to do?</p>
+          <ul class="shortcut-buttons-set" style> <!-- Replace the icons URL's with your own -->
 
-          <li><a class="shortcut-button1" href="#"><span>
-                <img src="/assets/users.png" alt="icon" /><br />
-                Write an Article
-              </span></a></li>
+            <li><a class="shortcut-button" href="#"><span>
+                  <img src="/assets/users.png" alt="icon" /><br />
+                  Write an Article
+                </span></a></li>
 
-          <li><a class="shortcut-button1" href="#"><span>
-                <img src="/assets/clients.png" alt="icon" /><br />
-                Create a New Page
-              </span></a></li>
+            <li><a class="shortcut-button" href="#"><span>
+                  <img src="/assets/clients.png" alt="icon" /><br />
+                  Create a New Page
+                </span></a></li>
 
-          <li><a class="shortcut-button1" href="#"><span>
-                <img src="/assets/reports.png" alt="icon" /><br />
-                Upload an Image
-              </span></a></li>
+            <li><a class="shortcut-button" href="#"><span>
+                  <img src="/assets/reports.png" alt="icon" /><br />
+                  Upload an Image
+                </span></a></li>
 
-          <li><a class="shortcut-button1" href="#"><span>
-                <img src="/assets/routes.png" alt="icon" /><br />
-                Add an Event
-              </span></a></li>
-<br /><br />
+            <li><a class="shortcut-button" href="#"><span>
+                  <img src="/assets/routes.png" alt="icon" /><br />
+                  Add an Event
+                </span></a></li>
+          <%else%>        
+            <h2><%=t(:welcome)%></h2>        
+          <%end%>
+
+          <br /><br />
 
         </ul><!-- End .shortcut-buttons-set -->
 
@@ -201,7 +199,7 @@
 
         </div> <!-- End .content-box -->
 
-        <div class="content-box column-right closed-box">
+        <div class="content-box column-right">
 
           <div class="content-box-header"> <!-- Add the class "closed" to the Content box header to have it closed by default -->
 

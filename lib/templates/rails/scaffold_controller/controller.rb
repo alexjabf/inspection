@@ -16,8 +16,6 @@ class <%= controller_class_name %>Controller < ApplicationController
       format.json { render json: @<%= plural_table_name %> }
 
     end
-
-
   end
 
   # GET <%= route_url %>/1

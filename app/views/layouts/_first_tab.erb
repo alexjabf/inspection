@@ -1,4 +1,6 @@
-<div id="tab1" class="tab-content" style="display: block;">
-  <%eval("@#{controller_name} = #{controller_name.singularize.titlecase}.order('first_name ASC').paginate(:page => params[:page])")%>
-  <%= render "#{controller_name}/tab_index" %>
-</div>
+<%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+  <div id="tab1" class="tab-content" style="display: block;">
+    <%eval("@#{controller_name} = #{controller_name.singularize.titlecase.gsub(" ", "")}.order('id ASC').paginate(:page => params[:page])")%>
+    <%= render "#{controller_name}/tab_index" %>
+  </div>
+<%end%>
