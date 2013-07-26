@@ -1,0 +1,71 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+                  <th><%= t'.branch' %></th>
+                  <th><%= t'.driver' %></th>
+                  <th><%= t'.client' %></th>
+                  <th><%= t'.monday' %></th>
+                  <th><%= t'.tuesday' %></th>
+                  <th><%= t'.wednesday' %></th>
+                  <th><%= t'.thursday' %></th>
+                  <th><%= t'.friday' %></th>
+                  <th><%= t'.saturday' %></th>
+                  <th><%= t'.sunday' %></th>
+              </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @schedules.each do |schedule| %>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <%if can? :show, Schedule %>
+        <td><%=link_to schedule.id, schedule, :class => 'button'%></td>
+        <%else%>
+        <td><%= label schedule.id, schedule.id, :class => 'button'%></td>
+        <%end%>
+        
+                  
+            <% @model = schedule %> 
+                    
+          <td><%= schedule.branch.name %></td>
+                            
+          <td><%= schedule.driver.user.fullname %></td>
+                            
+          <td><%= schedule.client.fullname %></td>
+                            
+          <td><%= schedule.monday %></td>
+                            
+          <td><%= schedule.tuesday %></td>
+                            
+          <td><%= schedule.wednesday %></td>
+                            
+          <td><%= schedule.thursday %></td>
+                            
+          <td><%= schedule.friday %></td>
+                            
+          <td><%= schedule.saturday %></td>
+                            
+          <td><%= schedule.sunday %></td>
+                <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
