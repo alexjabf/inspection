@@ -69,8 +69,8 @@
     <%= f.text_area :description, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%= f.label :company_id %>
-    <%= f.text_field :company_id, :class=>"text-input small-input" %>
+    <%#= f.label :company_id %>
+    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.branch.company_id %>
   </p>
 
 <div class="form-actions">
