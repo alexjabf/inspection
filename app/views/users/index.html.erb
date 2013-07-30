@@ -41,13 +41,33 @@
           <td><%= user.phone1 %></td>
           <td><%= "user.role.name" %></td>
           <td><%= "user.branch.name" %></td>
-          <%= render "layouts/index_links" %>
-        </tr>
-      <% end %>
+          <%if can? :show, User %>
+            <td><%=link_to user, :class=>"nav-header" do%>
+                <img src="/assets/icons/information.png" alt="Edit" />
+              <%end%>
+            </td>
+          <%end%>
+          <%if can? :edit, User and (current_user.role.super_admin == true or current_user.role.branch_admin == true)%>
+          <td><%=link_to edit_user_path(user), :class=>"nav-header" do%>
+              <img src="/assets/icons/pencil.png" alt="Edit" />
+            <%end%>
+          </td>
+        <%end%>
+        <%if can? :destroy, User %>
+          <td><%=link_to user, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"nav-header" do%>
+              <img src="/assets/icons/cross.png" alt="Delete" />
+            <%end%>
+          </td>
+        <%end%>
+
+      </tr>
+    <% end %>
 
     </tbody>
   </table>
-  <%= render "layouts/action_links" %>
+<%if can? :new, User %>
+  <%= link_to t(:new_user), new_user_registration_path, :class => "button", :style=>"float:right; margin-top:-30px;"%>
+<%end%>
 </div> 
 
 <%= render "layouts/second_tab" %>

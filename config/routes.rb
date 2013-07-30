@@ -41,6 +41,7 @@ Inspection::Application.routes.draw do
 
   devise_scope :user do
     get "devise/sessions/sing_out" => "devise/sessions#destroy", :as => :destroy_user_session
+    match 'devise/registrations/:id/edit' => 'devise/registrations#edit', :as => :edit_user_registration
     get "devise/sessions/links" => "devise/sessions#links", :as => :links
   end
 

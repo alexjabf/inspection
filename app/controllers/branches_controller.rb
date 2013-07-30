@@ -4,7 +4,7 @@ class BranchesController < ApplicationController
 
   def index
 
-    @branches = current_user.role.super_admin == true ? Branch.order('id DESC').paginate(:page => params[:page]) : Branch.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+    @branches = current_user.role.super_admin == true ? Branch.order('id DESC').paginate(:page => params[:page]) : Branch.where(:id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
     
     respond_to do |format|
       format.html # index.html.erb

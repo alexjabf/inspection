@@ -13,6 +13,14 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
+
+    if current_user.active == true
+      set_flash_message(:notice, :signed_in) if is_navigational_format?
+    else
+      sign_out(resource)
+      set_flash_message("Your account is inactive, pleaso contact your system administrator.")
+    end
+    
     resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)

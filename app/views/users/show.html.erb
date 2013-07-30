@@ -11,57 +11,68 @@
     </tr>
     <tr>
       <td>
-      <b><%= t'.phone1'%>:</b>        <%= @user.phone1 %>
+        <b><%= t'.phone1'%>:</b>        <%= @user.phone1 %>
       </td>
     </tr>
     <tr>
       <td>
-       <b><%= t'.phone2'%>:</b>       <%= @user.phone2 %>
+        <b><%= t'.phone2'%>:</b>       <%= @user.phone2 %>
       </td>
     </tr>
     <tr>
       <td>
-         <b><%= t'.address1'%>:</b>        <%= @user.address1 %>
+        <b><%= t'.address1'%>:</b>        <%= @user.address1 %>
       </td>
     </tr>
     <tr>
       <td>
-      <b><%= t'.address2'%>:</b>        <%= @user.address2 %>
+        <b><%= t'.address2'%>:</b>        <%= @user.address2 %>
       </td>
     </tr>
     <tr>
       <td>
-      <b><%= t'.state'%>:</b>      <%= @user.state %>
+        <b><%= t'.state'%>:</b>      <%= @user.state %>
       </td>
     </tr>
     <tr>
       <td>
-     <b><%= t'.zip'%>:</b>        <%= @user.zip %>
+        <b><%= t'.zip'%>:</b>        <%= @user.zip %>
       </td>
     </tr>
     <tr>
       <td>
-     <b><%= t'.country'%>:</b>        <%= @user.country %>
+        <b><%= t'.country'%>:</b>        <%= @user.country %>
       </td>
     </tr>
     <tr>
       <td>
-     <b><%= t'.branch'%>:</b><%#= @user.branch.name %>
+        <b><%= t'.branch'%>:</b><%= @user.branch.name %>
       </td>
     </tr>
     <tr>
       <td>
-     <b><%= t'.role'%>:</b><%#= @user.role.name %>
+        <b><%= t'.role'%>:</b><%= @user.role.name %>
       </td>
     </tr>
     <tr>
     <tr>
       <td>
-       <b><%= t'.active'%>:</b>        <%= @user.active %>
+        <b><%= t'.active'%>:</b>        <%= @user.active %>
       </td>
     </tr>
   </table>
 </div>
 
 
-<%= render "layouts/action_links" %>
+<%if can? :index, User %>
+  <%= link_to t(:return_to_users), users_path, :class=>"button" %>
+<%end%>
+<%if can? :edit, User %>
+  <%= link_to t(:edit_user), edit_user_registration_path(@user), :class=>"button" %>
+<%end%>
+<%if can? :new, User %>
+  <%= link_to t(:new_user), new_user_path, :class=>"button" %>
+<%end%>
+<%if can? :destory, User %>
+  <%= link_to t(:destory_user), @user, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button" %>
+<%end%>
