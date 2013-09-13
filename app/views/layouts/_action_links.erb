@@ -1,32 +1,34 @@
-<%if controller.action_name == "new" or controller.action_name == "create"%>
-  <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+<div style="float:right; margin-top: -30px">
+  <%if controller.action_name == "new" or controller.action_name == "create"%>
+    <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+    <%end%>
+  <%elsif controller.action_name == "edit" or controller.action_name == "update" %>
+    <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+    <%end%>
+    <%if can? :show, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:show_#{controller_name.singularize})"), eval("@#{controller_name.singularize}"), :class=>"button" %>
+    <%end%>
+    <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+    <%end%>
+  <%elsif controller.action_name == "show" %>
+    <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
+    <%end%>
+    <%if can? :edit, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:edit_#{controller_name.singularize})"), eval("edit_#{controller_name.singularize}_path(@#{controller_name.singularize})"), :class=>"button" %>
+    <%end%>
+    <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+    <%end%>
+    <%if can? :destory, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:destroy_#{controller_name.singularize})"), eval("@#{controller_name.singularize}"), :class=>"button" %>
+    <%end%>
+  <%elsif controller.action_name == "index" %>
+    <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+      <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
+    <%end%>
   <%end%>
-<%elsif controller.action_name == "edit" or controller.action_name == "update" %>
-  <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
-  <%end%>
-  <%if can? :show, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:show_#{controller_name.singularize})"), eval("@#{controller_name.singularize}"), :class=>"button" %>
-  <%end%>
-  <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
-  <%end%>
-<%elsif controller.action_name == "show" %>
-  <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:return_to_#{controller_name})"), eval("#{controller_name}_path"), :class=>"button" %>
-  <%end%>
-  <%if can? :edit, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:edit_#{controller_name.singularize})"), eval("edit_#{controller_name.singularize}_path(@#{controller_name.singularize})"), :class=>"button" %>
-  <%end%>
-  <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
-  <%end%>
-  <%if can? :destory, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:destroy_#{controller_name.singularize})"), eval("@#{controller_name.singularize}"), :class=>"button" %>
-  <%end%>
-<%elsif controller.action_name == "index" %>
-  <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-    <%= link_to eval("t(:new_#{controller_name.singularize})"), eval("new_#{controller_name.singularize}_path"), :class=>"button" %>
-  <%end%>
-<%end%>
+</div>

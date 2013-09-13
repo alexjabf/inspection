@@ -1,0 +1,96 @@
+<%= render "layouts/first_tab" %>
+<%= nested_form_for(@route) do |f| %>
+  <% if @route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+        <% @route.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.fields_for :schedules_routes %>
+    <%= f.link_to_add "Agregar Horario", :schedules_routes, :class => "button", :style => "vertical-align: top;" %>
+  </p>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+  /*function updateTotal() {
+   var total = 0;
+   
+   $("#orders-table .import").each(function() {
+   if ($(this).parent().css("display") != "none") {
+   total += parseFloat($(this).html());
+   }
+   });
+   
+   $("#total").text("$" + parseFloat(total).toFixed(2));
+   }*/
+
+  $(function() {
+    window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
+      var schedule_id, $content, $tr, before, schedule_id;
+
+      schedule_id = $(link).prev().val();
+
+      if (schedule_id.match(/^[0-9]\d*$/)) {
+        if ($("#orders-table .order-id").filter(function() {
+          return $(this).html() === schedule_id;
+        }).length == 0) {
+          $content = $(content);
+          if ($("#orders-table").find("tr:eq(1)").length == 1) {
+            $tr = $("#orders-table").find("tr:eq(1)");
+            before = true;
+          }
+          else {
+            $tr = $("#orders-table").find("tr:eq(0)");
+            before = false;
+          }
+
+          $(link).prev().val("");
+          $.ajax({
+            url: "/schedules/" + schedule_id + ".json",
+            async: false,
+            data: "json",
+            success: function(schedule) {
+              $content.find(".hidden-order-id").val(schedule_id);
+              $content.find(".order-id").html(schedule.id);
+              //$content.find(".import").html(parseFloat(schedule.total_due).toFixed(2));
+              $.ajax({
+                url: "/clients/" + schedule.client_id + ".json",
+                async: false,
+                data: "json",
+                success: function(client) {
+                  $content.find(".client-name").html(client.first_name + " " + client.last_name);
+                }
+              });
+            }
+          });
+
+          if (before) {
+            return $content.insertBefore($tr);
+          }
+          else {
+            return $content.insertAfter($tr);
+          }
+        }
+      }
+    };
+
+    $(document).on("nested:fieldRemoved nested:fieldAdded", function() {
+      updateTotal();
+    });
+  });
+</script>

@@ -37,19 +37,20 @@ Inspection::Application.configure do
   
     
   config.active_support.deprecation = :stderr 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
+  config.action_mailer.default_url_options = { :host => 'inspectio.emobile-demos.com.mx' } 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
   
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
-    :address => 'smtp.gmail.com',
+    :openssl_verify_mode => 'none',
+    :address => 'mail.emobile-demos.com.mx',
     :port => 587,
-    :domain => 'localhost:3000',
-    :authentication => :plain,
-    :user_name => 'emobile.chihuahua',
-    :password => 'emobilej2011'
+    :domain => 'inspectio.emobile-demos.com.mx',
+    :authentication => :login,
+    :user_name => 'inspectio@emobile-demos.com.mx',
+    :password => 'alex990480'
   }
   
 end

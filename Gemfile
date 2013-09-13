@@ -9,11 +9,12 @@ gem "thin"
 gem 'sqlite3'
 gem "activerecord-postgresql-adapter"
 gem "pg"
+gem "mysql2"
 gem 'devise', "~> 2.2.3"
 gem "cancan"
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-
+gem "nested_form"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

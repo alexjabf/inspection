@@ -4,17 +4,16 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-                  <th><%= t'.branch' %></th>
-                  <th><%= t'.driver' %></th>
-                  <th><%= t'.client' %></th>
-                  <th><%= t'.monday' %></th>
-                  <th><%= t'.tuesday' %></th>
-                  <th><%= t'.wednesday' %></th>
-                  <th><%= t'.thursday' %></th>
-                  <th><%= t'.friday' %></th>
-                  <th><%= t'.saturday' %></th>
-                  <th><%= t'.sunday' %></th>
-              </tr>
+        <th><%= t'.driver' %></th>
+        <th><%= t'.client' %></th>
+        <th><%= t'.monday' %></th>
+        <th><%= t'.tuesday' %></th>
+        <th><%= t'.wednesday' %></th>
+        <th><%= t'.thursday' %></th>
+        <th><%= t'.friday' %></th>
+        <th><%= t'.saturday' %></th>
+        <th><%= t'.sunday' %></th>
+      </tr>
 
     </thead>
 
@@ -32,37 +31,35 @@
 
     <tbody>
       <% @schedules.each do |schedule| %>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <%if can? :show, Schedule %>
-        <td><%=link_to schedule.id, schedule, :class => 'button'%></td>
-        <%else%>
-        <td><%= label schedule.id, schedule.id, :class => 'button'%></td>
-        <%end%>
-        
-                  
-            <% @model = schedule %> 
-                    
-          <td><%= schedule.branch.name %></td>
-                            
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Schedule %>
+            <td><%=link_to schedule.id, schedule, :class => 'button'%></td>
+          <%else%>
+            <td><%= label schedule.id, schedule.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = schedule %> 
+
           <td><%= schedule.driver.user.fullname %></td>
-                            
+
           <td><%= schedule.client.fullname %></td>
-                            
-          <td><%= schedule.monday %></td>
-                            
-          <td><%= schedule.tuesday %></td>
-                            
-          <td><%= schedule.wednesday %></td>
-                            
-          <td><%= schedule.thursday %></td>
-                            
-          <td><%= schedule.friday %></td>
-                            
-          <td><%= schedule.saturday %></td>
-                            
-          <td><%= schedule.sunday %></td>
-                <%= render "layouts/index_links" %>
+
+          <td><%= t(schedule.monday.to_s) %></td>
+
+          <td><%= t(schedule.tuesday.to_s) %></td>
+
+          <td><%= t(schedule.wednesday.to_s) %></td>
+
+          <td><%= t(schedule.thursday.to_s) %></td>
+
+          <td><%= t(schedule.friday.to_s) %></td>
+
+          <td><%= t(schedule.saturday.to_s) %></td>
+
+          <td><%= t(schedule.sunday.to_s) %></td>
+          <%= render "layouts/index_links" %>
         <% end %>
       </tr>
     </tbody>

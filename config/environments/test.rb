@@ -33,5 +33,20 @@ Inspection::Application.configure do
   config.active_record.mass_assignment_sanitizer = :strict
 
   # Print deprecation notices to the stderr
-  config.active_support.deprecation = :stderr
+  config.active_support.deprecation = :stderr 
+  config.action_mailer.default_url_options = { :host => 'inspectio.emobile-demos.com.mx' } 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default :charset => "utf-8"
+  
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :openssl_verify_mode => 'none',
+    :address => 'mail.emobile-demos.com.mx',
+    :port => 587,
+    :domain => 'inspectio.emobile-demos.com.mx',
+    :authentication => :login,
+    :user_name => 'inspectio@emobile-demos.com.mx',
+    :password => 'alex990480'
+  }
 end

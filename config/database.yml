@@ -26,13 +26,11 @@ test:
 
 
 production:
-  adapter: postgresql
+  adapter: mysql2
+  database: edemos_inspectio
   host: localhost
-  database: inspection
-  schema: development
-  port: 5432
-  username: postgres
-  password: alexjabf990480as
+  username: edemos_inspectio
+  password: emobilej2011
 
 local:
   adapter: postgresql
