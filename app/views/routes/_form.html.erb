@@ -17,9 +17,38 @@
     <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%= f.fields_for :schedules_routes %>
+    <%#= f.fields_for :schedules_routes %>
     <%= f.link_to_add "Agregar Horario", :schedules_routes, :class => "button", :style => "vertical-align: top;" %>
   </p>
+    <table id="orders-table">
+    <tr style="height: 50px; border-bottom: 1px solid #ccc;">
+      <th style="width: 50px; border-right: 1px solid #ccc;">ID</th>
+      <th style="width: 100px; border-right: 1px solid #ccc;">Cliente</th>
+      <th style="width: 200px;">Dias</th>
+      <th style="width: 80px;"></th>
+    </tr>
+    <%= f.fields_for :schedules_routes, :wrapper => false do |schedule_route_form| %>
+      <tr class="fields" style="border-bottom: 1px solid #ccc;">
+        <td class="order-id" style="width: 50px; border-right: 1px solid #ccc;"><%= schedule_route_form.object.schedule.id unless schedule_route_form.object.schedule.nil? %></td>
+        <td class="client-name" style="width: 500px; border-right: 1px solid #ccc;"><%= schedule_route_form.object.schedule.client.fullname  unless schedule_route_form.object.schedule.nil? %></td>
+        <%unless schedule_route_form.object.schedule.nil?%>
+          <td class="import" style="width: 80px;">
+            <%= t(:monday) if schedule_route_form.object.schedule.monday %>
+            <%= t(:tuesday) if schedule_route_form.object.schedule.tuesday %>
+            <%= t(:wednesday) if schedule_route_form.object.schedule.wednesday %>
+            <%= t(:thursday) if schedule_route_form.object.schedule.thursday %>
+            <%= t(:friday) if schedule_route_form.object.schedule.friday %>
+            <%= t(:saturday) if schedule_route_form.object.schedule.saturday %>
+            <%= t(:sunday) if schedule_route_form.object.schedule.sunday %>
+          </td>
+        <%end%>
+        <td style="width: 80px;">
+          <%= schedule_route_form.hidden_field :schedule_id, :class => "hidden-order-id" %>
+          <%= schedule_route_form.link_to_remove "[ - ]", :class => "btn btn-primary" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
   <div class="form-actions">
     <%= f.submit nil, :class => 'button' %>
   </div>
