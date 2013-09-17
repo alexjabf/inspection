@@ -4,7 +4,7 @@ class ClientBranchesController < ApplicationController
 
   def index
 
-    @client_branches = current_user.role.super_admin == true ? ClientBranch.order('id DESC').paginate(:page => params[:page]) : Clientranch.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+    @client_branches = current_user.role.super_admin == true ? ClientBranch.order('id DESC').paginate(:page => params[:page]) : ClientBranch.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -69,11 +69,19 @@
       <%= f.label :client_id %>
       <%= f.collection_select(:client_id, @clients, :id, :name, {:prompt => true}, :onchange => "getClientBranches(this.value)")%><span class="required">*</span>
     </p>
-    <p class="field" style="display: none;" id="client_branches_cb">
-      <%@client_branches = ClientBranch.where(:client_id => "0")%>
-      <%= f.label :client_branch_id %>
-      <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
-    </p>
+    <%if controller.action_name == "new" or @client_id.nil?%>
+      <p class="field" style="display: none;" id="client_branches_cb">
+        <%@client_branches = ClientBranch.where(:client_id => "0")%>
+        <%= f.label :client_branch_id %>
+        <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
+      </p>
+    <%elsif !@client_id.nil?%>
+      <p class="field" id="client_branches_cb">
+        <%@client_branches = ClientBranch.where(:client_id => @client_id)%>
+        <%= f.label :client_branch_id %>
+        <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
+      </p>
+    <%end%>
     <p class="field">
       <%= f.label :driver_id %>
       <%= f.collection_select(:driver_id, @drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}) %><span class="required">*</span>

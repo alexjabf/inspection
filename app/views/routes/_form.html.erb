@@ -22,7 +22,7 @@
     <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
   </p>  
   <p class="field">
-<%= f.collection_select(:schedule_id, Schedule.where(:branch_id => current_user.branch_id).order("id ASC"), :id, :select_schedule, {:prompt => false}, :onchange => 'getSchedule(this.value)') %>
+<%= f.collection_select(:schedule_id, Schedule.all, :id, :select_schedule, {:prompt => false}, :onchange => 'getSchedule(this.value)') %>
     <%= f.link_to_add "Agregar Horario", :schedules_routes, :class => "button", :style => "vertical-align: top;" %>
   </p>
     <table id="orders-table">

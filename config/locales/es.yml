@@ -22,6 +22,7 @@ es:
   new_client: "Registrar Nuevo Cliente"
   new_schedule: "Crear Horario a Cliente"
   new_route: "Crear Ruta"
+  at_least_one_is_required: "Al menos un día es requerido."
   date:
     abbr_day_names:
     - dom
@@ -232,7 +233,7 @@ es:
       protected: "Protegido: "
       description: "Descripción: "
       super_admin: "Súper Administrador: "
-      branch_admin: "Administrador de Sucursal: "
+      branch_admin: "Administrador de Sucursal de Proveedo: "
       routes_admin: "Administrador de Logistica: "
       driver: "Conductor: "
       created_at: "Registrado el: "
@@ -242,7 +243,7 @@ es:
       protected: "Protegido"
       description: "Descripción"
       super_admin: "Súper Administrador"
-      branch_admin: "Administrador de Sucursal"
+      branch_admin: "Administrador de Sucursal de Proveedor"
       routes_admin: "Administrador de Logistica"
       driver: "Conductor"
       created_at: "Registrado el"
@@ -307,7 +308,7 @@ es:
       zip: "Código Postal: "
       country: "País: "
       client_id: "Cliente: "
-      branch_id: "Sucursal: "
+      branch_id: "Sucursal de Proveedo: "
       company_id: "Compañía: "      
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -325,13 +326,14 @@ es:
       zip: "Código Postal"
       country: "País"
       client_id: "Cliente"
-      branch_id: "Sucursal: "
+      branch_id: "Sucursal de Proveedo: "
       company_id: "Compañía: "      
       created_at: "Registrado el"
       updated_at: "Actualizado el"
   clients:
     show: 
       name: "Nombre: "
+      contact_name: "Contacto: "      
       email1: "Correo Electrónico: "
       email2: "Correo Electrónico Alternativo: "      
       webpage: "Sitío Web: "       
@@ -344,13 +346,14 @@ es:
       state: "Estado: "
       zip: "Código Postal: "
       country: "País: "
-      branch_id: "Sucursal: "
+      branch_id: "Sucursal de Proveedo: "
       company_id: "Compañía: "
       description: "Descripción: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index: 
       name: "Nombre"
+      contact_name: "Contacto"      
       email1: "Correo Electrónico"
       email2: "Correo Electrónico Alternativo"      
       webpage: "Sitío Web"       
@@ -363,7 +366,7 @@ es:
       state: "Estado"
       zip: "Código Postal"
       country: "País"
-      branch_id: "Sucursal: "      
+      branch_id: "Sucursal de Proveedo: "      
       company_id: "Compañía"
       description: "Descripción"
       created_at: "Registrado el"
@@ -371,6 +374,7 @@ es:
   branches:
     show:
       name: "Nombre: "
+      contact_name: "Contacto: " 
       email1: "Correo Electrónico: "
       email2: "Correo Electrónico Alternativo: "      
       webpage: "Sitío Web: "       
@@ -389,6 +393,7 @@ es:
       updated_at: "Actualizado el: "      
     index:
       name: "Nombre"
+      contact_name: "Contacto" 
       email1: "Correo Electrónico"
       email2: "Correo Electrónico Alternativo"      
       webpage: "Sitío Web"       
@@ -408,6 +413,7 @@ es:
   companies:
     show:
       name: "Nombre: "
+      contact_name: "Contacto: " 
       email1: "Correo Electrónico: "
       email2: "Correo Electrónico Alternativo: "      
       webpage: "Sitío Web: "       
@@ -426,6 +432,7 @@ es:
       updated_at: "Actualizado el: "      
     index:
       name: "Nombre"
+      contact_name: "Contacto" 
       email1: "Correo Electrónico"
       email2: "Correo Electrónico Alternativo"      
       webpage: "Sitío Web"       
@@ -445,6 +452,7 @@ es:
   client_branches:
     show:
       name: "Nombre: "
+      contact_name: "Contacto: " 
       email1: "Correo Electrónico: "
       email2: "Correo Electrónico Alternativo: "      
       webpage: "Sitío Web: "       
@@ -463,6 +471,7 @@ es:
       updated_at: "Actualizado el: "      
     index:
       name: "Nombre"
+      contact_name: "Contacto" 
       email1: "Correo Electrónico"
       email2: "Correo Electrónico Alternativo"      
       webpage: "Sitío Web"       
@@ -483,13 +492,13 @@ es:
     show:
       user_id: "Usuario: "
       truck_id: "Camión: "
-      branch_id: "Sucursal: "        
+      branch_id: "Sucursal de Proveedo: "        
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "      
     index:
       user_id: "Usuario"
       truck_id: "Camión"
-      branch_id: "Sucursal"        
+      branch_id: "Sucursal de Proveedor"        
       created_at: "Registrado el"
       updated_at: "Actualizado el"       
   cellphones:
@@ -503,7 +512,8 @@ es:
       imei: "IMEI: "
       description: "Descripción: "
       user_id: "Usuario: "
-      branch_id: "Sucursal: "
+      company_id: "Compañía: "        
+      branch_id: "Sucursal de Proveedo: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "      
     index:
@@ -516,7 +526,8 @@ es:
       imei: "IMEI"
       description: "Descripción"
       user_id: "Usuario"
-      branch_id: "Sucursal"
+      company_id: "Compañía"      
+      branch_id: "Sucursal de Proveedor"
       created_at: "Registrado el"
       updated_at: "Actualizado el"
   error_reports:
@@ -528,7 +539,7 @@ es:
       referrer_url: "Url Referida: "
       original_path: "Url de Origen: "
       environment: "Ambiente de Desarrollo: "
-      branch_id: "Sucursal: "
+      branch_id: "Sucursal de Proveedo: "
       description: "Descripción: "
       backtrace: "Descripción Completa: "
       error_time: "Tiempo del Error: "
@@ -542,7 +553,7 @@ es:
       referrer_url: "Url Referida"
       original_path: "Url de Origen"
       environment: "Ambiente de Desarrollo"
-      branch_id: "Sucursal"
+      branch_id: "Sucursal de Proveedor"
       description: "Descripción"
       backtrace: "Descripción Completa"
       error_time: "Tiempo del Error"
@@ -561,7 +572,7 @@ es:
       updated_at: "Actualizada el: "      
   schedules:
     show:
-      branch_id: "Sucursal: "
+      branch_id: "Sucursal de Proveedo: "
       driver_id: "Conductor: "
       client_id: "Cliente: "
       client_branch_id: "Sucursal de Cliente: "
@@ -575,7 +586,7 @@ es:
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "     
     index:
-      branch_id: "Sucursal"
+      branch_id: "Sucursal de Proveedor"
       driver_id: "Conductor"
       client_id: "Cliente"
       client_branch_id: "Sucursal de Cliente"
@@ -600,7 +611,7 @@ es:
       wheels_no: "No. de Llantas: "
       other: "Otro: "
       identifier: "Identificador: "
-      branch_id: "Sucursal: "
+      branch_id: "Sucursal de Proveedo: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index:
@@ -614,7 +625,7 @@ es:
       wheels_no: "No. de Llantas"
       other: "Otro"
       identifier: "Identificador"
-      branch_id: "Sucursal"
+      branch_id: "Sucursal de Proveedor"
       created_at: "Registrado el"
       updated_at: "Actualizado el"    
     
@@ -627,8 +638,8 @@ es:
       roles: Roles
       bill: Factura
       bills: Facturas
-      branch: Sucursal
-      branches: Sucursales
+      branch: Sucursal de Proveedor
+      branches: Sucursales de Proveedor
       company: Compañía
       companies: Compañías
       client_branch: Sucursal del Cliente
@@ -676,7 +687,7 @@ es:
         protected: "Protegido: "
         description: "Descripción: "
         super_admin: "Súper Administrador: "
-        branch_admin: "Administrador de Sucursal: "
+        branch_admin: "Administrador de Sucursal de Proveedo: "
         routes_admin: "Administrador de Logistica: "
         driver: "Conductor: "
         created_at: "Registrado el: "
@@ -695,12 +706,13 @@ es:
         zip: "Código Postal: "
         country: "País: "
         client_id: "Cliente: "
-        branch_id: "Sucursal: "
+        branch_id: "Sucursal de Proveedo: "
         company_id: "Compañía: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       client: 
         name: "Nombre: "
+        contact_name: "Contacto: " 
         email1: "Correo Electrónico: "
         email2: "Correo Electrónico Alternativo: "      
         webpage: "Sitío Web: "       
@@ -713,13 +725,14 @@ es:
         state: "Estado: "
         zip: "Código Postal: "
         country: "País: "
-        branch_id: "Sucursal: "
+        branch_id: "Sucursal de Proveedo: "
         company_id: "Compañía: "
         description: "Descripción: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       branch: 
         name: "Nombre: "
+        contact_name: "Contacto: " 
         email1: "Correo Electrónico: "
         email2: "Correo Electrónico Alternativo: "      
         webpage: "Sitío Web: "       
@@ -738,6 +751,7 @@ es:
         updated_at: "Actualizado el: "
       company: 
         name: "Nombre: "
+        contact_name: "Contacto: " 
         email1: "Correo Electrónico: "
         email2: "Correo Electrónico Alternativo: "      
         webpage: "Sitío Web: "       
@@ -756,6 +770,7 @@ es:
         updated_at: "Actualizado el: "
       client_branch:
         name: "Nombre: "
+        contact_name: "Contacto: " 
         email1: "Correo Electrónico: "
         email2: "Correo Electrónico Alternativo: "      
         webpage: "Sitío Web: "       
@@ -775,7 +790,7 @@ es:
       driver:
         user_id: "Usuario: "
         truck_id: "Camión: "
-        branch_id: "Sucursal: "        
+        branch_id: "Sucursal de Proveedo: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "         
       cellphone:
@@ -788,7 +803,8 @@ es:
         imei: "IMEI: "
         description: "Descripción: "
         user_id: "Usuario: "
-        branch_id: "Sucursal: "
+        company_id: "Compañía: "    
+        branch_id: "Sucursal de Proveedo: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       error_report: 
@@ -799,7 +815,7 @@ es:
         referrer_url: "Url Referida: "
         original_path: "Url de Origen: "
         environment: "Ambiente de Desarrollo: "
-        branch_id: "Sucursal: "
+        branch_id: "Sucursal de Proveedo: "
         description: "Descripción: "
         backtrace: "Descripción Completa: "
         error_time: "Tiempo del Error: "
@@ -811,7 +827,7 @@ es:
         created_at: "Registrada el: "
         updated_at: "Actualizada el: "        
       schedule:
-        branch_id: "Sucursal: "
+        branch_id: "Sucursal de Proveedo: "
         driver_id: "Conductor: "
         client_id: "Cliente: "
         client_branch_id: "Sucursal de Cliente: "
@@ -835,7 +851,7 @@ es:
         wheels_no: "No. de Llantas: "
         other: "Otro: "
         identifier: "Identificador: "
-        branch_id: "Sucursal: "
+        branch_id: "Sucursal de Proveedo: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
         

@@ -4,52 +4,67 @@
   <table >
     <tr>
       <td>
-        <b><%= t'.branch' %></b> <%= @schedule.branch.name %>
+        <b><%= t'.branch_id' %></b> <%= @schedule.branch.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.driver' %></b> <%= @schedule.driver.user.fullname %>
+        <b><%= t'.driver_id' %></b> <%= @schedule.driver.user.fullname %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.client' %></b> <%= @schedule.client.name %>
+        <b><%= t'.truck_id' %></b> <%= @schedule.driver.truck.modelbrand %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.client_branch' %></b> <%= @schedule.client_branch.name %>
+        <b><%= t'.plate_no' %></b> <%= @schedule.driver.truck.plate_no %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.monday' %></b> <%= @schedule.monday %>
+        <b><%= t'.serial_no' %></b> <%= @schedule.driver.truck.serial_no %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.tuesday' %></b> <%= @schedule.tuesday %>
+        <b><%= t'.client_id' %></b> <%= @schedule.client.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.wednesday' %></b> <%= @schedule.wednesday %>
+        <b><%= t'.client_branch_id' %></b> <%= @schedule.client_branch.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.thursday' %></b> <%= @schedule.thursday %>
+        <b><%= t'.monday' %></b> <%= t(@schedule.monday.to_s) %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.friday' %></b> <%= @schedule.friday %>
+        <b><%= t'.tuesday' %></b> <%= t(@schedule.tuesday.to_s) %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.saturday' %></b> <%= @schedule.saturday %>
+        <b><%= t'.wednesday' %></b> <%= t(@schedule.wednesday.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.thursday' %></b> <%= t(@schedule.thursday.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.friday' %></b> <%= t(@schedule.friday.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.saturday' %></b> <%= t(@schedule.saturday.to_s) %>
       </td>
     </tr>
     <tr>

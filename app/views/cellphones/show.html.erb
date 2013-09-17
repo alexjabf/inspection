@@ -45,7 +45,7 @@
     <tr>     
       <%unless @cellphone.user.blank?%>
         <td>
-          <b><%= t'.user' %></b> <%= @cellphone.user.fullname %>         
+          <b><%= t'.user_id' %></b> <%= @cellphone.user.fullname %>         
         </td>
       <%else%>
         <td>
@@ -55,12 +55,12 @@
     </tr>
     <tr>
       <td>
-        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+        <b><%= t'.branch_id' %></b> <%= @cellphone.branch.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.company_id' %></b> <%= @role.company.name %>
+        <b><%= t'.company_id' %></b> <%= @cellphone.company.name %>
       </td>
     </tr>
   </table>

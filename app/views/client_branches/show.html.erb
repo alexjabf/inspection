@@ -9,6 +9,11 @@
     </tr>
     <tr>
       <td>
+        <b><%= t'.contact_name' %></b><%= @client_branch.contact_name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <b><%= t'.email1' %></b> <%= @client_branch.email1 %>
       </td>
     </tr>
@@ -79,12 +84,12 @@
     </tr>
     <tr>
       <td>
-        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+        <b><%= t'.branch_id' %></b> <%= @client_branch.branch.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.company_id' %></b> <%= @role.company.name %>
+        <b><%= t'.company_id' %></b> <%= @client_branch.company.name %>
       </td>
     </tr> 
   </table>

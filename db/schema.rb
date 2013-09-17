@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
+    t.string   "contact_name"
     t.string   "email1"
     t.string   "email2"
     t.string   "webpage"
@@ -52,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.string   "country"
     t.text     "description"
     t.integer  "company_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "branches", ["company_id"], :name => "index_branches_on_company_id"
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
 
   create_table "client_branches", :force => true do |t|
     t.string   "name"
+    t.string   "contact_name"
     t.string   "email1"
     t.string   "email2"
     t.string   "webpage"
@@ -96,8 +98,8 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.integer  "client_id"
     t.integer  "branch_id"
     t.integer  "company_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "client_branches", ["branch_id"], :name => "index_client_branches_on_branch_id"
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
+    t.string   "contact_name"
     t.string   "email1"
     t.string   "email2"
     t.string   "webpage"
@@ -121,8 +124,8 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.text     "description"
     t.integer  "company_id"
     t.integer  "branch_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "clients", ["branch_id"], :name => "index_clients_on_branch_id"
@@ -130,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
+    t.string   "contact_name"
     t.string   "email1"
     t.string   "email2"
     t.string   "webpage"
@@ -142,8 +146,8 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.integer  "zip"
     t.string   "country"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "drivers", :force => true do |t|

@@ -1,21 +1,25 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@client_branch) do |f| %>
-<% if @client_branch.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@client_branch.errors.count, "error") %> prohibited this client_branch from being saved:</h2>
+  <% if @client_branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client_branch.errors.count, "error") %> prohibited this client_branch from being saved:</h2>
 
-  <ul>
-    <% @client_branch.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @client_branch.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :name %>
     <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
+  <p class="field">
+    <%= f.label :contact_name %>
+    <%= f.text_field :contact_name, :class=>"text-input small-input" %>
+  </p>  
   <p class="field">
     <%= f.label :email1 %>
     <%= f.text_field :email1, :class=>"text-input small-input" %>
@@ -69,13 +73,18 @@
     <%= f.text_area :description, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%= f.label :client %>
-    <%= f.text_field :client, :class=>"text-input small-input" %>
+    <%= f.label :client_id %>
+    <%= f.collection_select(:client_id, @clients, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
   </p>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 <% end %>
 <div>
   <%= render "layouts/action_links" %>
