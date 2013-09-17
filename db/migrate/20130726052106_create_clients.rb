@@ -16,9 +16,10 @@ class CreateClients < ActiveRecord::Migration
       t.string :country
       t.text :description
       t.references :company
-
+      t.references :branch   
       t.timestamps
     end
     add_index :clients, :company_id
+    add_index :clients, :branch_id
   end
 end

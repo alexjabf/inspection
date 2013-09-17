@@ -12,11 +12,16 @@
           <b><%= t'.truck_id' %></b> <%= @driver.truck.modelbrand %>
         </td>
       </tr>
-          <tr>
-        <td>
-          <b><%= t'.branch_id' %></b> <%= @driver.branch.name %>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @role.company.name %>
+      </td>
+    </tr>
       </table>
   <%= render "layouts/action_links" %>
 </div>

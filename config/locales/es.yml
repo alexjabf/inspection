@@ -1,6 +1,13 @@
 es:
   'true': "Si"
   'false': "No"
+  monday: "L /"
+  tuesday: "Ma /"
+  wednesday: "Mi /"
+  thursday: "J /"
+  friday: "V /"
+  saturday: "S /"
+  sunday: "D"  
   home: "Inicio"
   logout : "Cerrar sesión"
   login: "Iniciar sesión"
@@ -10,6 +17,11 @@ es:
   are_you_sure?: "Esta seguro que desea eliminar este %{model}?"
   applay_to_selected: "Aplicar a los Campos Seleccionados"
   choose_action: "Seleccionar Acción:"
+  what_to_do: "¿Qué te gustaría hacer?"
+  new_user: "Registrar Nuevo Usuario"
+  new_client: "Registrar Nuevo Cliente"
+  new_schedule: "Crear Horario a Cliente"
+  new_route: "Crear Ruta"
   date:
     abbr_day_names:
     - dom
@@ -295,6 +307,8 @@ es:
       zip: "Código Postal: "
       country: "País: "
       client_id: "Cliente: "
+      branch_id: "Sucursal: "
+      company_id: "Compañía: "      
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index: 
@@ -311,6 +325,8 @@ es:
       zip: "Código Postal"
       country: "País"
       client_id: "Cliente"
+      branch_id: "Sucursal: "
+      company_id: "Compañía: "      
       created_at: "Registrado el"
       updated_at: "Actualizado el"
   clients:
@@ -328,6 +344,7 @@ es:
       state: "Estado: "
       zip: "Código Postal: "
       country: "País: "
+      branch_id: "Sucursal: "
       company_id: "Compañía: "
       description: "Descripción: "
       created_at: "Registrado el: "
@@ -346,6 +363,7 @@ es:
       state: "Estado"
       zip: "Código Postal"
       country: "País"
+      branch_id: "Sucursal: "      
       company_id: "Compañía"
       description: "Descripción"
       created_at: "Registrado el"
@@ -628,7 +646,8 @@ es:
       truck: Camion
       trucks: Camiones
       error_report: Reporte de Error
-      error_reports: Reporte de Errores      
+      error_reports: Reporte de Errores
+      welcomes: "Bienvenido!"
     attributes:
       user:
         fullname: "Nombre: "
@@ -676,6 +695,8 @@ es:
         zip: "Código Postal: "
         country: "País: "
         client_id: "Cliente: "
+        branch_id: "Sucursal: "
+        company_id: "Compañía: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       client: 
@@ -692,6 +713,7 @@ es:
         state: "Estado: "
         zip: "Código Postal: "
         country: "País: "
+        branch_id: "Sucursal: "
         company_id: "Compañía: "
         description: "Descripción: "
         created_at: "Registrado el: "
@@ -835,6 +857,7 @@ es:
         not_saved: "%{count} errores evitaron que este elemento ( %{model}) fuera registrado:"
         rol_type: "Debe seleccionar al menos un tipo de rol."
         access_denied: "Usted no tiene permiso para realizar esa acción."
+        you_need_to_select_at_least_one_day: "Tiene que seleccionar por lo menos un día."
       models:
         user:
           attributes:

@@ -22,15 +22,16 @@
     <%= f.collection_select(:truck_id, @trucks, :id, :modelbrand, {:prompt => true}, :class =>'small-input')%>
   </p>
   <p class="field">
-    <%= f.label :brahch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'small-input') %>  
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
   </p>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'button custom-submit' %>
   </div>
 <% end %>
-<div style="float: left;">
+<div>
   <%= render "layouts/action_links" %>
 </div>
 <br><br><br>

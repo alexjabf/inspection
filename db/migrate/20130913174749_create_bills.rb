@@ -14,9 +14,12 @@ class CreateBills < ActiveRecord::Migration
       t.integer :zip
       t.string :country
       t.references :client
-
+      t.references :company
+      t.references :branch 
       t.timestamps
     end
     add_index :bills, :client_id
+    add_index :bills, :company_id
+    add_index :bills, :branch_id    
   end
 end

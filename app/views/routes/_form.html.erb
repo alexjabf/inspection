@@ -17,6 +17,11 @@
     <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
   <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
+  </p>  
+  <p class="field">
 <%= f.collection_select(:schedule_id, Schedule.where(:branch_id => current_user.branch_id).order("id ASC"), :id, :select_schedule, {:prompt => false}, :onchange => 'getSchedule(this.value)') %>
     <%= f.link_to_add "Agregar Horario", :schedules_routes, :class => "button", :style => "vertical-align: top;" %>
   </p>
@@ -53,7 +58,7 @@
     <%= f.submit nil, :class => 'button' %>
   </div>
 <% end %>
-<div style="float: left;">
+<div>
   <%= render "layouts/action_links" %>
 </div>
 <br><br><br>

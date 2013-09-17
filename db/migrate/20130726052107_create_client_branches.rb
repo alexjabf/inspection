@@ -16,9 +16,12 @@ class CreateClientBranches < ActiveRecord::Migration
       t.string :country
       t.text :description
       t.references :client
-
+      t.references :branch
+      t.references :company      
       t.timestamps
     end
     add_index :client_branches, :client_id
+    add_index :client_branches, :branch_id
+    add_index :client_branches, :company_id    
   end
 end

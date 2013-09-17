@@ -12,6 +12,16 @@
         <b><%= t'.schedule' %></b> <%= @route.schedule %>
       </td>
     </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @role.company.name %>
+      </td>
+    </tr>
   </table>
 </div>
 <table>
@@ -79,6 +89,6 @@
     </tr>
   </tbody>
 </table>
-  <%= render "layouts/action_links" %>
+<%= render "layouts/action_links" %>
 </div>
 <br />

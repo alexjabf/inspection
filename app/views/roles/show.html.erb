@@ -1,4 +1,4 @@
-  <%= render "layouts/first_tab" %>
+<%= render "layouts/first_tab" %>
 
 <div class="CSSTableGenerator" >
   <table >
@@ -39,7 +39,12 @@
     </tr>
     <tr>
       <td>
-        <b><%= t'.branch' %></b> <%= @role.branch.name %>
+        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @role.company.name %>
       </td>
     </tr>
   </table>

@@ -9,7 +9,7 @@ class Schedule < ActiveRecord::Base
   validate :checkbox_validation
 
   def checkbox_validation
-    errors.add(:base, I18n.t('you_need_to_select_at_least_one_day')) unless friday || monday || saturday || sunday || thursday || tuesday || wednesday
+    errors.add(:base, I18n.t('activerecord.errors.message.you_need_to_select_at_least_one_day')) unless friday || monday || saturday || sunday || thursday || tuesday || wednesday
   end
   
   def select_schedule

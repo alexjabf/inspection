@@ -46,9 +46,11 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(params[:company])
-
+    @branch = Branch.new(params[:company])
     respond_to do |format|
       if @company.save
+        @branch.save
+        @branch.update_attribute(:company_id, @company.id)
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render json: @company, status: :created, location: @company }
       else

@@ -27,11 +27,15 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.integer  "zip"
     t.string   "country"
     t.integer  "client_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "bills", ["branch_id"], :name => "index_bills_on_branch_id"
   add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
+  add_index "bills", ["company_id"], :name => "index_bills_on_company_id"
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -65,11 +69,13 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.text     "description"
     t.integer  "user_id"
     t.integer  "branch_id"
+    t.integer  "company_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   add_index "cellphones", ["branch_id"], :name => "index_cellphones_on_branch_id"
+  add_index "cellphones", ["company_id"], :name => "index_cellphones_on_company_id"
   add_index "cellphones", ["user_id"], :name => "index_cellphones_on_user_id"
 
   create_table "client_branches", :force => true do |t|
@@ -88,11 +94,15 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.string   "country"
     t.text     "description"
     t.integer  "client_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "client_branches", ["branch_id"], :name => "index_client_branches_on_branch_id"
   add_index "client_branches", ["client_id"], :name => "index_client_branches_on_client_id"
+  add_index "client_branches", ["company_id"], :name => "index_client_branches_on_company_id"
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -110,10 +120,12 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.string   "country"
     t.text     "description"
     t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "clients", ["branch_id"], :name => "index_clients_on_branch_id"
   add_index "clients", ["company_id"], :name => "index_clients_on_company_id"
 
   create_table "companies", :force => true do |t|
@@ -138,11 +150,13 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.integer  "user_id"
     t.integer  "truck_id"
     t.integer  "branch_id"
+    t.integer  "company_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "drivers", ["branch_id"], :name => "index_drivers_on_branch_id"
+  add_index "drivers", ["company_id"], :name => "index_drivers_on_company_id"
   add_index "drivers", ["truck_id"], :name => "index_drivers_on_truck_id"
   add_index "drivers", ["user_id"], :name => "index_drivers_on_user_id"
 
@@ -173,22 +187,29 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.boolean  "driver"
     t.text     "description"
     t.integer  "branch_id"
+    t.integer  "company_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   add_index "roles", ["branch_id"], :name => "index_roles_on_branch_id"
+  add_index "roles", ["company_id"], :name => "index_roles_on_company_id"
 
   create_table "routes", :force => true do |t|
     t.string   "name"
     t.integer  "schedule_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "routes", ["branch_id"], :name => "index_routes_on_branch_id"
+  add_index "routes", ["company_id"], :name => "index_routes_on_company_id"
   add_index "routes", ["schedule_id"], :name => "index_routes_on_schedule_id"
 
   create_table "schedules", :force => true do |t|
+    t.integer  "company_id"
     t.integer  "branch_id"
     t.integer  "driver_id"
     t.integer  "client_id"
@@ -207,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
   add_index "schedules", ["branch_id"], :name => "index_schedules_on_branch_id"
   add_index "schedules", ["client_branch_id"], :name => "index_schedules_on_client_branch_id"
   add_index "schedules", ["client_id"], :name => "index_schedules_on_client_id"
+  add_index "schedules", ["company_id"], :name => "index_schedules_on_company_id"
   add_index "schedules", ["driver_id"], :name => "index_schedules_on_driver_id"
 
   create_table "schedules_routes", :force => true do |t|
@@ -231,11 +253,13 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.string   "other"
     t.string   "identifier"
     t.integer  "branch_id"
+    t.integer  "company_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "trucks", ["branch_id"], :name => "index_trucks_on_branch_id"
+  add_index "trucks", ["company_id"], :name => "index_trucks_on_company_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
@@ -250,6 +274,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.string   "country"
     t.integer  "role_id"
     t.integer  "branch_id"
+    t.integer  "company_id"
     t.boolean  "active"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
@@ -276,6 +301,7 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["branch_id"], :name => "index_users_on_branch_id"
+  add_index "users", ["company_id"], :name => "index_users_on_company_id"
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

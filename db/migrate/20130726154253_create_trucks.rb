@@ -12,9 +12,11 @@ class CreateTrucks < ActiveRecord::Migration
       t.string :other
       t.string :identifier
       t.references :branch
+      t.references :company 
 
       t.timestamps
     end
     add_index :trucks, :branch_id
+    add_index :trucks, :company_id    
   end
 end

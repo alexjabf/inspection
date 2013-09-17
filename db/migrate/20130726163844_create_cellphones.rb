@@ -11,10 +11,11 @@ class CreateCellphones < ActiveRecord::Migration
       t.text :description
       t.references :user
       t.references :branch
-
+      t.references :company
       t.timestamps
     end
     add_index :cellphones, :user_id
     add_index :cellphones, :branch_id
+    add_index :cellphones, :company_id    
   end
 end

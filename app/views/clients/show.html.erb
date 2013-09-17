@@ -2,82 +2,87 @@
 
 <div class="CSSTableGenerator" >
   <table >
-          <tr>
-        <td>
-          <b><%= t'.name' %></b> <%= @client.name %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.email1' %></b> <%= @client.email1 %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.email2' %></b> <%= @client.email2 %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.webpage' %></b> <%= @client.webpage %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.phone1' %></b> <%= @client.phone1 %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.phone2' %></b> <%= @client.phone2 %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.fax' %></b> <%= @client.fax %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.address1' %></b> <%= @client.address1 %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.address2' %></b> <%= @client.address2 %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.city' %></b> <%= @client.city %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.state' %></b> <%= @client.state %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.zip' %></b> <%= @client.zip %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.country' %></b> <%= @client.country %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.description' %>:</b> <%= @client.description %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.company' %>:</b> <%= @client.company %>
-        </td>
-      </tr>
-      </table>
+    <tr>
+      <td>
+        <b><%= t'.name' %></b> <%= @client.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.email1' %></b> <%= @client.email1 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.email2' %></b> <%= @client.email2 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.webpage' %></b> <%= @client.webpage %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.phone1' %></b> <%= @client.phone1 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.phone2' %></b> <%= @client.phone2 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.fax' %></b> <%= @client.fax %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.address1' %></b> <%= @client.address1 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.address2' %></b> <%= @client.address2 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.city' %></b> <%= @client.city %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.state' %></b> <%= @client.state %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.zip' %></b> <%= @client.zip %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.country' %></b> <%= @client.country %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.description' %>:</b> <%= @client.description %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @role.company.name %>
+      </td>
+    </tr>
+  </table>
   <%= render "layouts/action_links" %>
 </div>
 <br />
