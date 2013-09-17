@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       @users = current_user.role.super_admin == true ? User.order('id DESC').paginate(:page => params[:page]) : User.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @cellphones = current_user.role.super_admin == true ? Cellphone.order('id DESC').paginate(:page => params[:page]) : Cellphone.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @trucks = current_user.role.super_admin == true ? Truck.order('id DESC').paginate(:page => params[:page]) : Truck.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-      @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false and branch_admin = true and routes_admin = true and driver = true and company_id = #{current_user.company_id}").order('id DESC').paginate(:page => params[:page])   
+      @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false and (branch_admin = true or routes_admin = true or driver = true or company_id = #{current_user.company_id})").order('id DESC').paginate(:page => params[:page])   
       @drivers = current_user.role.super_admin == true ? Driver.order('id DESC').paginate(:page => params[:page]) : Driver.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])       
     end
   end

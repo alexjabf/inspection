@@ -40,13 +40,13 @@
 
           <td><%= role.name %></td>
 
-          <td><%= role.super_admin %></td>
+          <td><%= t(role.super_admin.to_s) %></td>
 
-          <td><%= role.branch_admin %></td>
+          <td><%= t(role.branch_admin.to_s) %></td>
 
-          <td><%= role.routes_admin %></td>
+          <td><%= t(role.routes_admin.to_s) %></td>
 
-          <td><%= role.driver %></td>                             
+          <td><%= t(role.driver.to_s) %></td>                             
 
           <td><%= role.branch.name %></td>
           <%= render "layouts/index_links" %>
