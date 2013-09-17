@@ -4,6 +4,7 @@ class CreateSchedules < ActiveRecord::Migration
       t.references :branch
       t.references :driver
       t.references :client
+      t.references :client_branch
       t.boolean :monday
       t.boolean :tuesday
       t.boolean :wednesday
@@ -17,5 +18,6 @@ class CreateSchedules < ActiveRecord::Migration
     add_index :schedules, :branch_id
     add_index :schedules, :driver_id
     add_index :schedules, :client_id
+    add_index :schedules, :client_branch_id
   end
 end

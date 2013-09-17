@@ -2,22 +2,18 @@ class Schedule < ActiveRecord::Base
   belongs_to :branch
   belongs_to :driver
   belongs_to :client
-  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id
-  validates :client_id, :driver_id, :branch_id, :presence => true
+  belongs_to :client_branch
+  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :client_branch_id
+  validates :client_id, :driver_id, :branch_id, :client_branch_id, :presence => true
   validates :client_id, :uniqueness => true
+  validate :checkbox_validation
+
+  def checkbox_validation
+    errors.add(:base, I18n.t('you_need_to_select_at_least_one_day')) unless friday || monday || saturday || sunday || thursday || tuesday || wednesday
+  end
   
   def select_schedule
-    #    client.first_name.titlecase + " " + client.last_name.titlecase + " (#{
-    #    "t(:monday)" if monday 
-    #    "t(:tuesday)" if tuesday 
-    #    "t(:wednesday)" if wednesday 
-    #    "t(:thursday)" if thursday 
-    #    "t(:friday)" if friday 
-    #    "t(:saturday)" if saturday 
-    #    "t(:sunday)" if sunday 
-    #})"
-    
-    client.first_name.titlecase + " " + client.last_name.titlecase + " (" +
+    client.name + " (" +
       " #{I18n.t('monday') + " " if monday}" +
       " #{I18n.t('tuesday') + " " if tuesday}" +
       " #{I18n.t('wednesday') + " " if wednesday}" +

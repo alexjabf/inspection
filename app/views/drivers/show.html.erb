@@ -4,21 +4,20 @@
   <table >
           <tr>
         <td>
-          <b><%= t'.user' %>:</b> <%= @driver.user.fullname %>
+          <b><%= t'.user_id' %></b> <%= @driver.user.fullname %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.truck' %>:</b> <%= @driver.truck.modelbrand %>
+          <b><%= t'.truck_id' %></b> <%= @driver.truck.modelbrand %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.branch' %>:</b> <%= @driver.branch.name %>
+          <b><%= t'.branch_id' %></b> <%= @driver.branch.name %>
         </td>
       </tr>
       </table>
+  <%= render "layouts/action_links" %>
 </div>
-
-
-<%= render "layouts/action_links" %>
+<br />

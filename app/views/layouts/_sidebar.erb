@@ -43,14 +43,14 @@
           <% if can? :new, eval(model) or can? :index, eval(model)%>
             <li> 
               <a href="#" class="nav-top-item mainlinks" onclick="setCurrentClass('<%=model.pluralize.downcase%>');" id="<%=model.pluralize.downcase%>"> <!-- Add the class "current" to current menu item -->
-                <%=eval("t(:#{model.underscore.pluralize})")%>
+                <%=eval("t('activerecord.models.#{model.underscore.pluralize}')")%>
               </a>
               <ul>
                 <%if can? :index, eval(model)%>
-                  <li><%=link_to eval("t(:#{model.underscore.downcase.pluralize})"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
+                  <li><%=link_to eval("t('activerecord.models.#{model.underscore.downcase.pluralize}')"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
                 <%end%>
                 <%if can? :new, eval(model) %>
-                  <li><%=link_to eval("t(:new_#{model.underscore.downcase})"), eval("new_#{model.underscore.downcase}_path") %></li>
+                  <li><%=link_to eval("t('actions.new',  model: t('activerecord.models.#{model.underscore.downcase.singularize.gsub(" ", "")}'))"), eval("new_#{model.underscore.downcase}_path") %></li>
                 <%end%>
               </ul>
             </li>

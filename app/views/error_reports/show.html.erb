@@ -4,61 +4,60 @@
   <table >
           <tr>
         <td>
-          <b><%= t'.user' %>:</b> <%= @error_report.user %>
+          <b><%= t'.user' %></b> <%= @error_report.user %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.controller_name' %>:</b> <%= @error_report.controller_name %>
+          <b><%= t'.controller_name' %></b> <%= @error_report.controller_name %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.action_name' %>:</b> <%= @error_report.action_name %>
+          <b><%= t'.action_name' %></b> <%= @error_report.action_name %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.line_number' %>:</b> <%= @error_report.line_number %>
+          <b><%= t'.line_number' %></b> <%= @error_report.line_number %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.referrer_url' %>:</b> <%= @error_report.referrer_url %>
+          <b><%= t'.referrer_url' %></b> <%= @error_report.referrer_url %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.original_path' %>:</b> <%= @error_report.original_path %>
+          <b><%= t'.original_path' %></b> <%= @error_report.original_path %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.environment' %>:</b> <%= @error_report.environment %>
+          <b><%= t'.environment' %></b> <%= @error_report.environment %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.branch' %>:</b> <%= @error_report.branch.name %>
+          <b><%= t'.branch' %></b> <%= @error_report.branch.name %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.description' %>:</b> <%= @error_report.description %>
+          <b><%= t'.description' %></b> <%= @error_report.description %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.backtrace' %>:</b> <%= @error_report.backtrace %>
+          <b><%= t'.backtrace' %></b> <%= @error_report.backtrace %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.error_time' %>:</b> <%= @error_report.error_time %>
+          <b><%= t'.error_time' %></b> <%= @error_report.error_time %>
         </td>
       </tr>
       </table>
+  <%= render "layouts/action_links" %>
 </div>
-
-
-<%= render "layouts/action_links" %>
+<br />

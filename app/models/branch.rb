@@ -2,7 +2,6 @@ class Branch < ActiveRecord::Base
   belongs_to :company
   has_many :roles
   has_many :error_reports
-  has_many :clients
   has_many :bills
   has_many :trucks
   has_many :cellphones

@@ -1,59 +1,63 @@
-<%= render "layouts/first_tab" %>
+<%#= render "layouts/first_tab" %>
 
 <div class="CSSTableGenerator" >
   <table >
-          <tr>
-        <td>
-          <b><%= t'.branch' %>:</b> <%= @schedule.branch.name %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.driver' %>:</b> <%= @schedule.driver.user.fullname %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.client' %>:</b> <%= @schedule.client.fullname %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.monday' %>:</b> <%= @schedule.monday %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.tuesday' %>:</b> <%= @schedule.tuesday %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.wednesday' %>:</b> <%= @schedule.wednesday %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.thursday' %>:</b> <%= @schedule.thursday %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.friday' %>:</b> <%= @schedule.friday %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.saturday' %>:</b> <%= @schedule.saturday %>
-        </td>
-      </tr>
-          <tr>
-        <td>
-          <b><%= t'.sunday' %>:</b> <%= @schedule.sunday %>
-        </td>
-      </tr>
-      </table>
+    <tr>
+      <td>
+        <b><%= t'.branch' %></b> <%= @schedule.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver' %></b> <%= @schedule.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.client' %></b> <%= @schedule.client.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.client_branch' %></b> <%= @schedule.client_branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.monday' %></b> <%= @schedule.monday %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.tuesday' %></b> <%= @schedule.tuesday %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.wednesday' %></b> <%= @schedule.wednesday %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.thursday' %></b> <%= @schedule.thursday %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.friday' %></b> <%= @schedule.friday %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.saturday' %></b> <%= @schedule.saturday %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.sunday' %></b> <%= @schedule.sunday %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
 </div>
-
-
-<%= render "layouts/action_links" %>
+<br />

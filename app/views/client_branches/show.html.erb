@@ -1,0 +1,83 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+          <tr>
+        <td>
+          <b><%= t'.name' %></b> <%= @client_branch.name %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.email1' %></b> <%= @client_branch.email1 %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.email2' %></b> <%= @client_branch.email2 %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.webpage' %></b> <%= @client_branch.webpage %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.phone1' %></b> <%= @client_branch.phone1 %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.phone2' %></b> <%= @client_branch.phone2 %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.fax' %></b> <%= @client_branch.fax %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.address1' %></b> <%= @client_branch.address1 %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.address2' %></b> <%= @client_branch.address2 %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.city' %></b> <%= @client_branch.city %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.state' %></b> <%= @client_branch.state %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.zip' %></b> <%= @client_branch.zip %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.country' %>:</b> <%= @client_branch.country %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.description' %>:</b> <%= @client_branch.description %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.client' %>:</b> <%= @client_branch.client %>
+        </td>
+      </tr>
+      </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

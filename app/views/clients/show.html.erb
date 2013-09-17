@@ -4,71 +4,80 @@
   <table >
           <tr>
         <td>
-          <b><%= t'.first_name' %>:</b> <%= @client.first_name %>
+          <b><%= t'.name' %></b> <%= @client.name %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.last_name' %>:</b> <%= @client.last_name %>
+          <b><%= t'.email1' %></b> <%= @client.email1 %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.email' %>:</b> <%= @client.email %>
+          <b><%= t'.email2' %></b> <%= @client.email2 %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.phone1' %>:</b> <%= @client.phone1 %>
+          <b><%= t'.webpage' %></b> <%= @client.webpage %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.phone2' %>:</b> <%= @client.phone2 %>
+          <b><%= t'.phone1' %></b> <%= @client.phone1 %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.fax' %>:</b> <%= @client.fax %>
+          <b><%= t'.phone2' %></b> <%= @client.phone2 %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.address1' %>:</b> <%= @client.address1 %>
+          <b><%= t'.fax' %></b> <%= @client.fax %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.address2' %>:</b> <%= @client.address2 %>
+          <b><%= t'.address1' %></b> <%= @client.address1 %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.city' %>:</b> <%= @client.city %>
+          <b><%= t'.address2' %></b> <%= @client.address2 %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.state' %>:</b> <%= @client.state %>
+          <b><%= t'.city' %></b> <%= @client.city %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.zip' %>:</b> <%= @client.zip %>
+          <b><%= t'.state' %></b> <%= @client.state %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.country' %>:</b> <%= @client.country %>
+          <b><%= t'.zip' %></b> <%= @client.zip %>
         </td>
       </tr>
           <tr>
         <td>
-          <b><%= t'.branch' %>:</b> <%= @client.branch.name %>
+          <b><%= t'.country' %></b> <%= @client.country %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.description' %>:</b> <%= @client.description %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.company' %>:</b> <%= @client.company %>
         </td>
       </tr>
       </table>
+  <%= render "layouts/action_links" %>
 </div>
-
-
-<%= render "layouts/action_links" %>
+<br />

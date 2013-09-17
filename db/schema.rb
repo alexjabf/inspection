@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913010120) do
+ActiveRecord::Schema.define(:version => 20130913174749) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -27,12 +27,10 @@ ActiveRecord::Schema.define(:version => 20130913010120) do
     t.integer  "zip"
     t.string   "country"
     t.integer  "client_id"
-    t.integer  "branch_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "bills", ["branch_id"], :name => "index_bills_on_branch_id"
   add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
 
   create_table "branches", :force => true do |t|
@@ -74,10 +72,11 @@ ActiveRecord::Schema.define(:version => 20130913010120) do
   add_index "cellphones", ["branch_id"], :name => "index_cellphones_on_branch_id"
   add_index "cellphones", ["user_id"], :name => "index_cellphones_on_user_id"
 
-  create_table "clients", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
+  create_table "client_branches", :force => true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
     t.string   "phone1"
     t.string   "phone2"
     t.string   "fax"
@@ -87,12 +86,35 @@ ActiveRecord::Schema.define(:version => 20130913010120) do
     t.string   "state"
     t.integer  "zip"
     t.string   "country"
-    t.integer  "branch_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "description"
+    t.integer  "client_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "clients", ["branch_id"], :name => "index_clients_on_branch_id"
+  add_index "client_branches", ["client_id"], :name => "index_client_branches_on_client_id"
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "company_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "clients", ["company_id"], :name => "index_clients_on_company_id"
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -170,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20130913010120) do
     t.integer  "branch_id"
     t.integer  "driver_id"
     t.integer  "client_id"
+    t.integer  "client_branch_id"
     t.boolean  "monday"
     t.boolean  "tuesday"
     t.boolean  "wednesday"
@@ -177,11 +200,12 @@ ActiveRecord::Schema.define(:version => 20130913010120) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "schedules", ["branch_id"], :name => "index_schedules_on_branch_id"
+  add_index "schedules", ["client_branch_id"], :name => "index_schedules_on_client_branch_id"
   add_index "schedules", ["client_id"], :name => "index_schedules_on_client_id"
   add_index "schedules", ["driver_id"], :name => "index_schedules_on_driver_id"
 

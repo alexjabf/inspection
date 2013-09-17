@@ -1,18 +1,18 @@
 <%if can? :show, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-  <td><%=link_to @model, :class=>"nav-header" do%>
-      <img src="/assets/icons/information.png" alt="Edit" />
+  <td><%=link_to @model, :title => t("actions.show",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
+      <img src="/assets/icons/information.png" alt="<%=t("actions.show",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
     <%end%>
   </td>
 <%end%>
 <%if can? :edit, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-  <td><%=link_to eval("edit_#{controller_name.singularize}_path(@model)"), :class=>"nav-header" do%>
-      <img src="/assets/icons/pencil.png" alt="Edit" />
+  <td><%=link_to eval("edit_#{controller_name.singularize}_path(@model)"), :title => t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
+      <img src="/assets/icons/pencil.png" alt="<%=t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
     <%end%>
   </td>
 <%end%>
 <%if can? :destroy, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-  <td><%=link_to @model, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"nav-header" do%>
-      <img src="/assets/icons/cross.png" alt="Delete" />
+  <td><%=link_to @model, method: :delete, data: { confirm: t(:are_you_sure?, model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) }, :title => t("actions.destroy",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
+      <img src="/assets/icons/cross.png" alt="<%=t("actions.destroy",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
     <%end%>
   </td>
 <%end%>

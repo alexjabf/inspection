@@ -5,9 +5,20 @@
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
                   <th><%= t'.name' %></th>
-                  <th><%= t'.email' %></th>
+                  <th><%= t'.email1' %></th>
+                  <th><%= t'.email2' %></th>
+                  <th><%= t'.webpage' %></th>
                   <th><%= t'.phone1' %></th>
-                  <th><%= t'.branch' %></th>
+                  <th><%= t'.phone2' %></th>
+                  <th><%= t'.fax' %></th>
+                  <th><%= t'.address1' %></th>
+                  <th><%= t'.address2' %></th>
+                  <th><%= t'.city' %></th>
+                  <th><%= t'.state' %></th>
+                  <th><%= t'.zip' %></th>
+                  <th><%= t'.country' %></th>
+                  <th><%= t'.description' %></th>
+                  <th><%= t'.company' %></th>
               </tr>
 
     </thead>
@@ -37,13 +48,35 @@
                   
             <% @model = client %> 
                     
-          <td><%= client.fullname %></td>                            
+          <td><%= client.name %></td>
                             
-          <td><%= client.email %></td>
+          <td><%= client.email1 %></td>
+                            
+          <td><%= client.email2 %></td>
+                            
+          <td><%= client.webpage %></td>
                             
           <td><%= client.phone1 %></td>
                             
-          <td><%= client.branch.name %></td>
+          <td><%= client.phone2 %></td>
+                            
+          <td><%= client.fax %></td>
+                            
+          <td><%= client.address1 %></td>
+                            
+          <td><%= client.address2 %></td>
+                            
+          <td><%= client.city %></td>
+                            
+          <td><%= client.state %></td>
+                            
+          <td><%= client.zip %></td>
+                            
+          <td><%= client.country %></td>
+                            
+          <td><%= client.description %></td>
+                            
+          <td><%= client.company %></td>
                 <%= render "layouts/index_links" %>
         <% end %>
       </tr>
@@ -51,4 +84,5 @@
   </table>
   <%= render "layouts/action_links" %>
 </div> 
-<%#= render "layouts/second_tab" %>
+<%= render "layouts/second_tab" %>
+<br><br><br>

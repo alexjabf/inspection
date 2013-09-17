@@ -1,4 +1,13 @@
 Inspection::Application.routes.draw do
+  resources :bills
+
+
+  resources :clients
+
+  get "client_branches/get_client_branches"
+  resources :client_branches
+
+
   resources :routes
 
 
@@ -12,12 +21,6 @@ Inspection::Application.routes.draw do
 
 
   resources :trucks
-
-
-  resources :bills
-
-
-  resources :clients
 
 
   resources :error_reports
@@ -47,9 +50,6 @@ Inspection::Application.routes.draw do
     get 'devise/registrations/:id/edit' => 'devise/registrations#edit'#, :as => :edit_user_registration
     get "devise/sessions/links" => "devise/sessions#links", :as => :links
   end
-
-
-  get "welcome/index"
 
 
   # The priority is based upon order of creation:

@@ -8,7 +8,8 @@
         <th><%= t'.email1' %></th>
         <th><%= t'.webpage' %></th>
         <th><%= t'.phone1' %></th>
-        <th><%= t'.company' %></th>
+        <th><%= t'.city' %></th>
+        <th><%= t'.company_id' %></th>
       </tr>
 
     </thead>
@@ -41,9 +42,9 @@
 
           <td><%= branch.email1 %></td>
 
-          <td><%= branch.phone1 %></td>
-
           <td><%= branch.webpage %></td>
+
+          <td><%= branch.phone1 %></td>
 
           <td><%= branch.city %></td>
 
@@ -56,3 +57,4 @@
   <%= render "layouts/action_links" %>
 </div> 
 <%= render "layouts/second_tab" %>
+<br><br><br>
