@@ -15,27 +15,24 @@
 
 /********************************      Basic Structure      ********************************/
 
-
-#columns-container{
-    position:  inherit;
-    padding-right: 0;
-    display: inline-block;
-    max-width: 1200px;
-    overflow:hidden;
-}
-#left-custom-column{
+.left-custom-column{
     float:left;
-
-    max-width: 500px;
-    padding:10px;
+    width: 48%;
 }
-#right-custom-column {
+.right-custom-column {
     float:right;
-    max-width: 500px;
-    padding:10px;
+    width: 48%;
 }
 
 .custom-submit{
     float: right;
     margin-top: 35px;
+}
+
+.required{
+    font-size: 16px;
+    color: #b00;
+    position: relative;
+    top: 4px;
+    left: 7px;    
 }

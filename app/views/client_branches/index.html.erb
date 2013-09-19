@@ -1,0 +1,64 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+                  <th><%= t'.name' %></th>
+                  <th><%= t'.email1' %></th>
+                  <th><%= t'.contact_name' %></th>                  
+                  <th><%= t'.phone1' %></th>
+                  <th><%= t'.city' %></th>
+                  <th><%= t'.state' %></th>
+                  <th><%= t'.client_id' %></th>
+              </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @client_branches.each do |client_branch| %>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <%if can? :show, ClientBranch %>
+        <td><%=link_to client_branch.id, client_branch, :class => 'button'%></td>
+        <%else%>
+        <td><%= label client_branch.id, client_branch.id, :class => 'button'%></td>
+        <%end%>
+        
+                  
+            <% @model = client_branch %> 
+                    
+          <td><%= client_branch.name %></td>
+                            
+          <td><%= client_branch.email1 %></td>
+          
+          <td><%= client_branch.contact_name %></td>
+          
+          <td><%= client_branch.phone1 %></td>                            
+                            
+          <td><%= client_branch.city %></td>
+                            
+          <td><%= client_branch.state %></td>
+                            
+          <td><%= client_branch.client.name %></td>
+                <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%= render "layouts/second_tab" %>
+<br><br><br>

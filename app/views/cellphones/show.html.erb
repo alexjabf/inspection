@@ -4,62 +4,66 @@
   <table >
     <tr>
       <td>
-        <b><%= t'.phone_number' %>:</b> <%= @cellphone.phone_number %>
+        <b><%= t'.phone_number' %></b> <%= @cellphone.phone_number %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.model' %>:</b> <%= @cellphone.model %>
+        <b><%= t'.model' %></b> <%= @cellphone.model %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.brand' %>:</b> <%= @cellphone.brand %>
+        <b><%= t'.brand' %></b> <%= @cellphone.brand %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.color' %>:</b> <%= @cellphone.color %>
+        <b><%= t'.color' %></b> <%= @cellphone.color %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.ope_system' %>:</b> <%= @cellphone.ope_system %>
+        <b><%= t'.ope_system' %></b> <%= @cellphone.ope_system %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.condition' %>:</b> <%= @cellphone.condition %>
+        <b><%= t'.condition' %></b> <%= @cellphone.condition %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.imei' %>:</b> <%= @cellphone.imei %>
+        <b><%= t'.imei' %></b> <%= @cellphone.imei %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.description' %>:</b> <%= @cellphone.description %>
+        <b><%= t'.description' %></b> <%= @cellphone.description %>
       </td>
     </tr>
     <tr>     
       <%unless @cellphone.user.blank?%>
         <td>
-          <b><%= t'.user' %>:</b> <%= @cellphone.user.fullname %>         
+          <b><%= t'.user_id' %></b> <%= @cellphone.user.fullname %>         
         </td>
       <%else%>
         <td>
-          <b><%= t'Celular NO asignado' %>:</b> <%= link_to  "Asignar Celular a Usuario", edit_cellphone_path(@cellphone)%>
+          <b><%= t'Celular NO asignado' %></b> <%= link_to  "Asignar Celular a Usuario", edit_cellphone_path(@cellphone)%>
         </td>      
       <%end%>
     </tr>
     <tr>
       <td>
-        <b><%= t'.branch' %>:</b> <%= @cellphone.branch.name %>
+        <b><%= t'.branch_id' %></b> <%= @cellphone.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @cellphone.company.name %>
       </td>
     </tr>
   </table>
+  <%= render "layouts/action_links" %>
 </div>
-
-
-<%= render "layouts/action_links" %>
+<br />

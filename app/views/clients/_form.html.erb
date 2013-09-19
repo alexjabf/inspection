@@ -1,28 +1,36 @@
-<%#= render "layouts/first_tab" %>
+<%= render "layouts/first_tab" %>
 <%= form_for(@client) do |f| %>
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<% if @client.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
 
-      <ul>
-        <% @client.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @client.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
   <p class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, :class=>"text-input small-input" %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, :class=>"text-input small-input" %>
+    <%= f.label :contact_name %>
+    <%= f.text_field :contact_name, :class=>"text-input small-input" %>
+  </p>  
+  <p class="field">
+    <%= f.label :email1 %>
+    <%= f.text_field :email1, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, :class=>"text-input small-input" %>
+    <%= f.label :email2 %>
+    <%= f.text_field :email2, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :webpage %>
+    <%= f.text_field :webpage, :class=>"text-input small-input" %>
   </p>
   <p class="field">
     <%= f.label :phone1 %>
@@ -61,14 +69,20 @@
     <%= f.text_field :country, :class=>"text-input small-input" %>
   </p>
   <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
     <%= f.label :branch_id %>
     <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
   </p>
 
-  <%#= f.fields_for :bills %>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'button custom-submit' %>
-  </div>
-
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
 <% end %>
+<div>
+  <%= render "layouts/action_links" %>
+</div>
+<br><br><br>

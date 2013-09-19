@@ -4,12 +4,22 @@
   <table >
     <tr>
       <td>
-        <b><%= t'.name' %>:</b> <%= @route.name %>
+        <b><%= t'.name' %></b> <%= @route.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.schedule' %>:</b> <%= @route.schedule %>
+        <b><%= t'.schedule' %></b> <%= @route.schedule %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch_id' %></b> <%= @route.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @route.company.name %>
       </td>
     </tr>
   </table>
@@ -79,8 +89,6 @@
     </tr>
   </tbody>
 </table>
-
-
-
-
 <%= render "layouts/action_links" %>
+</div>
+<br />

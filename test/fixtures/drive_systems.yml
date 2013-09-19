@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  engine: false
+  bands: false
+  injection: false
+  transmission: false
+  arrows: false
+  yokes: false
+  differential: false
+  observations: MyText
+  failure: 
+
+two:
+  engine: false
+  bands: false
+  injection: false
+  transmission: false
+  arrows: false
+  yokes: false
+  differential: false
+  observations: MyText
+  failure: 

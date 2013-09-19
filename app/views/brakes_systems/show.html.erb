@@ -1,0 +1,83 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <%= eval("t('activerecord.models.#{controller_name.underscore.singularize}')") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver_id' %></b> <%= @brakes_system.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.truck_id' %></b> <%= @brakes_system.truck.modelbrand %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.created_at' %></b>   <%= I18n.l @brakes_system.created_at, :format => :long %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.compressor' %></b> <%= t(@brakes_system.compressor.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.bands' %></b> <%= t(@brakes_system.bands.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.hoses' %></b> <%= t(@brakes_system.hoses.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.valve' %></b> <%= t(@brakes_system.valve.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.palancon' %></b> <%= t(@brakes_system.palancon.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.dual' %></b> <%= t(@brakes_system.dual.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.double_chambers' %></b> <%= t(@brakes_system.double_chambers.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.balata' %></b> <%= t(@brakes_system.balata.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.drums' %></b> <%= t(@brakes_system.drums.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.mass' %></b> <%= t(@brakes_system.mass.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.observations' %></b> <%= @brakes_system.observations %>
+      </td>
+    </tr>
+  </table>
+<%= render "layouts/action_links" %>
+</div>
+<br />

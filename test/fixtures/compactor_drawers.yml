@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iron: false
+  curtain: false
+  shovel: false
+  floor: false
+  walls: false
+  roof: false
+  observations: MyText
+  failure: 
+
+two:
+  iron: false
+  curtain: false
+  shovel: false
+  floor: false
+  walls: false
+  roof: false
+  observations: MyText
+  failure: 

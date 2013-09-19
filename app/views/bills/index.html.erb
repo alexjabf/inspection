@@ -4,11 +4,14 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-        <th><%= t'.name' %></th>
-        <th><%= t'.rfc' %></th>
-        <th><%= t'.client' %></th>
-        <th><%= t'.branch' %></th>
-      </tr>
+                  <th><%= t'.client_id' %></th>
+                  <th><%= t'.rfc' %></th>
+                  <th><%= t'.phone1' %></th>
+                  <th><%= t'.address1' %></th>
+                  <th><%= t'.address2' %></th>
+                  <th><%= t'.city' %></th>
+                  <th><%= t'.state' %></th>
+              </tr>
 
     </thead>
 
@@ -26,25 +29,31 @@
 
     <tbody>
       <% @bills.each do |bill| %>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <%if can? :show, Bill %>
-            <td><%=link_to bill.id, bill, :class => 'button'%></td>
-          <%else%>
-            <td><%= label bill.id, bill.id, :class => 'button'%></td>
-          <%end%>
-
-
-          <% @model = bill %> 
-
-          <td><%= bill.name %></td>                           
-
-          <td><%= bill.rfc %></td>
-          
-          <td><%= bill.client.fullname %></td>
-          
-          <td><%= bill.branch.name %></td>
-          <%= render "layouts/index_links" %>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <%if can? :show, Bill %>
+        <td><%=link_to bill.id, bill, :class => 'button'%></td>
+        <%else%>
+        <td><%= label bill.id, bill.id, :class => 'button'%></td>
+        <%end%>        
+                  
+            <% @model = bill %> 
+                    
+          <td><%= bill.client.name %></td>
+                            
+          <td><%= bill.rfc %></td>                           
+                            
+          <td><%= bill.phone1 %></td>
+                            
+          <td><%= bill.address1 %></td>
+                            
+          <td><%= bill.address2 %></td>
+                            
+          <td><%= bill.city %></td>
+                            
+          <td><%= bill.state %></td>
+                            
+                <%= render "layouts/index_links" %>
         <% end %>
       </tr>
     </tbody>
@@ -52,3 +61,4 @@
   <%= render "layouts/action_links" %>
 </div> 
 <%= render "layouts/second_tab" %>
+<br><br><br>

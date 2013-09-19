@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  compressor: false
+  bands: false
+  hoses: false
+  valve: false
+  palancon: false
+  dual: false
+  double_chambers: false
+  balata: false
+  drums: false
+  mass: false
+  observations: MyText
+  failure: 
+
+two:
+  compressor: false
+  bands: false
+  hoses: false
+  valve: false
+  palancon: false
+  dual: false
+  double_chambers: false
+  balata: false
+  drums: false
+  mass: false
+  observations: MyText
+  failure: 

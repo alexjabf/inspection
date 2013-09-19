@@ -9,9 +9,10 @@ class CreateRoles < ActiveRecord::Migration
       t.boolean :driver
       t.text :description
       t.references :branch
-
+      t.references :company
       t.timestamps
     end
     add_index :roles, :branch_id
+    add_index :roles, :company_id    
   end
 end

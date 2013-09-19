@@ -4,11 +4,14 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-                  <th><%= t'.name' %></th>
-                  <th><%= t'.email' %></th>
-                  <th><%= t'.phone1' %></th>
-                  <th><%= t'.branch' %></th>
-              </tr>
+        <th><%= t'.name' %></th>
+        <th><%= t'.email1' %></th>
+        <th><%= t'.contact_name' %></th>
+        <th><%= t'.phone1' %></th>
+        <th><%= t'.city' %></th>
+        <th><%= t'.state' %></th>
+        <th><%= t'.client_id' %></th>
+      </tr>
 
     </thead>
 
@@ -26,29 +29,36 @@
 
     <tbody>
       <% @clients.each do |client| %>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <%if can? :show, Client %>
-        <td><%=link_to client.id, client, :class => 'button'%></td>
-        <%else%>
-        <td><%= label client.id, client.id, :class => 'button'%></td>
-        <%end%>
-        
-                  
-            <% @model = client %> 
-                    
-          <td><%= client.fullname %></td>                            
-                            
-          <td><%= client.email %></td>
-                            
-          <td><%= client.phone1 %></td>
-                            
-          <td><%= client.branch.name %></td>
-                <%= render "layouts/index_links" %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Client %>
+            <td><%=link_to client.id, client, :class => 'button'%></td>
+          <%else%>
+            <td><%= label client.id, client.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = client %> 
+
+          <td><%= client.name %></td>
+
+          <td><%= client.email1 %></td>
+
+          <td><%= client.contact_name %></td>
+
+          <td><%= client.phone1 %></td>                            
+
+          <td><%= client.city %></td>
+
+          <td><%= client.state %></td>
+
+          <td><%= client.name %></td>
+          <%= render "layouts/index_links" %>
         <% end %>
       </tr>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>
 </div> 
-<%#= render "layouts/second_tab" %>
+<%= render "layouts/second_tab" %>
+<br><br><br>

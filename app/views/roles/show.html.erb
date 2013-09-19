@@ -1,49 +1,53 @@
-  <%= render "layouts/first_tab" %>
+<%= render "layouts/first_tab" %>
 
 <div class="CSSTableGenerator" >
   <table >
     <tr>
       <td>
-        <b><%= t'.name' %>:</b> <%= @role.name %>
+        <b><%= t'.name' %></b> <%= @role.name %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.protected' %>:</b> <%= @role.protected %>
+        <b><%= t'.protected' %></b> <%= @role.protected %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.super_admin' %>:</b> <%= @role.super_admin %>
+        <b><%= t'.super_admin' %></b> <%= @role.super_admin %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.branch_admin' %>:</b> <%= @role.branch_admin %>
+        <b><%= t'.branch_admin' %></b> <%= @role.branch_admin %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.routes_admin' %>:</b> <%= @role.routes_admin %>
+        <b><%= t'.routes_admin' %></b> <%= @role.routes_admin %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.driver' %>:</b> <%= @role.driver %>
+        <b><%= t'.driver' %></b> <%= @role.driver %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.description' %>:</b> <%= @role.description %>
+        <b><%= t'.description' %></b> <%= @role.description %>
       </td>
     </tr>
     <tr>
       <td>
-        <b><%= t'.branch' %>:</b> <%= @role.branch.name %>
+        <b><%= t'.branch_id' %></b> <%= @role.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @role.company.name %>
       </td>
     </tr>
   </table>
+  <%= render "layouts/action_links" %>
 </div>
-
-
-<%= render "layouts/action_links" %>
+<br />

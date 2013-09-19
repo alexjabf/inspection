@@ -2,6 +2,7 @@ class CreateBranches < ActiveRecord::Migration
   def change
     create_table :branches do |t|
       t.string :name
+      t.string :contact_name 
       t.string :email1
       t.string :email2
       t.string :webpage

@@ -17,6 +17,10 @@
     <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
   <p class="field">
+    <%= f.label :contact_name %>
+    <%= f.text_field :contact_name, :class=>"text-input small-input" %>
+  </p>  
+  <p class="field">
     <%= f.label :email1 %>
     <%= f.text_field :email1, :class=>"text-input small-input" %>
   </p>
@@ -72,5 +76,8 @@
 <div class="form-actions">
   <%= f.submit nil, :class => 'button custom-submit' %>
 </div>
-
 <% end %>
+<div>
+  <%= render "layouts/action_links" %>
+</div>
+<br><br><br>

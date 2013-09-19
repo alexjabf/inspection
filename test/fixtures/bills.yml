@@ -14,7 +14,6 @@ one:
   zip: 1
   country: MyString
   client: 
-  branch: 
 
 two:
   name: MyString
@@ -30,4 +29,3 @@ two:
   zip: 1
   country: MyString
   client: 
-  branch: 

@@ -1,21 +1,25 @@
-<%#= render "layouts/first_tab" %>
+<%= render "layouts/first_tab" %>
 <%= form_for(@branch) do |f| %>
-<% if @branch.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+  <% if @branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
 
-  <ul>
-    <% @branch.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @branch.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :name %>
     <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
+  <p class="field">
+    <%= f.label :contact_name %>
+    <%= f.text_field :contact_name, :class=>"text-input small-input" %>
+  </p>  
   <p class="field">
     <%= f.label :email1 %>
     <%= f.text_field :email1, :class=>"text-input small-input" %>
@@ -35,10 +39,6 @@
   <p class="field">
     <%= f.label :phone2 %>
     <%= f.text_field :phone2, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
   <p class="field">
     <%= f.label :address1 %>
@@ -69,12 +69,14 @@
     <%= f.text_area :description, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%#= f.label :company_id %>
     <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.branch.company_id %>
   </p>
-
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button custom-submit' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button custom-submit' %>
+  </div>
 
 <% end %>
+<div>
+  <%= render "layouts/action_links" %>
+</div>
+<br><br><br>

@@ -1,3 +1,56 @@
+<script>
+  /*$(document).ready(function() {
+   $('#schedule_client_id').select(function() {
+   //var client_id = this.value;
+   alert("client_id");
+   // Only call notifications when opening the dropdown
+   if (!$(this).hasClass('open')) {
+   $.ajax({
+   type: "GET",
+   url: "/get_client_branches?client_id:" + client_id,
+   async: false,
+   dataType: "script"
+   });
+   }
+   });
+   });*/
+
+  function getClientBranches(id) {
+    var client_id = id;
+    if (client_id) {
+      function setBranchesSelect(client_branches) {
+        $('#client_branches_cb').fadeIn("slow");
+        var dropdown = document.getElementById("schedule_client_branch_id");
+        if (dropdown) {
+          for (var i = 0; i < client_branches.length; ++i) {
+            createOption(dropdown, client_branches[i].name, client_branches[i].id);
+          }
+        }
+      }
+      function createOption(dropdown, text, value) {
+        var opt = document.createElement('option');
+        opt.value = value;
+        opt.text = text;
+        $('#schedule_client_branch_id').empty();
+        //$('#schedule_client_branch_id')[0].options.length = 0;
+        dropdown.options.add(opt);
+      }
+      $.ajax({
+        url: "/client_branches/get_client_branches?client_id=" + client_id,
+        dataType: 'jsonp',
+        error: function(xhr, status, error) {
+          alert(status);
+        },
+        success: setBranchesSelect
+      });
+    } else {
+      $('#client_branches_cb').fadeOut("slow");
+      $('#schedule_client_branch_id').val(null);
+    }
+  }
+
+</script>
+
 <%= render "layouts/first_tab" %>
 <%= form_for(@schedule) do |f| %>
   <% if @schedule.errors.any? %>
@@ -11,53 +64,71 @@
       </ul>
     </div>
   <% end %>
-  <div id="columns-container">
-    <div id="left-custom-column">
-      <p class="field">
-        <%= f.label :driver_id %>
-        <%= f.collection_select(:driver_id, @drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}, :class =>'small-input') %>
+  <fieldset class="left-custom-column">
+    <p class="field">
+      <%= f.label :client_id %>
+      <%= f.collection_select(:client_id, @clients, :id, :name, {:prompt => true}, :onchange => "getClientBranches(this.value)")%><span class="required">*</span>
+    </p>
+    <%if controller.action_name == "new" or @client_id.nil?%>
+      <p class="field" style="display: none;" id="client_branches_cb">
+        <%@client_branches = ClientBranch.where(:client_id => "0")%>
+        <%= f.label :client_branch_id %>
+        <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
       </p>
-      <p class="field">
-        <%= f.label :client_id %>
-        <%= f.collection_select(:client_id, @clients, :id, :fullname, {:prompt => true}, :class =>'small-input')%>
+    <%elsif !@client_id.nil?%>
+      <p class="field" id="client_branches_cb">
+        <%@client_branches = ClientBranch.where(:client_id => @client_id)%>
+        <%= f.label :client_branch_id %>
+        <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
       </p>
-      <p class="field">
-        <%= f.label :brahch_id %>
-        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'small-input') %>  
-      </p>
+    <%end%>
+    <p class="field">
+      <%= f.label :driver_id %>
+      <%= f.collection_select(:driver_id, @drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}) %><span class="required">*</span>
+    </p>
+    <p class="field">
+      <%= f.label :brahch_id %>
+      <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}) %><span class="required">*</span>
+    </p>
+  </fieldset>
+  <fieldset class="right-custom-column">
+    <p class="field">
+      <%= f.label :monday, :style => "position: absolute"  %>
+      <%= f.check_box :monday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :tuesday, :style => "position: absolute"  %>
+      <%= f.check_box :tuesday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :wednesday, :style => "position: absolute"  %>
+      <%= f.check_box :wednesday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :thursday, :style => "position: absolute"  %>
+      <%= f.check_box :thursday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :friday, :style => "position: absolute"  %>
+      <%= f.check_box :friday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :saturday, :style => "position: absolute"  %>
+      <%= f.check_box :saturday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :sunday, :style => "position: absolute"  %>
+      <%= f.check_box :sunday, :style => "margin-left: 120px", :class=>"small-input" %>
+    </p>
+    <p class="field">
+      <%=t(:at_least_one_is_required)%> <span class="required">*</span>
+    </p>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'button custom-submit' %>
     </div>
-    <div id="right-custom-column">
-      <p class="field">
-        <%= f.label :monday, :style => "position: absolute"  %>
-        <%= f.check_box :monday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :tuesday, :style => "position: absolute"  %>
-        <%= f.check_box :tuesday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :wednesday, :style => "position: absolute"  %>
-        <%= f.check_box :wednesday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :thursday, :style => "position: absolute"  %>
-        <%= f.check_box :thursday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :friday, :style => "position: absolute"  %>
-        <%= f.check_box :friday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :saturday, :style => "position: absolute"  %>
-        <%= f.check_box :saturday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-      <p class="field">
-        <%= f.label :sunday, :style => "position: absolute"  %>
-        <%= f.check_box :sunday, :style => "margin-left: 120px", :class=>"small-input" %>
-      </p>
-    </div>
-  </div>
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'button custom-submit' %>
-  </div>
+  </fieldset>
 <% end %>
+<div>
+  <%= render "layouts/action_links" %>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

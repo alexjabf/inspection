@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
 
   def get_data
     if signed_in?
-      @branches = current_user.role.super_admin == true ? Branch.order('id DESC').paginate(:page => params[:page]) : Branch.where(:company_id => current_user.branch.company_id).order('id DESC').paginate(:page => params[:page])
-      @clients = current_user.role.super_admin == true ? Client.order('id DESC').paginate(:page => params[:page]) : Client.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @branches = current_user.role.super_admin == true ? Branch.order('id DESC').paginate(:page => params[:page]) : Branch.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @clients = current_user.role.super_admin == true ? Client.order('id DESC').paginate(:page => params[:page]) : Client.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
       @bills = current_user.role.super_admin == true ? Bill.order('id DESC').paginate(:page => params[:page]) : Bill.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])  
       @users = current_user.role.super_admin == true ? User.order('id DESC').paginate(:page => params[:page]) : User.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @cellphones = current_user.role.super_admin == true ? Cellphone.order('id DESC').paginate(:page => params[:page]) : Cellphone.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @trucks = current_user.role.super_admin == true ? Truck.order('id DESC').paginate(:page => params[:page]) : Truck.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-      @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false").order('id DESC').paginate(:page => params[:page])   
+      @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false and (branch_admin = true or routes_admin = true or driver = true or company_id = #{current_user.company_id})").order('id DESC').paginate(:page => params[:page])   
       @drivers = current_user.role.super_admin == true ? Driver.order('id DESC').paginate(:page => params[:page]) : Driver.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])       
     end
   end

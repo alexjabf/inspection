@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  name: MyString
+  email1: MyString
+  email2: MyString
+  webpage: MyString
   phone1: MyString
   phone2: MyString
   fax: MyString
@@ -13,12 +14,14 @@ one:
   state: MyString
   zip: 1
   country: MyString
-  branch: 
+  description: MyText
+  company: 
 
 two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  name: MyString
+  email1: MyString
+  email2: MyString
+  webpage: MyString
   phone1: MyString
   phone2: MyString
   fax: MyString
@@ -28,4 +31,5 @@ two:
   state: MyString
   zip: 1
   country: MyString
-  branch: 
+  description: MyText
+  company: 

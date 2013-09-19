@@ -13,11 +13,13 @@ class CreateUsers < ActiveRecord::Migration
       t.string :country
       t.references :role
       t.references :branch
+      t.references :company      
       t.boolean :active
 
       t.timestamps
     end
     add_index :users, :role_id
     add_index :users, :branch_id
+    add_index :users, :company_id  
   end
 end

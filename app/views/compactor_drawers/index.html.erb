@@ -1,0 +1,49 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.driver_id' %></th>
+        <th><%= t'.truck_id' %></th>  
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @compactor_drawers.each do |compactor_drawer| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, CompactorDrawer %>
+            <td><%=link_to compactor_drawer.id, compactor_drawer, :class => 'button'%></td>
+          <%else%>
+            <td><%= label compactor_drawer.id, compactor_drawer.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = compactor_drawer %> 
+
+              <td><%= compactor_drawer.truck.modelbrand %></td>
+  
+              <td><%= compactor_drawer.driver.user.fullname %></td>
+  
+              <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%= render "layouts/second_tab" %>

@@ -1,0 +1,1123 @@
+es:
+  'true': "Si"
+  'false': "No"
+  monday: "L /"
+  tuesday: "Ma /"
+  wednesday: "Mi /"
+  thursday: "J /"
+  friday: "V /"
+  saturday: "S /"
+  sunday: "D"  
+  home: "Inicio"
+  logout : "Cerrar sesión"
+  login: "Iniciar sesión"
+  sign_up: "Regístrate"
+  welcome: "Bienvenido"
+  edit_my_account: "Editar mi cuenta"
+  are_you_sure?: "Esta seguro que desea eliminar este %{model}?"
+  applay_to_selected: "Aplicar a los Campos Seleccionados"
+  choose_action: "Seleccionar Acción:"
+  what_to_do: "¿Qué te gustaría hacer?"
+  new_user: "Registrar Nuevo Usuario"
+  new_client: "Registrar Nuevo Cliente"
+  new_schedule: "Crear Horario a Cliente"
+  new_route: "Crear Ruta"
+  truck_failures: "Fallas de Camiones"
+  at_least_one_is_required: "Al menos un día es requerido."
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - Domingo
+    - Lunes
+    - Martes
+    - Miércoles
+    - Jueves
+    - Viernes
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%A, %d de %B de %Y'
+      short: ! '%d de %b'
+    month_names:
+    -
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: cerca de 1 hora
+        other: cerca de %{count} horas
+      about_x_months:
+        one: cerca de 1 mes
+        other: cerca de %{count} meses
+      about_x_years:
+        one: cerca de 1 año
+        other: cerca de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: ! '%{count} días'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mes
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minuto
+      month: Mes
+      second: Segundos
+      year: Año
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      confirmation: no coincide con la confirmación
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser un número par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor o igual que %{count}
+      inclusion: no está incluído en la lista
+      invalid: es inválido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor o igual que %{count}
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser un número non
+      record_invalid: ! 'La validación falló: %{errors}'
+      taken: ya ha sido tomado
+      too_long:
+        one: es demasiado largo (máximo 1 caracter)
+        other: es demasiado largo (máximo %{count} caracteres)
+      too_short:
+        one: es demasiado corto (mínimo 1 caracter)
+        other: es demasiado corto (mínimo %{count} caracteres)
+      wrong_length:
+        one: longitud errónea (debe ser de 1 caracter)
+        other: longitud errónea (debe ser de %{count} caracteres)
+    template:
+      body: ! 'Revise que los siguientes campos sean válidos:'
+      header:
+        one: ! '%{model} no pudo guardarse debido a 1 error'
+        other: ! '%{model} no pudo guardarse debido a %{count} errores'
+  helpers:
+    select:
+      prompt: Por favor selecciona
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: $
+    format:
+      delimiter: ! ','
+      precision: 2
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
+          unit: ''
+      format:
+        delimiter: ! ','
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ! ','
+    precision:
+      format:
+        delimiter: ! ','
+  support:
+    array:
+      last_word_connector: ! ' y '
+      two_words_connector: ! ' y '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d de %b de %Y a las %H:%M:%S %Z'
+      long: ! '%A, %d de %B de %Y a las %I:%M %p'
+      short: ! '%d de %b a las %H:%M hrs'
+    pm: pm
+  actions:
+    show: "Mostrar %{model}"
+    edit: "Editar %{model}"
+    destroy: "Eliminar %{model}"
+    new:  "Crear %{model}"
+    return_to:  "Regresar a %{model}"
+  
+  roles:
+    show:
+      name: "Nombre"
+      protected: "Protegido: "
+      description: "Descripción: "
+      super_admin: "Súper Administrador: "
+      branch_admin: "Administrador de Sucursal de Proveedo: "
+      routes_admin: "Administrador de Logistica: "
+      driver: "Conductor: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "
+    index:
+      name: "Nombre"
+      protected: "Protegido"
+      description: "Descripción"
+      super_admin: "Súper Administrador"
+      branch_admin: "Administrador de Sucursal de Proveedor"
+      routes_admin: "Administrador de Logistica"
+      driver: "Conductor"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"
+  users:
+    show: 
+      fullname: "Nombre: "
+      first_name: "Nombre(s): "
+      last_name: "Apellidos(s): "
+      email: "Correo Electrónico: "
+      phone1: "Teléfono: "
+      phone2: "Celular: "
+      fax: "Fax: "
+      address1: "Dirección: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      role_id:  "Rol: "
+      active: "Activo: "
+      username: "Nombre de Usuario: "
+      password: "Contraseña: "
+      password_confirmation: "Confirmacion de Contraseña: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "
+      last_sign_in_at: "Acceso por última vez el día : " 
+    index:
+      fullname: "Nombre"
+      first_name: "Nombre(s)"
+      last_name: "Apellidos(s)"
+      email: "Correo Electrónico"
+      phone1: "Teléfono"
+      phone2: "Celular"
+      fax: "Fax"
+      address1: "Dirección"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      role_id: "Rol"
+      active: "Activo"
+      username: "Nombre de Usuario"
+      password: "Contraseña"
+      password_confirmation: "Confirmacion de Contraseña"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"
+      last_sign_in_at: "Acceso por última vez el día"      
+  bills:
+    show: 
+      name: "Nombre: "
+      rfc: "Razon Social: "
+      email: "Correo Electrónico: "      
+      phone1: "Teléfono: "
+      phone2: "Celular: "
+      fax: "Fax: "
+      address1: "Dirección: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      client_id: "Cliente: "
+      branch_id: "Sucursal de Proveedo: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "
+    index: 
+      name: "Nombre"
+      rfc: "Razon Social"
+      email: "Correo Electrónico"
+      phone1: "Teléfono"
+      phone2: "Celular"
+      fax: "Fax"
+      address1: "Dirección"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      client_id: "Cliente"
+      branch_id: "Sucursal de Proveedo: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"
+  clients:
+    show: 
+      name: "Nombre: "
+      contact_name: "Contacto: "      
+      email1: "Correo Electrónico: "
+      email2: "Correo Electrónico Alternativo: "      
+      webpage: "Sitío Web: "       
+      phone1: "Teléfono: "
+      phone2: "Celular: "
+      fax: "Fax: "
+      address1: "Dirección: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      branch_id: "Sucursal de Proveedo: "
+      company_id: "Compañía: "
+      description: "Descripción: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "
+    index: 
+      name: "Nombre"
+      contact_name: "Contacto"      
+      email1: "Correo Electrónico"
+      email2: "Correo Electrónico Alternativo"      
+      webpage: "Sitío Web"       
+      phone1: "Teléfono"
+      phone2: "Celular"
+      fax: "Fax"
+      address1: "Dirección"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      branch_id: "Sucursal de Proveedo: "      
+      company_id: "Compañía"
+      description: "Descripción"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"     
+  branches:
+    show:
+      name: "Nombre: "
+      contact_name: "Contacto: " 
+      email1: "Correo Electrónico: "
+      email2: "Correo Electrónico Alternativo: "      
+      webpage: "Sitío Web: "       
+      phone1: "Teléfono: "
+      phone2: "Celular: "
+      fax: "Fax: "
+      address1: "Dirección: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      company_id: "Compañía: "
+      description: "Descripción: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "      
+    index:
+      name: "Nombre"
+      contact_name: "Contacto" 
+      email1: "Correo Electrónico"
+      email2: "Correo Electrónico Alternativo"      
+      webpage: "Sitío Web"       
+      phone1: "Teléfono"
+      phone2: "Celular"
+      fax: "Fax"
+      address1: "Dirección"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      company_id: "Compañía"
+      description: "Descripción"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"      
+  companies:
+    show:
+      name: "Nombre: "
+      contact_name: "Contacto: " 
+      email1: "Correo Electrónico: "
+      email2: "Correo Electrónico Alternativo: "      
+      webpage: "Sitío Web: "       
+      phone1: "Teléfono: "
+      phone2: "Celular: "
+      fax: "Fax: "
+      address1: "Dirección: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      company_id: "Compañía: "
+      description: "Descripción: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "      
+    index:
+      name: "Nombre"
+      contact_name: "Contacto" 
+      email1: "Correo Electrónico"
+      email2: "Correo Electrónico Alternativo"      
+      webpage: "Sitío Web"       
+      phone1: "Teléfono"
+      phone2: "Celular"
+      fax: "Fax"
+      address1: "Dirección"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      company_id: "Compañía"
+      description: "Descripción"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"
+  client_branches:
+    show:
+      name: "Nombre: "
+      contact_name: "Contacto: " 
+      email1: "Correo Electrónico: "
+      email2: "Correo Electrónico Alternativo: "      
+      webpage: "Sitío Web: "       
+      phone1: "Teléfono: "
+      phone2: "Celular: "
+      fax: "Fax: "
+      address1: "Dirección: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      client_id: "Cliente: "
+      description: "Descripción: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "      
+    index:
+      name: "Nombre"
+      contact_name: "Contacto" 
+      email1: "Correo Electrónico"
+      email2: "Correo Electrónico Alternativo"      
+      webpage: "Sitío Web"       
+      phone1: "Teléfono"
+      phone2: "Celular"
+      fax: "Fax"
+      address1: "Dirección"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      client_id: "Cliente"
+      description: "Descripción"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"      
+  drivers:
+    show:
+      user_id: "Usuario: "
+      truck_id: "Camión: "
+      branch_id: "Sucursal de Proveedo: "        
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "      
+    index:
+      user_id: "Usuario"
+      truck_id: "Camión"
+      branch_id: "Sucursal de Proveedor"        
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"       
+  cellphones:
+    show:
+      phone_number: "Numero: "
+      model: "Modelo: "
+      brand: "Marca: "
+      color: "Color: "
+      ope_system: "Sistema Operativo: "
+      condition: "Condición: "
+      imei: "IMEI: "
+      description: "Descripción: "
+      user_id: "Usuario: "
+      company_id: "Compañía: "        
+      branch_id: "Sucursal de Proveedo: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "      
+    index:
+      phone_number: "Numero"
+      model: "Modelo"
+      brand: "Marca"
+      color: "Color"
+      ope_system: "Sistema Operativo"
+      condition: "Condición"
+      imei: "IMEI"
+      description: "Descripción"
+      user_id: "Usuario"
+      company_id: "Compañía"      
+      branch_id: "Sucursal de Proveedor"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"
+  error_reports:
+    show: 
+      user: "Usuario: "
+      controller_name: "Controlador: "
+      action_name: "Acción: "
+      line_number: "Numero de Línea: "
+      referrer_url: "Url Referida: "
+      original_path: "Url de Origen: "
+      environment: "Ambiente de Desarrollo: "
+      branch_id: "Sucursal de Proveedo: "
+      description: "Descripción: "
+      backtrace: "Descripción Completa: "
+      error_time: "Tiempo del Error: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: " 
+    index: 
+      user: "Usuario"
+      controller_name: "Controlador"
+      action_name: "Acción"
+      line_number: "Numero de Línea"
+      referrer_url: "Url Referida"
+      original_path: "Url de Origen"
+      environment: "Ambiente de Desarrollo"
+      branch_id: "Sucursal de Proveedor"
+      description: "Descripción"
+      backtrace: "Descripción Completa"
+      error_time: "Tiempo del Error"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"      
+  routes:
+    show:
+      name: "Nombre: "
+      schedule_id: "Horario: "
+      created_at: "Registrada el: "
+      updated_at: "Actualizada el: "
+    index:
+      name: "Nombre"
+      schedule_id: "Horario"
+      created_at: "Registrada el: "
+      updated_at: "Actualizada el: "      
+  schedules:
+    show:
+      branch_id: "Sucursal de Proveedo: "
+      driver_id: "Conductor: "
+      client_id: "Cliente: "
+      client_branch_id: "Sucursal de Cliente: "
+      monday: "Lunes: "
+      tuesday: "Martes: "
+      wednesday: "Miercoles: "
+      thursday: "Jueves: "
+      friday: "Viernes: "
+      saturday: "Sabado: "
+      sunday: "Domingo: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "     
+    index:
+      branch_id: "Sucursal de Proveedor"
+      driver_id: "Conductor"
+      client_id: "Cliente"
+      client_branch_id: "Sucursal de Cliente"
+      monday: "Lunes"
+      tuesday: "Martes"
+      wednesday: "Miercoles"
+      thursday: "Jueves"
+      friday: "Viernes"
+      saturday: "Sabado"
+      sunday: "Domingo"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"     
+  trucks:
+    show:
+      model: "Modelo: "
+      brand: "Marca: "
+      year: "Año: "
+      truck_type: "Tipo de Camion: "
+      plate_no: "Placas: "
+      serial_no: "No. de Serie: "
+      color: "Color: "
+      wheels_no: "No. de Llantas: "
+      other: "Otro: "
+      identifier: "Identificador: "
+      branch_id: "Sucursal de Proveedo: "
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "
+    index:
+      model: "Modelo"
+      brand: "Marca"
+      year: "Año"
+      truck_type: "Tipo de Camion"
+      plate_no: "Placas"
+      serial_no: "No. de Serie"
+      color: "Color"
+      wheels_no: "No. de Llantas"
+      other: "Otro"
+      identifier: "Identificador"
+      branch_id: "Sucursal de Proveedor"
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"    
+  hydraulic_systems:
+    show:
+      car_jack: 'Gatos: '
+      hoses: 'Mangueras: '
+      pump: 'Bomba: '
+      pto: 'Toma De Fuerza: '
+      valve_box: 'Caja Válvula: '
+      joystick: 'Palanca De Mando: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      car_jack: 'Gatos'
+      hoses: 'Mangueras'
+      pump: 'Bomba'
+      pto: 'Toma De Fuerza'
+      valve_box: 'Caja Válvula'
+      joystick: 'Palanca De Mando'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  drive_systems:
+    show:
+      engine: 'Motor: '
+      bands: 'Bandas: '
+      injection: 'Inyección: '
+      transmission: 'Transmisión: '
+      arrows: 'Flechas: '
+      yokes: 'Yugos/Crucetas: '
+      differential: 'Diferencial: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      engine: 'Motor'
+      bands: 'Bandas'
+      injection: 'Inyección'
+      transmission: 'Transmisión'
+      arrows: 'Flechas'
+      yokes: 'Yugos/Crucetas'
+      differential: 'Diferencial'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  electrical_systems:
+    show:
+      start_up: 'Encendido: '
+      accumulator: 'Acumulador: '
+      lights: 'Luces: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      start_up: 'Start Up'
+      accumulator: 'Accumulator'
+      lights: 'Lights'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  compactor_drawers:
+    show:
+      iron: 'Plancha: '
+      curtain: 'Cortina: '
+      shovel: 'Pala: '
+      floor: 'Piso: '
+      walls: 'Paredes: '
+      roof: 'Techo: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      iron: 'Plancha: '
+      curtain: 'Cortina: '
+      shovel: 'Pala: '
+      floor: 'Piso: '
+      walls: 'Paredes: '
+      roof: 'Techo: '
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  brakes_systems:
+    show:
+      compressor: 'Compresor: '
+      bands: 'Bandas: '
+      hoses: 'Mangueras: '
+      valve: 'Válvulas: '
+      palancon: 'Palancón: '
+      dual: 'Dual: '
+      double_chambers: 'Cámaras Dobles: '
+      balata: 'Balatas: '
+      drums: 'Tambores: '
+      mass: 'Masa: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      compressor: 'Compresor'
+      bands: 'Bandas'
+      hoses: 'Mangueras'
+      valve: 'Válvulas'
+      palancon: 'Palancón'
+      dual: 'Dual'
+      double_chambers: 'Cámaras Dobles'
+      balata: 'Balatas'
+      drums: 'Tambores'
+      mass: 'Masa'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  cabins:
+    show:
+      crystals: 'Cristales: '
+      mirrors: 'Espejos: '
+      elevators: 'Elevadores/Cristales: '
+      door_locks: 'Seguros/Chapas: '
+      doors: 'Puertas: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      crystals: 'Cristales'
+      mirrors: 'Espejos'
+      elevators: 'Elevadores/Cristales'
+      door_locks: 'Seguros/Chapas'
+      doors: 'Puertas'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+    #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
+    
+  activerecord:
+    models:
+      user: Usuario
+      users: Usuarios
+      role: Rol
+      roles: Roles
+      bill: Factura
+      bills: Facturas
+      branch: Sucursal de Proveedor
+      branches: Sucursales de Proveedor
+      company: Compañía
+      companies: Compañías
+      client_branch: Sucursal del Cliente
+      client_branches: Sucursales del Cliente
+      client: Cliente
+      clients: Clientes      
+      cellphone: Celular
+      cellphones: Celulares
+      driver: Conductor
+      drivers: Conductores
+      route: Ruta
+      routes: Rutas
+      schedule: Horario
+      schedules: Horarios
+      truck: Camion
+      trucks: Camiones
+      error_report: Reporte de Error
+      error_reports: Reporte de Errores
+      welcomes: "Bienvenido!"
+      hydraulic_system: 'Falla de Sistema Hidráulico'
+      hydraulic_systems: 'Fallas de Sistemas Hidráulicos'
+      drive_system: 'Falla de Sistema Motriz'
+      drive_systems: 'Fallas de Sistemas Motrices'
+      electrical_system: 'Falla de Sistema Eléctrico'
+      electrical_systems: 'Fallas de Sistemas Eléctricos'
+      compactor_drawer: 'Falla de Cajón Compactador'
+      compactor_drawers: 'Fallas de Cajónes Compactadores'
+      brakes_system: 'Falla de Sistema de Frenos'
+      brakes_systems: 'Fallas de Sistemas De Frenos'
+      cabin: 'Falla de Cabina'
+      cabins: 'Fallas de Cabinas'
+      #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT 
+      
+    attributes:
+      user:
+        fullname: "Nombre: "
+        first_name: "Nombre(s): "
+        last_name: "Apellidos(s): "
+        email: "Correo Electrónico: "
+        phone1: "Teléfono: "
+        phone2: "Celular: "
+        fax: "Fax: "
+        address1: "Dirección: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        role_id:  "Rol: "
+        active: "Activo: "
+        username: "Nombre de Usuario: "
+        password: "Contraseña: "
+        password_confirmation: "Confirmacion de Contraseña: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+        last_sign_in_at: "Acceso por última vez el día : "
+      role:
+        name: "Nombre"
+        protected: "Protegido: "
+        description: "Descripción: "
+        super_admin: "Súper Administrador: "
+        branch_admin: "Administrador de Sucursal de Proveedo: "
+        routes_admin: "Administrador de Logistica: "
+        driver: "Conductor: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      bill: 
+        name: "Nombre: "
+        rfc: "Razon Social: "
+        email: "Correo Electrónico: "      
+        phone1: "Teléfono: "
+        phone2: "Celular: "
+        fax: "Fax: "
+        address1: "Dirección: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        client_id: "Cliente: "
+        branch_id: "Sucursal de Proveedo: "
+        company_id: "Compañía: "        
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      client: 
+        name: "Nombre: "
+        contact_name: "Contacto: " 
+        email1: "Correo Electrónico: "
+        email2: "Correo Electrónico Alternativo: "      
+        webpage: "Sitío Web: "       
+        phone1: "Teléfono: "
+        phone2: "Celular: "
+        fax: "Fax: "
+        address1: "Dirección: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        branch_id: "Sucursal de Proveedo: "
+        company_id: "Compañía: "
+        description: "Descripción: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      branch: 
+        name: "Nombre: "
+        contact_name: "Contacto: " 
+        email1: "Correo Electrónico: "
+        email2: "Correo Electrónico Alternativo: "      
+        webpage: "Sitío Web: "       
+        phone1: "Teléfono: "
+        phone2: "Celular: "
+        fax: "Fax: "
+        address1: "Dirección: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        company_id: "Compañía: "
+        description: "Descripción: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      company: 
+        name: "Nombre: "
+        contact_name: "Contacto: " 
+        email1: "Correo Electrónico: "
+        email2: "Correo Electrónico Alternativo: "      
+        webpage: "Sitío Web: "       
+        phone1: "Teléfono: "
+        phone2: "Celular: "
+        fax: "Fax: "
+        address1: "Dirección: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        company_id: "Compañía: "
+        description: "Descripción: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      client_branch:
+        name: "Nombre: "
+        contact_name: "Contacto: " 
+        email1: "Correo Electrónico: "
+        email2: "Correo Electrónico Alternativo: "      
+        webpage: "Sitío Web: "       
+        phone1: "Teléfono: "
+        phone2: "Celular: "
+        fax: "Fax: "
+        address1: "Dirección: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        client_id: "Cliente: "
+        description: "Descripción: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: " 
+      driver:
+        user_id: "Usuario: "
+        truck_id: "Camión: "
+        branch_id: "Sucursal de Proveedo: "        
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "         
+      cellphone:
+        phone_number: "Numero: "
+        model: "Modelo: "
+        brand: "Marca: "
+        color: "Color: "
+        ope_system: "Sistema Operativo: "
+        condition: "Condición: "
+        imei: "IMEI: "
+        description: "Descripción: "
+        user_id: "Usuario: "
+        company_id: "Compañía: "    
+        branch_id: "Sucursal de Proveedo: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      error_report: 
+        user: "Usuario: "
+        controller_name: "Controlador: "
+        action_name: "Acción: "
+        line_number: "Numero de Línea: "
+        referrer_url: "Url Referida: "
+        original_path: "Url de Origen: "
+        environment: "Ambiente de Desarrollo: "
+        branch_id: "Sucursal de Proveedo: "
+        description: "Descripción: "
+        backtrace: "Descripción Completa: "
+        error_time: "Tiempo del Error: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "        
+      route:
+        name: "Nombre: "
+        schedule_id: "Horario: "
+        created_at: "Registrada el: "
+        updated_at: "Actualizada el: "        
+      schedule:
+        branch_id: "Sucursal de Proveedo: "
+        driver_id: "Conductor: "
+        client_id: "Cliente: "
+        client_branch_id: "Sucursal de Cliente: "
+        monday: "Lunes: "
+        tuesday: "Martes: "
+        wednesday: "Miercoles: "
+        thursday: "Jueves: "
+        friday: "Viernes: "
+        saturday: "Sabado: "
+        sunday: "Domingo: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      truck:
+        model: "Modelo: "
+        brand: "Marca: "
+        year: "Año: "
+        truck_type: "Tipo de Camion: "
+        plate_no: "Placas: "
+        serial_no: "No. de Serie: "
+        color: "Color: "
+        wheels_no: "No. de Llantas: "
+        other: "Otro: "
+        identifier: "Identificador: "
+        branch_id: "Sucursal de Proveedo: "
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
+      hydraulic_system:
+        car_jack: 'Gatos: '
+        hoses: 'Mangueras: '
+        pump: 'Bomba: '
+        pto: 'Toma De Fuerza: '
+        valve_box: 'Caja Válvula: '
+        joystick: 'Palanca De Mando: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      drive_system:
+        engine: 'Motor: '
+        bands: 'Bandas: '
+        injection: 'Inyección: '
+        transmission: 'Transmisión: '
+        arrows: 'Flechas: '
+        yokes: 'Yugos/Crucetas: '
+        differential: 'Diferencial: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      electrical_system:
+        start_up: 'Encendido: '
+        accumulator: 'Acumulador: '
+        lights: 'Luces: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
+      compactor_drawer:
+        iron: 'Plancha: '
+        curtain: 'Cortina: '
+        shovel: 'Pala: '
+        floor: 'Piso: '
+        walls: 'Paredes: '
+        roof: 'Techo: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      brakes_system:
+        compressor: 'Compresor: '
+        bands: 'Bandas: '
+        hoses: 'Mangueras: '
+        valve: 'Válvulas: '
+        palancon: 'Palancón: '
+        dual: 'Dual: '
+        double_chambers: 'Cámaras Dobles: '
+        balata: 'Balatas: '
+        drums: 'Tambores: '
+        mass: 'Masa: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      cabin:
+        crystals: 'Cristales'
+        mirrors: 'Espejos'
+        elevators: 'Elevadores/Cristales'
+        door_locks: 'Seguros/Chapas'
+        doors: 'Puertas'
+        observations: 'Observaciones'
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
+      
+    errors: 
+      template:
+        header:
+          one: "Un error evitó que este elemento ( %{model}) fuera registrado:"
+          other: "%{count} errores evitaron que este elemento ( %{model}) fuera registrado:"
+        body: "Se encontraron problemas con los siguientes campos:"
+      messages:
+        invalid_attachment_size: " sobrepasa el límite de tamaño permitido, elija un archivo diferente."
+        invalid_attachment_content_type: " inválido, elija un archivo diferente con la extension correspondiente."
+        taken: "registro ya existente."
+        invalid: "campo inválido."
+        blank: "no puede ser un campo vacío."
+        too_short: "valor demasiado corto."
+        too_long: "valor demasiado largo."
+        not_a_number: "no es un valor numérico." 
+        not_saved: "%{count} errores evitaron que este elemento ( %{model}) fuera registrado:"
+        rol_type: "Debe seleccionar al menos un tipo de rol."
+        access_denied: "Usted no tiene permiso para realizar esa acción."
+        you_need_to_select_at_least_one_day: "Tiene que seleccionar por lo menos un día."
+      models:
+        user:
+          attributes:
+            first_name:
+              too_long: " valor demasiado largo, se aceptan como máximo 30 caracteres."
+            last_name:  

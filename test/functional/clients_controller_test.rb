@@ -18,7 +18,7 @@ class ClientsControllerTest < ActionController::TestCase
 
   test "should create client" do
     assert_difference('Client.count') do
-      post :create, client: { address1: @client.address1, address2: @client.address2, city: @client.city, country: @client.country, email: @client.email, fax: @client.fax, first_name: @client.first_name, last_name: @client.last_name, phone1: @client.phone1, phone2: @client.phone2, state: @client.state, zip: @client.zip }
+      post :create, client: { address1: @client.address1, address2: @client.address2, city: @client.city, country: @client.country, description: @client.description, email1: @client.email1, email2: @client.email2, fax: @client.fax, name: @client.name, phone1: @client.phone1, phone2: @client.phone2, state: @client.state, webpage: @client.webpage, zip: @client.zip }
     end
 
     assert_redirected_to client_path(assigns(:client))
@@ -35,7 +35,7 @@ class ClientsControllerTest < ActionController::TestCase
   end
 
   test "should update client" do
-    put :update, id: @client, client: { address1: @client.address1, address2: @client.address2, city: @client.city, country: @client.country, email: @client.email, fax: @client.fax, first_name: @client.first_name, last_name: @client.last_name, phone1: @client.phone1, phone2: @client.phone2, state: @client.state, zip: @client.zip }
+    put :update, id: @client, client: { address1: @client.address1, address2: @client.address2, city: @client.city, country: @client.country, description: @client.description, email1: @client.email1, email2: @client.email2, fax: @client.fax, name: @client.name, phone1: @client.phone1, phone2: @client.phone2, state: @client.state, webpage: @client.webpage, zip: @client.zip }
     assert_redirected_to client_path(assigns(:client))
   end
 

@@ -17,7 +17,9 @@ class Ability
       can [:manage], Cellphone, :branch_id => @user.branch_id
       can [:manage], Truck, :branch_id => @user.branch_id
       can [:manage], Driver, :branch_id => @user.branch_id
-      can [:manage], Schedule, :branch_id => @user.branch_id
+      can [:manage], Schedule#, :branch_id => @user.branch_id
+      can [:manage], Route, :branch_id => @user.branch_id
+      can [:manage], ClientBranch#, :branch_id => @user.branch_id
     else
       can :read, Branch 
     end

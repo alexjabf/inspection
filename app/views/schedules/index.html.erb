@@ -5,7 +5,7 @@
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
         <th><%= t'.driver' %></th>
-        <th><%= t'.client' %></th>
+        <th><%= t'.client_branch' %></th>
         <th><%= t'.monday' %></th>
         <th><%= t'.tuesday' %></th>
         <th><%= t'.wednesday' %></th>
@@ -44,7 +44,7 @@
 
           <td><%= schedule.driver.user.fullname %></td>
 
-          <td><%= schedule.client.fullname %></td>
+          <td><%= schedule.client_branch.name %></td>
 
           <td><%= t(schedule.monday.to_s) %></td>
 
@@ -67,3 +67,4 @@
   <%= render "layouts/action_links" %>
 </div> 
 <%= render "layouts/second_tab" %>
+<br><br><br>
