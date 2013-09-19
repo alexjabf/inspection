@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 gem "therubyracer"
 gem "thin"
 gem 'sqlite3'
-#gem "activerecord-postgresql-adapter"
+gem "activerecord-postgresql-adapter"
 #gem "pg"
 gem "mysql2"
 gem 'devise', "~> 2.2.3"
