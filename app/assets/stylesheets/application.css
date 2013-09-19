@@ -15,6 +15,9 @@
 
 /********************************      Basic Structure      ********************************/
 
+a   { text-decoration: none; }
+a:hover   { color: white !important;   background: transparent !important;}
+
 .left-custom-column{
     float:left;
     width: 48%;

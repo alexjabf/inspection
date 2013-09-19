@@ -43,7 +43,6 @@
             <a href="#" class="nav-top-item" onclick="setCurrentClass('welcomes');" id="welcomes"> <!-- Add the class "current" to current menu item -->
               <%=  t(:truck_failures)%>
             </a>
-    <%# ["BrakesSystem", "Cabin", "CompactorDrawer", "DriveSystem", "ElectricalSystem", "HydraulicSystem",].each do |model|%>
             <ul>
               <%if can? :index, BrakesSystem%>
                 <li><%=link_to eval("t('activerecord.models.brakes_systems')"), brakes_systems_path %></li>
@@ -64,7 +63,6 @@
                 <li><%=link_to eval("t('activerecord.models.hydraulic_systems')"), hydraulic_systems_path %></li>
               <%end%>
             </ul>
-    <%#end%>
           </li>
         <%end%> 
 
