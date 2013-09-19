@@ -37,8 +37,28 @@
             <%=link_to current_user.branch.company.name, current_user.branch, :class=> "nav-top-item no-submenu", :onclick=>"setCurrentClass('shoew_branch');", :id=>"show_branch"%>
           </li>
         <%end%>
+
+        <% if current_user.role.super_admin or current_user.role.branch_admin or current_user.role.routes_admin%>
+          <li> 
+            <a href="#" class="nav-top-item" onclick="setCurrentClass('welcomes');" id="welcomes"> <!-- Add the class "current" to current menu item -->
+              <%=  t(:truck_failures)%>
+            </a>
+            <% ["BrakesSystem", "Cabin", "CompactorDrawer", "DriveSystem", "ElectricalSystem", "HydraulicSystem",].each do |model|%>
+              <ul>
+                <%if can? :index, eval(model)%>
+                  <li><%=link_to eval("t('activerecord.models.#{model.underscore.downcase.pluralize}')"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
+                <%end%>
+                <%if can? :new, eval(model) %>
+                  <li><%=link_to eval("t('actions.new',  model: t('activerecord.models.#{model.underscore.downcase.singularize.gsub(" ", "")}'))"), eval("new_#{model.underscore.downcase}_path") %></li>
+                <%end%>
+              </ul>
+            <%end%>
+          </li>
+        <%end%> 
+
+
         <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
-        <% @models -= %w{Ability SchedulesRoute} %>
+        <% @models -= %w{Ability SchedulesRoute BrakesSystem Cabin CompactorDrawer DriveSystem ElectricalSystem HydraulicSystem} %>
         <% @models.each do |model|%>
           <% if can? :new, eval(model) or can? :index, eval(model)%>
             <li> 

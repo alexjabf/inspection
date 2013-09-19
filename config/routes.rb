@@ -1,4 +1,22 @@
 Inspection::Application.routes.draw do
+  resources :cabins
+
+
+  resources :brakes_systems
+
+
+  resources :compactor_drawers
+
+
+  resources :electrical_systems
+
+
+  resources :drive_systems
+
+
+  resources :hydraulic_systems
+
+
   resources :bills
 
 

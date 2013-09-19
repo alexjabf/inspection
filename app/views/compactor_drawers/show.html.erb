@@ -1,0 +1,63 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <%= eval("t('activerecord.models.#{controller_name.underscore.singularize}')") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver_id' %></b> <%= @compactor_drawer.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.truck_id' %></b> <%= @compactor_drawer.truck.modelbrand %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.created_at' %></b>   <%= I18n.l @compactor_drawer.created_at, :format => :long %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.iron' %></b> <%= t(@compactor_drawer.iron.to_s)  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.curtain' %></b> <%= t(@compactor_drawer.curtain.to_s)  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.shovel' %></b> <%= t(@compactor_drawer.shovel.to_s)  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.floor' %></b> <%= t(@compactor_drawer.floor.to_s)  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.walls' %></b> <%= t(@compactor_drawer.walls.to_s)  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.roof' %></b> <%= t(@compactor_drawer.roof.to_s)  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.observations' %></b> <%= @compactor_drawer.observations  %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

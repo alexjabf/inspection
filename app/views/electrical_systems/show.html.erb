@@ -1,0 +1,48 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <%= eval("t('activerecord.models.#{controller_name.underscore.singularize}')") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver_id' %></b> <%= @electrical_system.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.truck_id' %></b> <%= @electrical_system.truck.modelbrand %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.created_at' %></b>   <%= I18n.l @electrical_system.created_at, :format => :long %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.start_up' %></b> <%= t(@electrical_system.start_up.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.accumulator' %></b> <%= t(@electrical_system.accumulator.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.lights' %></b> <%= t(@electrical_system.lights.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.observations' %></b> <%= @electrical_system.observations %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

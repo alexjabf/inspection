@@ -1,0 +1,58 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@drive_system) do |f| %>
+<% if @drive_system.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@drive_system.errors.count, "error") %> prohibited this drive_system from being saved:</h2>
+
+  <ul>
+    <% @drive_system.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :engine %>
+    <%= f.check_box :engine, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :bands %>
+    <%= f.check_box :bands, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :injection %>
+    <%= f.check_box :injection, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :transmission %>
+    <%= f.check_box :transmission, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :arrows %>
+    <%= f.check_box :arrows, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :yokes %>
+    <%= f.check_box :yokes, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :differential %>
+    <%= f.check_box :differential, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :observations %>
+    <%= f.text_area :observations, :class=>"text-input small-input" %>
+  </p>
+  <%if controller.action_name == "new" or controller.action_name == "create" %>
+    <p class="field">
+      <%= f.label :driver_id %>
+      <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+    </p>
+  <%end%>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

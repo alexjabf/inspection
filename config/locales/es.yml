@@ -22,6 +22,7 @@ es:
   new_client: "Registrar Nuevo Cliente"
   new_schedule: "Crear Horario a Cliente"
   new_route: "Crear Ruta"
+  truck_failures: "Fallas de Camiones"
   at_least_one_is_required: "Al menos un día es requerido."
   date:
     abbr_day_names:
@@ -628,7 +629,159 @@ es:
       branch_id: "Sucursal de Proveedor"
       created_at: "Registrado el"
       updated_at: "Actualizado el"    
-    
+  hydraulic_systems:
+    show:
+      car_jack: 'Gatos: '
+      hoses: 'Mangueras: '
+      pump: 'Bomba: '
+      pto: 'Toma De Fuerza: '
+      valve_box: 'Caja Válvula: '
+      joystick: 'Palanca De Mando: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      car_jack: 'Gatos'
+      hoses: 'Mangueras'
+      pump: 'Bomba'
+      pto: 'Toma De Fuerza'
+      valve_box: 'Caja Válvula'
+      joystick: 'Palanca De Mando'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  drive_systems:
+    show:
+      engine: 'Motor: '
+      bands: 'Bandas: '
+      injection: 'Inyección: '
+      transmission: 'Transmisión: '
+      arrows: 'Flechas: '
+      yokes: 'Yugos/Crucetas: '
+      differential: 'Diferencial: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      engine: 'Motor'
+      bands: 'Bandas'
+      injection: 'Inyección'
+      transmission: 'Transmisión'
+      arrows: 'Flechas'
+      yokes: 'Yugos/Crucetas'
+      differential: 'Diferencial'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  electrical_systems:
+    show:
+      start_up: 'Encendido: '
+      accumulator: 'Acumulador: '
+      lights: 'Luces: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      start_up: 'Start Up'
+      accumulator: 'Accumulator'
+      lights: 'Lights'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  compactor_drawers:
+    show:
+      iron: 'Plancha: '
+      curtain: 'Cortina: '
+      shovel: 'Pala: '
+      floor: 'Piso: '
+      walls: 'Paredes: '
+      roof: 'Techo: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      iron: 'Plancha: '
+      curtain: 'Cortina: '
+      shovel: 'Pala: '
+      floor: 'Piso: '
+      walls: 'Paredes: '
+      roof: 'Techo: '
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  brakes_systems:
+    show:
+      compressor: 'Compresor: '
+      bands: 'Bandas: '
+      hoses: 'Mangueras: '
+      valve: 'Válvulas: '
+      palancon: 'Palancón: '
+      dual: 'Dual: '
+      double_chambers: 'Cámaras Dobles: '
+      balata: 'Balatas: '
+      drums: 'Tambores: '
+      mass: 'Masa: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      compressor: 'Compresor'
+      bands: 'Bandas'
+      hoses: 'Mangueras'
+      valve: 'Válvulas'
+      palancon: 'Palancón'
+      dual: 'Dual'
+      double_chambers: 'Cámaras Dobles'
+      balata: 'Balatas'
+      drums: 'Tambores'
+      mass: 'Masa'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  cabins:
+    show:
+      crystals: 'Cristales: '
+      mirrors: 'Espejos: '
+      elevators: 'Elevadores/Cristales: '
+      door_locks: 'Seguros/Chapas: '
+      doors: 'Puertas: '
+      observations: 'Observaciones: '
+      truck_id: 'Camión: '
+      driver_id: 'Conductor: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      crystals: 'Cristales'
+      mirrors: 'Espejos'
+      elevators: 'Elevadores/Cristales'
+      door_locks: 'Seguros/Chapas'
+      doors: 'Puertas'
+      observations: 'Observaciones'
+      truck_id: 'Camión'
+      driver_id: 'Conductor'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+    #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
   activerecord:
     models:
@@ -659,6 +812,20 @@ es:
       error_report: Reporte de Error
       error_reports: Reporte de Errores
       welcomes: "Bienvenido!"
+      hydraulic_system: 'Falla de Sistema Hidráulico'
+      hydraulic_systems: 'Fallas de Sistemas Hidráulicos'
+      drive_system: 'Falla de Sistema Motriz'
+      drive_systems: 'Fallas de Sistemas Motrices'
+      electrical_system: 'Falla de Sistema Eléctrico'
+      electrical_systems: 'Fallas de Sistemas Eléctricos'
+      compactor_drawer: 'Falla de Cajón Compactador'
+      compactor_drawers: 'Fallas de Cajónes Compactadores'
+      brakes_system: 'Falla de Sistema de Frenos'
+      brakes_systems: 'Fallas de Sistemas De Frenos'
+      cabin: 'Falla de Cabina'
+      cabins: 'Fallas de Cabinas'
+      #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT 
+      
     attributes:
       user:
         fullname: "Nombre: "
@@ -854,7 +1021,81 @@ es:
         branch_id: "Sucursal de Proveedo: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
-        
+      hydraulic_system:
+        car_jack: 'Gatos: '
+        hoses: 'Mangueras: '
+        pump: 'Bomba: '
+        pto: 'Toma De Fuerza: '
+        valve_box: 'Caja Válvula: '
+        joystick: 'Palanca De Mando: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      drive_system:
+        engine: 'Motor: '
+        bands: 'Bandas: '
+        injection: 'Inyección: '
+        transmission: 'Transmisión: '
+        arrows: 'Flechas: '
+        yokes: 'Yugos/Crucetas: '
+        differential: 'Diferencial: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      electrical_system:
+        start_up: 'Encendido: '
+        accumulator: 'Acumulador: '
+        lights: 'Luces: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
+      compactor_drawer:
+        iron: 'Plancha: '
+        curtain: 'Cortina: '
+        shovel: 'Pala: '
+        floor: 'Piso: '
+        walls: 'Paredes: '
+        roof: 'Techo: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      brakes_system:
+        compressor: 'Compresor: '
+        bands: 'Bandas: '
+        hoses: 'Mangueras: '
+        valve: 'Válvulas: '
+        palancon: 'Palancón: '
+        dual: 'Dual: '
+        double_chambers: 'Cámaras Dobles: '
+        balata: 'Balatas: '
+        drums: 'Tambores: '
+        mass: 'Masa: '
+        observations: 'Observaciones: '
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      cabin:
+        crystals: 'Cristales'
+        mirrors: 'Espejos'
+        elevators: 'Elevadores/Cristales'
+        door_locks: 'Seguros/Chapas'
+        doors: 'Puertas'
+        observations: 'Observaciones'
+        truck_id: 'Camión: '
+        driver_id: 'Conductor: '
+        created_at: 'Registrado el'
+        updated_at: 'Actualizado el'
+      #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
+      
     errors: 
       template:
         header:

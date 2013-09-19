@@ -1,0 +1,2 @@
+module CompactorDrawersHelper
+end

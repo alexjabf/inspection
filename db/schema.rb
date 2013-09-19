@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913174749) do
+ActiveRecord::Schema.define(:version => 20130919015652) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
   add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
   add_index "bills", ["company_id"], :name => "index_bills_on_company_id"
 
+  create_table "brakes_systems", :force => true do |t|
+    t.boolean  "compressor"
+    t.boolean  "bands"
+    t.boolean  "hoses"
+    t.boolean  "valve"
+    t.boolean  "palancon"
+    t.boolean  "dual"
+    t.boolean  "double_chambers"
+    t.boolean  "balata"
+    t.boolean  "drums"
+    t.boolean  "mass"
+    t.text     "observations"
+    t.integer  "driver_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "brakes_systems", ["driver_id"], :name => "index_brakes_systems_on_driver_id"
+  add_index "brakes_systems", ["truck_id"], :name => "index_brakes_systems_on_truck_id"
+
   create_table "branches", :force => true do |t|
     t.string   "name"
     t.string   "contact_name"
@@ -58,6 +79,22 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
   end
 
   add_index "branches", ["company_id"], :name => "index_branches_on_company_id"
+
+  create_table "cabins", :force => true do |t|
+    t.boolean  "crystals"
+    t.boolean  "mirrors"
+    t.boolean  "elevators"
+    t.boolean  "door_locks"
+    t.boolean  "doors"
+    t.text     "observations"
+    t.integer  "driver_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "cabins", ["driver_id"], :name => "index_cabins_on_driver_id"
+  add_index "cabins", ["truck_id"], :name => "index_cabins_on_truck_id"
 
   create_table "cellphones", :force => true do |t|
     t.string   "phone_number"
@@ -131,6 +168,23 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
   add_index "clients", ["branch_id"], :name => "index_clients_on_branch_id"
   add_index "clients", ["company_id"], :name => "index_clients_on_company_id"
 
+  create_table "compactor_drawers", :force => true do |t|
+    t.boolean  "iron"
+    t.boolean  "curtain"
+    t.boolean  "shovel"
+    t.boolean  "floor"
+    t.boolean  "walls"
+    t.boolean  "roof"
+    t.text     "observations"
+    t.integer  "driver_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "compactor_drawers", ["driver_id"], :name => "index_compactor_drawers_on_driver_id"
+  add_index "compactor_drawers", ["truck_id"], :name => "index_compactor_drawers_on_truck_id"
+
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.string   "contact_name"
@@ -150,6 +204,24 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "drive_systems", :force => true do |t|
+    t.boolean  "engine"
+    t.boolean  "bands"
+    t.boolean  "injection"
+    t.boolean  "transmission"
+    t.boolean  "arrows"
+    t.boolean  "yokes"
+    t.boolean  "differential"
+    t.text     "observations"
+    t.integer  "driver_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "drive_systems", ["driver_id"], :name => "index_drive_systems_on_driver_id"
+  add_index "drive_systems", ["truck_id"], :name => "index_drive_systems_on_truck_id"
+
   create_table "drivers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "truck_id"
@@ -163,6 +235,20 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
   add_index "drivers", ["company_id"], :name => "index_drivers_on_company_id"
   add_index "drivers", ["truck_id"], :name => "index_drivers_on_truck_id"
   add_index "drivers", ["user_id"], :name => "index_drivers_on_user_id"
+
+  create_table "electrical_systems", :force => true do |t|
+    t.boolean  "start_up"
+    t.boolean  "accumulator"
+    t.boolean  "lights"
+    t.text     "observations"
+    t.integer  "driver_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "electrical_systems", ["driver_id"], :name => "index_electrical_systems_on_driver_id"
+  add_index "electrical_systems", ["truck_id"], :name => "index_electrical_systems_on_truck_id"
 
   create_table "error_reports", :force => true do |t|
     t.string   "user"
@@ -181,6 +267,23 @@ ActiveRecord::Schema.define(:version => 20130913174749) do
   end
 
   add_index "error_reports", ["branch_id"], :name => "index_error_reports_on_branch_id"
+
+  create_table "hydraulic_systems", :force => true do |t|
+    t.boolean  "car_jack"
+    t.boolean  "hoses"
+    t.boolean  "pump"
+    t.boolean  "pto"
+    t.boolean  "valve_box"
+    t.boolean  "joystick"
+    t.text     "observations"
+    t.integer  "driver_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "hydraulic_systems", ["driver_id"], :name => "index_hydraulic_systems_on_driver_id"
+  add_index "hydraulic_systems", ["truck_id"], :name => "index_hydraulic_systems_on_truck_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

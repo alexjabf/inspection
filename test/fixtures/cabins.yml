@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  crystals: false
+  mirrors: false
+  elevators: false
+  door_locks: false
+  doors: false
+  observations: MyText
+  failure: 
+
+two:
+  crystals: false
+  mirrors: false
+  elevators: false
+  door_locks: false
+  doors: false
+  observations: MyText
+  failure: 

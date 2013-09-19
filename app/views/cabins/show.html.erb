@@ -1,0 +1,58 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <%= eval("t('activerecord.models.#{controller_name.underscore.singularize}')") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver_id' %></b> <%= @cabin.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.truck_id' %></b> <%= t(@cabin.truck.modelbrand.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.created_at' %></b>   <%= I18n.l @cabin.created_at, :format => :long %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.crystals' %></b> <%= t(@cabin.crystals.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.mirrors' %></b> <%= t(@cabin.mirrors.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.elevators' %></b> <%= t(@cabin.elevators.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.door_locks' %></b> <%= t(@cabin.door_locks.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.doors' %></b> <%= t(@cabin.doors.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.observations' %></b> <%= @cabin.observations %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_up: false
+  accumulator: false
+  lights: false
+  observations: MyText
+  failure: 
+
+two:
+  start_up: false
+  accumulator: false
+  lights: false
+  observations: MyText
+  failure: 

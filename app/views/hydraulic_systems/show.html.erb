@@ -1,0 +1,63 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <%= eval("t('activerecord.models.#{controller_name.underscore.singularize}')") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver_id' %></b> <%= @hydraulic_system.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.truck_id' %></b> <%= @hydraulic_system.truck.modelbrand %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.created_at' %></b>   <%= I18n.l @hydraulic_system.created_at, :format => :long %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.car_jack' %></b> <%= t(@hydraulic_system.car_jack.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.hoses' %></b> <%= t(@hydraulic_system.hoses.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.pump' %></b> <%= t(@hydraulic_system.pump.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.pto' %></b> <%= t(@hydraulic_system.pto.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.valve_box' %></b> <%= t(@hydraulic_system.valve_box.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.joystick' %></b> <%= t(@hydraulic_system.joystick.to_s)%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.observations' %></b> <%= @hydraulic_system.observations %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

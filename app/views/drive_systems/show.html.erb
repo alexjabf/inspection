@@ -1,0 +1,68 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <%= eval("t('activerecord.models.#{controller_name.underscore.singularize}')") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.driver_id' %></b> <%= @drive_system.driver.user.fullname %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.truck_id' %></b> <%= @drive_system.truck.modelbrand %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.created_at' %></b>   <%= I18n.l @drive_system.created_at, :format => :long %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.engine' %></b> <%= t(@drive_system.engine.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.bands' %></b> <%= t(@drive_system.bands.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.injection' %></b> <%= t(@drive_system.injection.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.transmission' %></b> <%= t(@drive_system.transmission.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.arrows' %></b> <%= t(@drive_system.arrows.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.yokes' %></b> <%= t(@drive_system.yokes.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.differential' %></b> <%= t(@drive_system.differential.to_s) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.observations' %></b> <%= @drive_system.observations %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

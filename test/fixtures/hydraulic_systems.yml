@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  car_jack: false
+  hoses: false
+  pump: false
+  pto: false
+  valve_box: false
+  joystick: false
+  observations: MyText
+  failure: 
+
+two:
+  car_jack: false
+  hoses: false
+  pump: false
+  pto: false
+  valve_box: false
+  joystick: false
+  observations: MyText
+  failure: 
