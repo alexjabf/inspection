@@ -7,8 +7,6 @@ gem 'rails', '3.2.13'
 gem "therubyracer"
 gem "thin"
 gem 'sqlite3'
-#gem "activerecord-postgresql-adapter"
-#gem "pg"
 gem "mysql2"
 gem 'devise', "~> 2.2.3"
 gem "cancan"
@@ -25,6 +23,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development, :test do
+  gem "pg"
 end
 
 gem 'jquery-rails'
