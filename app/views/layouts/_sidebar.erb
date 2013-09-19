@@ -43,13 +43,28 @@
             <a href="#" class="nav-top-item" onclick="setCurrentClass('welcomes');" id="welcomes"> <!-- Add the class "current" to current menu item -->
               <%=  t(:truck_failures)%>
             </a>
-            <% ["BrakesSystem", "Cabin", "CompactorDrawer", "DriveSystem", "ElectricalSystem", "HydraulicSystem",].each do |model|%>
-              <ul>
-                <%if can? :index, eval(model)%>
-                  <li><%=link_to eval("t('activerecord.models.#{model.underscore.downcase.pluralize}')"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
-                <%end%>
-              </ul>
-            <%end%>
+    <%# ["BrakesSystem", "Cabin", "CompactorDrawer", "DriveSystem", "ElectricalSystem", "HydraulicSystem",].each do |model|%>
+            <ul>
+              <%if can? :index, BrakesSystem%>
+                <li><%=link_to eval("t('activerecord.models.brakes_systems')"), brakes_systems_path %></li>
+              <%end%>
+              <%if can? :index, Cabin%>
+                <li><%=link_to eval("t('activerecord.models.cabins')"), cabins_path %></li>
+              <%end%>
+              <%if can? :index, CompactorDrawer%>
+                <li><%=link_to eval("t('activerecord.models.compactor_drawers')"), compactor_drawers_path %></li>
+              <%end%>
+              <%if can? :index, DriveSystem%>
+                <li><%=link_to eval("t('activerecord.models.drive_systems')"), drive_systems_path %></li>
+              <%end%>
+              <%if can? :index, ElectricalSystem%>
+                <li><%=link_to eval("t('activerecord.models.electrical_systems')"), electrical_systems_path %></li>
+              <%end%>
+              <%if can? :index, HydraulicSystem%>
+                <li><%=link_to eval("t('activerecord.models.hydraulic_systems')"), hydraulic_systems_path %></li>
+              <%end%>
+            </ul>
+    <%#end%>
           </li>
         <%end%> 
 
