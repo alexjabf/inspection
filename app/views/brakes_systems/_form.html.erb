@@ -11,58 +11,61 @@
       </ul>
     </div>
   <% end %>
-
-  <p class="field">
-    <%= f.label :compressor %>
-    <%= f.check_box :compressor, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :bands %>
-    <%= f.check_box :bands, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :hoses %>
-    <%= f.check_box :hoses, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :valve %>
-    <%= f.check_box :valve, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :palancon %>
-    <%= f.check_box :palancon, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :dual %>
-    <%= f.check_box :dual, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :double_chambers %>
-    <%= f.check_box :double_chambers, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :balata %>
-    <%= f.check_box :balata, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :drums %>
-    <%= f.check_box :drums, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :mass %>
-    <%= f.check_box :mass, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :observations %>
-    <%= f.text_area :observations, :class=>"text-input small-input" %>
-  </p>
-  <%if controller.action_name == "new" or controller.action_name == "create" %>
+  <fieldset class="left-custom-column">
     <p class="field">
-      <%= f.label :driver_id %>
-      <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+      <%= f.label :compressor, :style => "position: absolute"   %>
+      <%= f.check_box :compressor, :class=>"text-input small-input" %>
     </p>
-  <%end%>
-
+    <p class="field">
+      <%= f.label :bands, :style => "position: absolute"   %>
+      <%= f.check_box :bands, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :hoses, :style => "position: absolute"   %>
+      <%= f.check_box :hoses, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :valve, :style => "position: absolute"   %>
+      <%= f.check_box :valve, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :palancon, :style => "position: absolute"   %>
+      <%= f.check_box :palancon, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :dual, :style => "position: absolute"   %>
+      <%= f.check_box :dual, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :double_chambers, :style => "position: absolute"   %>
+      <%= f.check_box :double_chambers, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :balata, :style => "position: absolute"   %>
+      <%= f.check_box :balata, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :drums, :style => "position: absolute"   %>
+      <%= f.check_box :drums, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :mass, :style => "position: absolute"   %>
+      <%= f.check_box :mass, :class=>"text-input small-input" %>
+    </p>
+    <%if controller.action_name == "new" or controller.action_name == "create" %>
+    <br>
+      <p class="field">
+        <%= f.label :driver_id %>
+        <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+      </p>
+    <%end%>
+  </fieldset>
+  <fieldset class="right-custom-column">
+    <p class="field">
+      <%= f.label :observations %>
+      <%= f.text_area :observations, :style => "height:180px;"%>
+    </p>
+  </fieldset>
   <div class="form-actions">
     <%= f.submit nil, :class => 'button' %>
   </div>

@@ -6,6 +6,7 @@
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
         <th><%= t'.truck_id' %></th>  
+        <th><%= t'.created_at' %></th>
       </tr>
 
     </thead>
@@ -38,6 +39,8 @@
           <td><%= drive_system.truck.modelbrand %></td>
 
           <td><%= drive_system.driver.user.fullname %></td>
+
+          <td><%= I18n.l drive_system.created_at, :format => :long %></td>
 
           <%= render "layouts/index_links" %>
         <% end %>

@@ -811,6 +811,7 @@ es:
       trucks: Camiones
       error_report: Reporte de Error
       error_reports: Reporte de Errores
+      welcome: "Bienvenido!"
       welcomes: "Bienvenido!"
       hydraulic_system: 'Falla de Sistema Hidráulico'
       hydraulic_systems: 'Fallas de Sistemas Hidráulicos'

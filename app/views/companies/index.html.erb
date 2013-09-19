@@ -4,13 +4,13 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-                  <th><%= t'.name' %></th>
-                  <th><%= t'.email1' %></th>
-                  <th><%= t'.contact_name' %></th>
-                  <th><%= t'.phone1' %></th>
-                  <th><%= t'.address1' %></th>
-                  <th><%= t'.city' %></th>
-              </tr>
+        <th><%= t'.name' %></th>
+        <th><%= t'.email1' %></th>
+        <th><%= t'.contact_name' %></th>
+        <th><%= t'.phone1' %></th>
+        <th><%= t'.address1' %></th>
+        <th><%= t'.city' %></th>
+      </tr>
 
     </thead>
 
@@ -28,31 +28,31 @@
 
     <tbody>
       <% @companies.each do |company| %>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <%if can? :show, Company %>
-        <td><%=link_to company.id, company, :class => 'button'%></td>
-        <%else%>
-        <td><%= label company.id, company.id, :class => 'button'%></td>
-        <%end%>
-        
-                
-             <%= @model = company %> %>
-                          
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, Company %>
+            <td><%=link_to company.id, company, :class => 'button'%></td>
+          <%else%>
+            <td><%= label company.id, company.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = company %> 
+
           <td><%= company.name %></td>
-                             
+
           <td><%= company.email1 %></td>                             
-                             
+
           <td><%= company.contact_name %></td>
-                             
+
           <td><%= company.phone1 %></td>
-                             
+
           <td><%= company.address1 %></td>                            
-                             
+
           <td><%= company.city %></td>
-                <%= render "layouts/index_links" %>
+          <%= render "layouts/index_links" %>
         <% end %>
-            </tr>
+      </tr>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>

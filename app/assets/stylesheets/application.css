@@ -39,3 +39,7 @@ a:hover   { color: white !important;   background: transparent !important;}
     top: 4px;
     left: 7px;    
 }
+
+form input[type="checkbox"]{
+    position: absolute;
+}

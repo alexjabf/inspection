@@ -1,5 +1,5 @@
-<%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-  <div id="tab2" class="tab-content" style="display: block;">
+<%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", ""))%>
+<div id="tab2" class="tab-content" style="display: block;">
     <%eval("@#{controller_name.singularize} = #{controller_name.singularize.titlecase.gsub(" ", "")}.new")%>
     <%= render 'form' %>
   </div>

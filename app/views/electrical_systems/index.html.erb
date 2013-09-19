@@ -4,9 +4,10 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-                  <th><%= t'.driver_id' %></th>
-                  <th><%= t'.truck_id' %></th>  
-              </tr>
+        <th><%= t'.driver_id' %></th>
+        <th><%= t'.truck_id' %></th>  
+        <th><%= t'.created_at' %></th>
+      </tr>
 
     </thead>
 
@@ -24,22 +25,24 @@
 
     <tbody>
       <% @electrical_systems.each do |electrical_system| %>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <%if can? :show, ElectricalSystem %>
-        <td><%=link_to electrical_system.id, electrical_system, :class => 'button'%></td>
-        <%else%>
-        <td><%= label electrical_system.id, electrical_system.id, :class => 'button'%></td>
-        <%end%>
-        
-                  
-            <% @model = electrical_system %> 
-                    
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, ElectricalSystem %>
+            <td><%=link_to electrical_system.id, electrical_system, :class => 'button'%></td>
+          <%else%>
+            <td><%= label electrical_system.id, electrical_system.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = electrical_system %> 
+
           <td><%= electrical_system.truck.modelbrand %></td>
-  
+
           <td><%= electrical_system.driver.user.fullname %></td>
 
-                <%= render "layouts/index_links" %>
+          <td><%= I18n.l electrical_system.created_at, :format => :long %></td>
+
+          <%= render "layouts/index_links" %>
         <% end %>
       </tr>
     </tbody>

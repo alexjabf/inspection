@@ -1,51 +1,55 @@
 <%#= render "layouts/first_tab" %>
 <%= form_for(@cabin) do |f| %>
-<% if @cabin.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@cabin.errors.count, "error") %> prohibited this cabin from being saved:</h2>
+  <% if @cabin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cabin.errors.count, "error") %> prohibited this cabin from being saved:</h2>
 
-  <ul>
-    <% @cabin.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-  <p class="field">
-    <%= f.label :crystals %>
-    <%= f.check_box :crystals, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :mirrors %>
-    <%= f.check_box :mirrors, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :elevators %>
-    <%= f.check_box :elevators, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :door_locks %>
-    <%= f.check_box :door_locks, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :doors %>
-    <%= f.check_box :doors, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :observations %>
-    <%= f.text_area :observations, :class=>"text-input small-input" %>
-  </p>
-  <%if controller.action_name == "new" or controller.action_name == "create" %>
+      <ul>
+        <% @cabin.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="left-custom-column">
     <p class="field">
-      <%= f.label :driver_id %>
-      <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+      <%= f.label :crystals, :style => "position: absolute" %>
+      <%= f.check_box :crystals, :class=>"text-input small-input" %>
     </p>
-  <%end%>
+    <p class="field">
+      <%= f.label :mirrors, :style => "position: absolute" %>
+      <%= f.check_box :mirrors, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :elevators, :style => "position: absolute" %>
+      <%= f.check_box :elevators, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :door_locks, :style => "position: absolute" %>
+      <%= f.check_box :door_locks, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :doors, :style => "position: absolute" %>
+      <%= f.check_box :doors, :class=>"text-input small-input" %>
+    </p>
+    <%if controller.action_name == "new" or controller.action_name == "create" %>
+      <br>
+      <p class="field">
+        <%= f.label :driver_id %>
+        <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+      </p>
+    <%end%>
+  </fieldset>
+  <fieldset class="right-custom-column">
+    <p class="field">
+      <%= f.label :observations %>
+      <%= f.text_area :observations, :style => "height:120px;" %>
+    </p>
+  </fieldset>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 
 <% end %>
 <div>

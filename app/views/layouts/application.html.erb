@@ -118,11 +118,12 @@
                 $("#tab2").show();
 <%end%>
             </script>
-            <ul class="content-box-tabs">
-              <li><a href="#tab1"  id="tab-one"><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></a></li> <!-- href must be unique and match the id of target div -->
-              <li><a href="#tab2"  id="tab-two"><%= eval("t('actions.new',  model: t('activerecord.models.#{controller_name.underscore.downcase.singularize.gsub(" ", "")}'))") %></a></li>
-            </ul>
-
+            <% unless controller_name == "welcome" %>
+              <ul class="content-box-tabs">
+                <li><a href="#tab1"  id="tab-one"><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></a></li> <!-- href must be unique and match the id of target div -->
+                <li><a href="#tab2"  id="tab-two"><%= eval("t('actions.new',  model: t('activerecord.models.#{controller_name.underscore.downcase.singularize.gsub(" ", "")}'))") %></a></li>
+              </ul>
+            <% end %>
             <div class="clear"></div>
 
           </div> <!-- End .content-box-header -->

@@ -5,7 +5,8 @@
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
-        <th><%= t'.truck_id' %></th>  
+        <th><%= t'.truck_id' %></th> 
+        <th><%= t'.created_at' %></th>
       </tr>
 
     </thead>
@@ -38,6 +39,8 @@
           <td><%= cabin.truck.modelbrand %></td>
 
           <td><%= cabin.driver.user.fullname %></td>
+
+          <td><%= I18n.l cabin.created_at, :format => :long %></td>
 
           <%= render "layouts/index_links" %>
         <% end %>

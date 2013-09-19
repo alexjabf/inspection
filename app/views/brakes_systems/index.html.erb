@@ -6,7 +6,7 @@
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
         <th><%= t'.truck_id' %></th>                  
-
+        <th><%= t'.created_at' %></th>
       </tr>
 
     </thead>
@@ -39,6 +39,8 @@
           <td><%= brakes_system.truck.modelbrand %></td>
 
           <td><%= brakes_system.driver.user.fullname %></td>
+          
+          <td><%= I18n.l brakes_system.created_at, :format => :long %></td>
 
           <%= render "layouts/index_links" %>
         <% end %>

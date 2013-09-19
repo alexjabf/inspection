@@ -1,43 +1,46 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@electrical_system) do |f| %>
-<% if @electrical_system.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@electrical_system.errors.count, "error") %> prohibited this electrical_system from being saved:</h2>
+  <% if @electrical_system.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@electrical_system.errors.count, "error") %> prohibited this electrical_system from being saved:</h2>
 
-  <ul>
-    <% @electrical_system.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-  <p class="field">
-    <%= f.label :start_up %>
-    <%= f.check_box :start_up, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :accumulator %>
-    <%= f.check_box :accumulator, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :lights %>
-    <%= f.check_box :lights, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :observations %>
-    <%= f.text_area :observations, :class=>"text-input small-input" %>
-  </p>
-  <%if controller.action_name == "new" or controller.action_name == "create" %>
+      <ul>
+        <% @electrical_system.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="left-custom-column">
     <p class="field">
-      <%= f.label :driver_id %>
-      <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+      <%= f.label :start_up, :style => "position: absolute" %>
+      <%= f.check_box :start_up, :class=>"text-input small-input" %>
     </p>
-  <%end%>
-
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+    <p class="field">
+      <%= f.label :accumulator, :style => "position: absolute" %>
+      <%= f.check_box :accumulator, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :lights, :style => "position: absolute" %>
+      <%= f.check_box :lights, :class=>"text-input small-input" %>
+    </p>
+    <%if controller.action_name == "new" or controller.action_name == "create" %>
+      <br>
+      <p class="field">
+        <%= f.label :driver_id %>
+        <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
+      </p>
+    <%end%>
+  </fieldset>
+  <fieldset class="right-custom-column">
+    <p class="field">
+      <%= f.label :observations %>
+      <%= f.text_area :observations, :style => "height:100px;" %>
+    </p>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 
 <% end %>
 <div>
