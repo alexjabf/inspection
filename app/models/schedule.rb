@@ -3,8 +3,8 @@ class Schedule < ActiveRecord::Base
   belongs_to :driver
   belongs_to :client
   belongs_to :client_branch
-  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :client_branch_id
-  validates :client_id, :driver_id, :branch_id, :client_branch_id, :presence => true
+  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :client_branch_id, :week_day
+  validates :client_id, :driver_id, :branch_id, :client_branch_id, :week_day, :presence => true
   validates :client_id, :uniqueness => true
   validate :checkbox_validation
 
@@ -12,7 +12,7 @@ class Schedule < ActiveRecord::Base
     errors.add(:base, I18n.t('activerecord.errors.messages.you_need_to_select_at_least_one_day')) unless friday || monday || saturday || sunday || thursday || tuesday || wednesday
   end
   
-  def select_schedule
+  def selected_days
     client.name + " (" +
       " #{I18n.t('monday') + " " if monday}" +
       " #{I18n.t('tuesday') + " " if tuesday}" +

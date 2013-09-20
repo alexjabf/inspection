@@ -302,19 +302,6 @@ ActiveRecord::Schema.define(:version => 20130919015652) do
   add_index "roles", ["branch_id"], :name => "index_roles_on_branch_id"
   add_index "roles", ["company_id"], :name => "index_roles_on_company_id"
 
-  create_table "routes", :force => true do |t|
-    t.string   "name"
-    t.integer  "schedule_id"
-    t.integer  "company_id"
-    t.integer  "branch_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "routes", ["branch_id"], :name => "index_routes_on_branch_id"
-  add_index "routes", ["company_id"], :name => "index_routes_on_company_id"
-  add_index "routes", ["schedule_id"], :name => "index_routes_on_schedule_id"
-
   create_table "schedules", :force => true do |t|
     t.integer  "company_id"
     t.integer  "branch_id"
@@ -328,6 +315,7 @@ ActiveRecord::Schema.define(:version => 20130919015652) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
+    t.string   "week_day"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

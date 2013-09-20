@@ -7,7 +7,15 @@ es:
   thursday: "J /"
   friday: "V /"
   saturday: "S /"
-  sunday: "D"  
+  sunday: "D" 
+  days: "Días: "
+  Monday: "Lunes"
+  Tuesday: "Martes"
+  Wednesday: "Miercoles"
+  Thursday: "Jueves"
+  Friday: "Viernes"
+  Saturday: "Sabado"
+  Sunday: "Domingo"    
   home: "Inicio"
   logout : "Cerrar sesión"
   login: "Iniciar sesión"
@@ -22,7 +30,7 @@ es:
   new_client: "Registrar Nuevo Cliente"
   new_schedule: "Crear Horario a Cliente"
   new_route: "Crear Ruta"
-  truck_failures: "Fallas de Camiones"
+  truck_failures: "Fallas de Camiónes"
   at_least_one_is_required: "Al menos un día es requerido."
   date:
     abbr_day_names:
@@ -234,7 +242,7 @@ es:
       protected: "Protegido: "
       description: "Descripción: "
       super_admin: "Súper Administrador: "
-      branch_admin: "Administrador de Sucursal de Proveedo: "
+      branch_admin: "Administrador de Oficina: "
       routes_admin: "Administrador de Logistica: "
       driver: "Conductor: "
       created_at: "Registrado el: "
@@ -244,7 +252,7 @@ es:
       protected: "Protegido"
       description: "Descripción"
       super_admin: "Súper Administrador"
-      branch_admin: "Administrador de Sucursal de Proveedor"
+      branch_admin: "Administrador de Oficinar"
       routes_admin: "Administrador de Logistica"
       driver: "Conductor"
       created_at: "Registrado el"
@@ -309,7 +317,7 @@ es:
       zip: "Código Postal: "
       country: "País: "
       client_id: "Cliente: "
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       company_id: "Compañía: "      
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -327,7 +335,7 @@ es:
       zip: "Código Postal"
       country: "País"
       client_id: "Cliente"
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       company_id: "Compañía: "      
       created_at: "Registrado el"
       updated_at: "Actualizado el"
@@ -347,7 +355,7 @@ es:
       state: "Estado: "
       zip: "Código Postal: "
       country: "País: "
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       company_id: "Compañía: "
       description: "Descripción: "
       created_at: "Registrado el: "
@@ -367,7 +375,7 @@ es:
       state: "Estado"
       zip: "Código Postal"
       country: "País"
-      branch_id: "Sucursal de Proveedo: "      
+      branch_id: "Oficina: "      
       company_id: "Compañía"
       description: "Descripción"
       created_at: "Registrado el"
@@ -493,13 +501,13 @@ es:
     show:
       user_id: "Usuario: "
       truck_id: "Camión: "
-      branch_id: "Sucursal de Proveedo: "        
+      branch_id: "Oficina: "        
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "      
     index:
       user_id: "Usuario"
       truck_id: "Camión"
-      branch_id: "Sucursal de Proveedor"        
+      branch_id: "Oficinar"        
       created_at: "Registrado el"
       updated_at: "Actualizado el"       
   cellphones:
@@ -514,7 +522,7 @@ es:
       description: "Descripción: "
       user_id: "Usuario: "
       company_id: "Compañía: "        
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "      
     index:
@@ -528,7 +536,7 @@ es:
       description: "Descripción"
       user_id: "Usuario"
       company_id: "Compañía"      
-      branch_id: "Sucursal de Proveedor"
+      branch_id: "Oficinar"
       created_at: "Registrado el"
       updated_at: "Actualizado el"
   error_reports:
@@ -540,7 +548,7 @@ es:
       referrer_url: "Url Referida: "
       original_path: "Url de Origen: "
       environment: "Ambiente de Desarrollo: "
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       description: "Descripción: "
       backtrace: "Descripción Completa: "
       error_time: "Tiempo del Error: "
@@ -554,29 +562,22 @@ es:
       referrer_url: "Url Referida"
       original_path: "Url de Origen"
       environment: "Ambiente de Desarrollo"
-      branch_id: "Sucursal de Proveedor"
+      branch_id: "Oficinar"
       description: "Descripción"
       backtrace: "Descripción Completa"
       error_time: "Tiempo del Error"
       created_at: "Registrado el"
-      updated_at: "Actualizado el"      
-  routes:
-    show:
-      name: "Nombre: "
-      schedule_id: "Horario: "
-      created_at: "Registrada el: "
-      updated_at: "Actualizada el: "
-    index:
-      name: "Nombre"
-      schedule_id: "Horario"
-      created_at: "Registrada el: "
-      updated_at: "Actualizada el: "      
+      updated_at: "Actualizado el"           
   schedules:
     show:
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       driver_id: "Conductor: "
       client_id: "Cliente: "
+      truck_id: "Camión: " 
       client_branch_id: "Sucursal de Cliente: "
+      week_day: "Día: "
+      serial_no: "Numero de Serie del Camión: "
+      plate_no: "Placas del Camión: "
       monday: "Lunes: "
       tuesday: "Martes: "
       wednesday: "Miercoles: "
@@ -587,10 +588,12 @@ es:
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "     
     index:
-      branch_id: "Sucursal de Proveedor"
+      branch_id: "Oficinar"
       driver_id: "Conductor"
       client_id: "Cliente"
+      truck_id: "Camión" 
       client_branch_id: "Sucursal de Cliente"
+      week_day: "Día"      
       monday: "Lunes"
       tuesday: "Martes"
       wednesday: "Miercoles"
@@ -605,28 +608,28 @@ es:
       model: "Modelo: "
       brand: "Marca: "
       year: "Año: "
-      truck_type: "Tipo de Camion: "
+      truck_type: "Tipo de Camión: "
       plate_no: "Placas: "
       serial_no: "No. de Serie: "
       color: "Color: "
       wheels_no: "No. de Llantas: "
       other: "Otro: "
       identifier: "Identificador: "
-      branch_id: "Sucursal de Proveedo: "
+      branch_id: "Oficina: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index:
       model: "Modelo"
       brand: "Marca"
       year: "Año"
-      truck_type: "Tipo de Camion"
+      truck_type: "Tipo de Camión"
       plate_no: "Placas"
       serial_no: "No. de Serie"
       color: "Color"
       wheels_no: "No. de Llantas"
       other: "Otro"
       identifier: "Identificador"
-      branch_id: "Sucursal de Proveedor"
+      branch_id: "Oficinar"
       created_at: "Registrado el"
       updated_at: "Actualizado el"    
   hydraulic_systems:
@@ -791,7 +794,7 @@ es:
       roles: Roles
       bill: Factura
       bills: Facturas
-      branch: Sucursal de Proveedor
+      branch: Oficinar
       branches: Sucursales de Proveedor
       company: Compañía
       companies: Compañías
@@ -803,12 +806,10 @@ es:
       cellphones: Celulares
       driver: Conductor
       drivers: Conductores
-      route: Ruta
-      routes: Rutas
       schedule: Horario
       schedules: Horarios
-      truck: Camion
-      trucks: Camiones
+      truck: Camión
+      trucks: Camiónes
       error_report: Reporte de Error
       error_reports: Reporte de Errores
       welcome: "Bienvenido!"
@@ -855,7 +856,7 @@ es:
         protected: "Protegido: "
         description: "Descripción: "
         super_admin: "Súper Administrador: "
-        branch_admin: "Administrador de Sucursal de Proveedo: "
+        branch_admin: "Administrador de Oficina: "
         routes_admin: "Administrador de Logistica: "
         driver: "Conductor: "
         created_at: "Registrado el: "
@@ -874,7 +875,7 @@ es:
         zip: "Código Postal: "
         country: "País: "
         client_id: "Cliente: "
-        branch_id: "Sucursal de Proveedo: "
+        branch_id: "Oficina: "
         company_id: "Compañía: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
@@ -893,7 +894,7 @@ es:
         state: "Estado: "
         zip: "Código Postal: "
         country: "País: "
-        branch_id: "Sucursal de Proveedo: "
+        branch_id: "Oficina: "
         company_id: "Compañía: "
         description: "Descripción: "
         created_at: "Registrado el: "
@@ -958,7 +959,7 @@ es:
       driver:
         user_id: "Usuario: "
         truck_id: "Camión: "
-        branch_id: "Sucursal de Proveedo: "        
+        branch_id: "Oficina: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "         
       cellphone:
@@ -972,7 +973,7 @@ es:
         description: "Descripción: "
         user_id: "Usuario: "
         company_id: "Compañía: "    
-        branch_id: "Sucursal de Proveedo: "
+        branch_id: "Oficina: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       error_report: 
@@ -983,22 +984,19 @@ es:
         referrer_url: "Url Referida: "
         original_path: "Url de Origen: "
         environment: "Ambiente de Desarrollo: "
-        branch_id: "Sucursal de Proveedo: "
+        branch_id: "Oficina: "
         description: "Descripción: "
         backtrace: "Descripción Completa: "
         error_time: "Tiempo del Error: "
         created_at: "Registrado el: "
-        updated_at: "Actualizado el: "        
-      route:
-        name: "Nombre: "
-        schedule_id: "Horario: "
-        created_at: "Registrada el: "
-        updated_at: "Actualizada el: "        
+        updated_at: "Actualizado el: "               
       schedule:
-        branch_id: "Sucursal de Proveedo: "
+        branch_id: "Oficina: "
         driver_id: "Conductor: "
         client_id: "Cliente: "
+        truck_id: "Camión: " 
         client_branch_id: "Sucursal de Cliente: "
+        week_day: "Día: "
         monday: "Lunes: "
         tuesday: "Martes: "
         wednesday: "Miercoles: "
@@ -1012,14 +1010,14 @@ es:
         model: "Modelo: "
         brand: "Marca: "
         year: "Año: "
-        truck_type: "Tipo de Camion: "
+        truck_type: "Tipo de Camión: "
         plate_no: "Placas: "
         serial_no: "No. de Serie: "
         color: "Color: "
         wheels_no: "No. de Llantas: "
         other: "Otro: "
         identifier: "Identificador: "
-        branch_id: "Sucursal de Proveedo: "
+        branch_id: "Oficina: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       hydraulic_system:
