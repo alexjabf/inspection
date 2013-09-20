@@ -4,15 +4,10 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
-        <th><%= t'.driver' %></th>
-        <th><%= t'.client_branch' %></th>
-        <th><%= t'.monday' %></th>
-        <th><%= t'.tuesday' %></th>
-        <th><%= t'.wednesday' %></th>
-        <th><%= t'.thursday' %></th>
-        <th><%= t'.friday' %></th>
-        <th><%= t'.saturday' %></th>
-        <th><%= t'.sunday' %></th>
+        <th><%= t'.driver_id' %></th>
+        <th><%= t'.client_branch_id' %></th>
+        <th><%= t'.week_day' %></th>
+        <th><%= t'days' %></th>
       </tr>
 
     </thead>
@@ -46,20 +41,12 @@
 
           <td><%= schedule.client_branch.name %></td>
 
-          <td><%= t(schedule.monday.to_s) %></td>
+          <td><%= schedule.week_day %></td>
 
-          <td><%= t(schedule.tuesday.to_s) %></td>
+          <td><%= schedule.selected_days %></td>
 
-          <td><%= t(schedule.wednesday.to_s) %></td>
-
-          <td><%= t(schedule.thursday.to_s) %></td>
-
-          <td><%= t(schedule.friday.to_s) %></td>
-
-          <td><%= t(schedule.saturday.to_s) %></td>
-
-          <td><%= t(schedule.sunday.to_s) %></td>
           <%= render "layouts/index_links" %>
+          
         <% end %>
       </tr>
     </tbody>

@@ -9,6 +9,11 @@
     </tr>
     <tr>
       <td>
+        <b><%= t'.week_day' %></b> <%= @schedule.week_day %>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <b><%= t'.driver_id' %></b> <%= @schedule.driver.user.fullname %>
       </td>
     </tr>
@@ -39,37 +44,7 @@
     </tr>
     <tr>
       <td>
-        <b><%= t'.monday' %></b> <%= t(@schedule.monday.to_s) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t'.tuesday' %></b> <%= t(@schedule.tuesday.to_s) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t'.wednesday' %></b> <%= t(@schedule.wednesday.to_s) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t'.thursday' %></b> <%= t(@schedule.thursday.to_s) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t'.friday' %></b> <%= t(@schedule.friday.to_s) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t'.saturday' %></b> <%= t(@schedule.saturday.to_s) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t'.sunday' %></b> <%= @schedule.sunday %>
+        <b><%= t(:days) %></b> <%= ((t(:Monday) + ", ") if  @schedule.monday)%><%=((t(:Tuesday) + ", ") if  @schedule.tuesday)%><%= ((t(:Wednesday) + ", ") if  @schedule.wednesday)%><%=((t(:Thursday) + ", ") if  @schedule.thursday)%><%= ((t(:Friday) + ", ") if  @schedule.friday)%><%=(t(:Saturday) + ", ") if  @schedule.saturday%><%= t(:Sunday) if  @schedule.sunday%>
       </td>
     </tr>
   </table>

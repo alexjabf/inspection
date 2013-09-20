@@ -13,6 +13,7 @@ class CreateSchedules < ActiveRecord::Migration
       t.boolean :friday
       t.boolean :saturday
       t.boolean :sunday
+      t.string :week_day
 
       t.timestamps
     end

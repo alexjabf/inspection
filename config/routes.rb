@@ -26,9 +26,6 @@ Inspection::Application.routes.draw do
   resources :client_branches
 
 
-  resources :routes
-
-
   resources :schedules
 
 
