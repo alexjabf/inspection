@@ -1098,8 +1098,8 @@ es:
     errors: 
       template:
         header:
-          one: "Un error evitó que este elemento ( %{model}) fuera registrado:"
-          other: "%{count} errores evitaron que este elemento ( %{model}) fuera registrado:"
+          one: "Un error evitó que este %{model} fuera registrado:"
+          other: "%{count} errores evitaron que este %{model} fuera registrado:"
         body: "Se encontraron problemas con los siguientes campos:"
       messages:
         invalid_attachment_size: " sobrepasa el límite de tamaño permitido, elija un archivo diferente."

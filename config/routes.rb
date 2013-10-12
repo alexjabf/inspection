@@ -1,4 +1,8 @@
 Inspection::Application.routes.draw do
+  get "mobile_services/get_driver_schedules"
+  get "mobile_services/get_driver_info"
+  get "mobile_services/index"
+
   resources :cabins
 
 
