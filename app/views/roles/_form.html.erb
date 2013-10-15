@@ -1,16 +1,16 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@role) do |f| %>
-<% if @role.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
 
-  <ul>
-    <% @role.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @role.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :name %>
@@ -23,6 +23,10 @@
   <p class="field">
     <%= f.label :super_admin %>
     <%= f.check_box :super_admin, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :company_admin %>
+    <%= f.check_box :company_admin, :class=>"text-input small-input" %>
   </p>
   <p class="field">
     <%= f.label :branch_admin %>
@@ -46,9 +50,9 @@
     <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
   </p>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button custom-submit' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button custom-submit' %>
+  </div>
 <% end %>
 <div>
   <%= render "layouts/action_links" %>

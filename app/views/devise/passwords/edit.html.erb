@@ -1,7 +1,5 @@
-<div class="notification" style="margin-bottom: 40px; text-align: center">
-  <div>
-    <p>Change your password<</p>
-  </div>
+<div class="notification" style="margin-bottom: 40px; text-align: center; padding: 10px 10px 10px 0px;">
+    <p><%= t('devise.passwords.change_your') %><</p>
 </div>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>

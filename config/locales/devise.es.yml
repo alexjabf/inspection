@@ -13,6 +13,8 @@ es:
 
   devise:
     failure:
+      user:
+        not_found_in_database: El usuario no existe en el sistema.      
       already_authenticated: 'Ya ha ingresado al sistema.'
       unauthenticated: 'Es necesario iniciar sesión o registrarse para continuar.'
       unconfirmed: 'Debe confirmar su cuenta para continuar.'

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  driver: 
+  branch: 
+  company: 
+  completed: false
+  priority: MyString
+  scheduled_date: 2013-10-15
+  latitude: 1.5
+  longitude: 1.5
+  description: MyText
+  comments: MyText
+  completed_at: 2013-10-15 10:44:46
+
+two:
+  name: MyString
+  driver: 
+  branch: 
+  company: 
+  completed: false
+  priority: MyString
+  scheduled_date: 2013-10-15
+  latitude: 1.5
+  longitude: 1.5
+  description: MyText
+  comments: MyText
+  completed_at: 2013-10-15 10:44:46

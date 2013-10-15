@@ -4,7 +4,7 @@ class RolesController < ApplicationController
 
   def index
 
-      @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false and (branch_admin = true or routes_admin = true or driver = true or company_id = #{current_user.company_id})").order('id DESC').paginate(:page => params[:page]) 
+    @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false and (branch_admin = true or routes_admin = true or driver = true or company_id = #{current_user.company_id})").order('id DESC').paginate(:page => params[:page]) 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,4 +85,5 @@ class RolesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 end

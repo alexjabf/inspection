@@ -1,4 +1,6 @@
 class HydraulicSystemsController < ApplicationController
+  include DriversHelper
+  before_filter :get_data
   before_filter :authenticate_user!
   load_and_authorize_resource
 
@@ -83,4 +85,9 @@ class HydraulicSystemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    get_drivers
+  end
+  
 end

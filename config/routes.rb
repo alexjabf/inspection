@@ -1,5 +1,16 @@
 Inspection::Application.routes.draw do
-  get "mobile_services/get_driver_schedules"
+  get "monitor/live"
+
+  resources :tasks
+
+
+  resources :schedules_histories
+
+
+  resources :routes_histories
+
+
+  get "mobile_services/get_driver_schedule"
   get "mobile_services/get_driver_info"
   get "mobile_services/index"
 

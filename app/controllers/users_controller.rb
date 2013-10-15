@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+  include RolesHelper
+  include BranchesHelper  
+  include CompaniesHelper 
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :index, :destroy]  
+  before_filter :get_user_role, :except => [:index, :new, :create]
   load_and_authorize_resource
   
   def index
@@ -81,4 +86,22 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    get_roles
+    get_branches
+    get_companies
+  end
+  
+  def get_user_role
+    @user = User.find(params[:id])
+    if @user.role.super_admin == true and current_user.role.super_admin == false
+      flash[:error] = "Usted no tiene permiso para accesar a esta pagina."
+      redirect_to root_path
+    elsif @user.role.company_admin == true and current_user.role.super_admin == false and current_user.role.company_admin == false
+      flash[:error] = "Usted no tiene permiso para accesar a esta pagina."
+      redirect_to root_path   
+    end
+  end
+  
 end

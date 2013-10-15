@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919015652) do
+ActiveRecord::Schema.define(:version => 20131015164446) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -268,6 +268,16 @@ ActiveRecord::Schema.define(:version => 20130919015652) do
 
   add_index "error_reports", ["branch_id"], :name => "index_error_reports_on_branch_id"
 
+  create_table "failures_histories", :force => true do |t|
+    t.integer  "routes_history_id"
+    t.integer  "failure_id"
+    t.string   "failure_type"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "failures_histories", ["routes_history_id"], :name => "index_failures_histories_on_routes_history_id"
+
   create_table "hydraulic_systems", :force => true do |t|
     t.boolean  "car_jack"
     t.boolean  "hoses"
@@ -287,20 +297,39 @@ ActiveRecord::Schema.define(:version => 20130919015652) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.boolean  "protected"
-    t.boolean  "super_admin"
-    t.boolean  "branch_admin"
-    t.boolean  "routes_admin"
-    t.boolean  "driver"
+    t.boolean  "protected",     :default => false, :null => false
+    t.boolean  "super_admin",   :default => false, :null => false
+    t.boolean  "company_admin", :default => false, :null => false
+    t.boolean  "branch_admin",  :default => false, :null => false
+    t.boolean  "routes_admin",  :default => false, :null => false
+    t.boolean  "driver",        :default => false, :null => false
     t.text     "description"
     t.integer  "branch_id"
     t.integer  "company_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "roles", ["branch_id"], :name => "index_roles_on_branch_id"
   add_index "roles", ["company_id"], :name => "index_roles_on_company_id"
+
+  create_table "routes_histories", :force => true do |t|
+    t.integer  "driver_id"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.integer  "initial_km"
+    t.integer  "final_km"
+    t.string   "start_latitude"
+    t.string   "start_longitude"
+    t.string   "end_latitude"
+    t.string   "end_longitude"
+    t.boolean  "closed",          :default => false, :null => false
+    t.string   "weekday"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "routes_histories", ["driver_id"], :name => "index_routes_histories_on_driver_id"
 
   create_table "schedules", :force => true do |t|
     t.integer  "company_id"
@@ -315,7 +344,6 @@ ActiveRecord::Schema.define(:version => 20130919015652) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
-    t.string   "week_day"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -326,15 +354,44 @@ ActiveRecord::Schema.define(:version => 20130919015652) do
   add_index "schedules", ["company_id"], :name => "index_schedules_on_company_id"
   add_index "schedules", ["driver_id"], :name => "index_schedules_on_driver_id"
 
-  create_table "schedules_routes", :force => true do |t|
-    t.integer  "schedule_id"
-    t.integer  "route_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "schedules_histories", :force => true do |t|
+    t.integer  "routes_history_id"
+    t.integer  "client_branch_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.boolean  "visited",           :default => false, :null => false
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "visited_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
-  add_index "schedules_routes", ["route_id"], :name => "index_schedules_routes_on_route_id"
-  add_index "schedules_routes", ["schedule_id"], :name => "index_schedules_routes_on_schedule_id"
+  add_index "schedules_histories", ["branch_id"], :name => "index_schedules_histories_on_branch_id"
+  add_index "schedules_histories", ["client_branch_id"], :name => "index_schedules_histories_on_client_branch_id"
+  add_index "schedules_histories", ["company_id"], :name => "index_schedules_histories_on_company_id"
+  add_index "schedules_histories", ["routes_history_id"], :name => "index_schedules_histories_on_routes_history_id"
+
+  create_table "tasks", :force => true do |t|
+    t.string   "name"
+    t.integer  "driver_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.boolean  "completed",      :default => false, :null => false
+    t.string   "priority"
+    t.date     "scheduled_date"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "description"
+    t.text     "comments"
+    t.datetime "completed_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  add_index "tasks", ["branch_id"], :name => "index_tasks_on_branch_id"
+  add_index "tasks", ["company_id"], :name => "index_tasks_on_company_id"
+  add_index "tasks", ["driver_id"], :name => "index_tasks_on_driver_id"
 
   create_table "trucks", :force => true do |t|
     t.string   "model"

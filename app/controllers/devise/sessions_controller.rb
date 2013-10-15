@@ -2,7 +2,7 @@ class Devise::SessionsController < DeviseController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   prepend_before_filter :allow_params_authentication!, :only => [ :new, :create ]
   skip_before_filter :verify_authenticity_token
-
+  layout "devise"
 
   # GET /resource/sign_in
   def new
@@ -14,12 +14,12 @@ class Devise::SessionsController < DeviseController
   # POST /resource/sign_in
   def create
 
-    if current_user.active == true
-      set_flash_message(:notice, :signed_in) if is_navigational_format?
-    else
-      sign_out(resource)
-      set_flash_message("Your account is inactive, pleaso contact your system administrator.")
-    end
+#    if current_user.active == true
+#      set_flash_message(:notice, :signed_in) if is_navigational_format?
+#    else
+#      sign_out(resource)
+#      set_flash_message("Your account is inactive, pleaso contact your system administrator.")
+#    end
     
     resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?

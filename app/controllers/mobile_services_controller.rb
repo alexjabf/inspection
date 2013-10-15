@@ -9,7 +9,7 @@ class MobileServicesController < ApplicationController
 
   def get_driver_info
     @driver = Driver.find_by_user_id(params[:user_id])
-    render json: @driver.blank? ?  {'status' => t('driver_not_found')} : [@driver.truck, @driver.company, @driver.branch]
+    render json: @driver.blank? ?  {'status' => t('driver_not_found')} : [@driver, @driver.truck, @driver.company, @driver.branch]
   end
  
   def get_driver_schedule

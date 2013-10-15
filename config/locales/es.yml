@@ -32,6 +32,7 @@ es:
   new_route: "Crear Ruta"
   truck_failures: "Fallas de Camiónes"
   at_least_one_is_required: "Al menos un día es requerido."
+  go_back: "Regresar"
   date:
     abbr_day_names:
     - dom
@@ -242,6 +243,7 @@ es:
       protected: "Protegido: "
       description: "Descripción: "
       super_admin: "Súper Administrador: "
+      company_admin: "Administrador Compañía: "
       branch_admin: "Administrador de Oficina: "
       routes_admin: "Administrador de Logistica: "
       driver: "Conductor: "
@@ -252,6 +254,7 @@ es:
       protected: "Protegido"
       description: "Descripción"
       super_admin: "Súper Administrador"
+      company_admin: "Administrador Compañía"      
       branch_admin: "Administrador de Oficinar"
       routes_admin: "Administrador de Logistica"
       driver: "Conductor"
@@ -784,7 +787,88 @@ es:
       driver_id: 'Conductor'
       created_at: 'Registrado el'
       updated_at: 'Actualizado el'
-    #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
+  routes_histories:
+    show:
+      client_branches: "Sucursales de Clientes"
+      failures: "Fallas Mecánicas"
+      failure_type: "Tipo de Falla"
+      tasks: "Tareas"      
+      id: 'Id: '
+      driver_id: 'Conductor: '
+      started_at: 'Iniciada: '
+      finished_at: 'Terminada: '
+      initial_km: 'Km Inicial: '
+      final_km: 'Km Final: '
+      closed: 'Cerrada: '
+      weekday: 'Día: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      id: 'Id'
+      driver_id: 'Conductor'
+      started_at: 'Iniciada'
+      finished_at: 'Terminada'
+      initial_km: 'Km Inicial'
+      final_km: 'Km Final'
+      closed: 'Cerrada'
+      weekday: 'Día'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  schedules_histories:
+    show:
+      id: 'Id: '
+      routes_history_id: 'Historial de Ruta: '
+      client_branch_id: 'Sucursal del Cliente: '
+      branch_id: 'Sucursal: '
+      company_id: 'Compañía: '
+      visited: 'Visitada?: '
+      visited_at: 'Visitada el: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      id: 'Id'
+      routes_history_id: 'Historial de Ruta'
+      client_branch_id: 'Sucursal del Cliente'
+      branch_id: 'Sucursal'
+      company_id: 'Compañía'
+      visited: 'Visitada?'
+      visited_at: 'Visitada el'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  tasks:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      driver_id: 'Conductor: '
+      branch_id: 'Sucursal: '
+      company_id: 'Compañía: '
+      completed: 'Completeda?: '
+      priority: 'Prioridad: '
+      scheduled_date: 'Programada el: '
+      latitude: 'Latitude: '
+      longitude: 'Longitude: '
+      description: 'Descripción: '
+      comments: 'Comentarios: '
+      completed_at: 'Completada el: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      driver_id: 'Conductor'
+      branch_id: 'Sucursal'
+      company_id: 'Compañía'
+      completed: 'Completeda?'
+      priority: 'Prioridad'
+      scheduled_date: 'Programada el'
+      latitude: 'Latitude'
+      longitude: 'Longitude'
+      description: 'Descripción'
+      comments: 'Comentarios'
+      completed_at: 'Completada el'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
   activerecord:
     models:
@@ -826,6 +910,12 @@ es:
       brakes_systems: 'Fallas de Sistemas De Frenos'
       cabin: 'Falla de Cabina'
       cabins: 'Fallas de Cabinas'
+      routes_history: 'Historial de Ruta'
+      routes_histories: 'Historial de Rutas'
+      schedules_history: 'Historial de Visita'
+      schedules_histories: 'Historial de Visitas'
+      task: 'Tarea'
+      tasks: 'Tareas'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT 
       
     attributes:
@@ -856,6 +946,7 @@ es:
         protected: "Protegido: "
         description: "Descripción: "
         super_admin: "Súper Administrador: "
+        company_admin: "Administrador Compañía: "        
         branch_admin: "Administrador de Oficina: "
         routes_admin: "Administrador de Logistica: "
         driver: "Conductor: "
@@ -1093,6 +1184,43 @@ es:
         driver_id: 'Conductor: '
         created_at: 'Registrado el'
         updated_at: 'Actualizado el'
+      routes_history:
+        id: 'Id: '
+        driver_id: 'Conductor: '
+        started_at: 'Iniciada: '
+        finished_at: 'Terminada: '
+        initial_km: 'Km Inicial: '
+        final_km: 'Km Final: '
+        closed: 'Cerrada: '
+        weekday: 'Día: '
+        created_at: 'Registrada el: '
+        updated_at: 'Actualizada el: '
+      schedules_history:
+        id: 'Id: '
+        routes_history_id: 'Historial de Ruta: '
+        client_branch_id: 'Sucursal del Cliente: '
+        branch_id: 'Sucursal: '
+        company_id: 'Compañía: '
+        visited: 'Visitada?: '
+        visited_at: 'Visitada el: '
+        created_at: 'Registrada el: '
+        updated_at: 'Actualizada el: '
+      task:
+        id: 'Id: '
+        name: 'Nombre: '
+        driver_id: 'Conductor: '
+        branch_id: 'Sucursal'
+        company_id: 'Compañía'
+        completed: 'Completeda?: '
+        priority: 'Prioridad: '
+        scheduled_date: 'Programada el: '
+        latitude: 'Latitude: '
+        longitude: 'Longitude: '
+        description: 'Descripción: '
+        comments: 'Comentarios: '
+        completed_at: 'Completada el: '
+        created_at: 'Registrada el: '
+        updated_at: 'Actualizada el: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     errors: 

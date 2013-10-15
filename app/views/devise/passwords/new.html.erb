@@ -1,8 +1,7 @@
-<div class="notification" style="margin-bottom: 40px; text-align: center">
-  <div>
-    <p>Forgot your password?</p>
-  </div>
+<div class="notification" style="margin-bottom: 40px; text-align: center; padding: 10px 10px 10px 0px;">
+  <p><%= t('devise.passwords.forgot') %></p>
 </div>
+
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 

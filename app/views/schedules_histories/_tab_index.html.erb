@@ -1,0 +1,59 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+                  <th><%= t'.routes_history_id' %></th>
+                  <th><%= t'.client_branch_id' %></th>
+                  <th><%= t'.branch_id' %></th>
+                  <th><%= t'.company_id' %></th>
+                  <th><%= t'.visited' %></th>
+                  <th><%= t'.visited_at' %></th>
+              </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @schedules_histories.each do |schedules_history| %>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <%if can? :show, SchedulesHistory %>
+        <td><%=link_to schedules_history.id, schedules_history, :class => 'button'%></td>
+        <%else%>
+        <td><%= label schedules_history.id, schedules_history.id, :class => 'button'%></td>
+        <%end%>
+        
+                  
+            <% @model = schedules_history %> 
+                    
+          <td><%= schedules_history.routes_history_id %></td>
+                            
+          <td><%= schedules_history.client_branch.name %></td>
+                            
+          <td><%= schedules_history.branch.name %></td>
+                            
+          <td><%= schedules_history.company.name %></td>
+                            
+          <td><%= schedules_history.visited %></td>
+                            
+          <td><%= schedules_history.visited_at %></td>
+                <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 

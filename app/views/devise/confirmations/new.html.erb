@@ -1,7 +1,5 @@
-<div class="notification" style="margin-bottom: 40px; text-align: center">
-  <div>
-    <p>Resend confirmation instructions</p>
-  </div>
+<div class="notification" style="margin-bottom: 40px; text-align: center; padding: 10px 10px 10px 0px;">
+    <p><%= t('devise.confirmations.resend') %></p>
 </div>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>

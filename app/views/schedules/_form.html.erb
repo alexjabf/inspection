@@ -92,18 +92,7 @@
     </p>
   </fieldset>
   <fieldset class="right-custom-column">
-    <div class="field">
-      <%= f.label :week_day %>
-      <%= f.select :week_day, options_for_select([ 
-          [t('Monday')],
-          [t('Tuesday')],
-          [t('Wednesday')],
-          [t('Thursday')],
-          [t('Friday')],
-          [t('Saturday')],
-          [t('Sunday')]
-        ]), {:prompt => true}%> <span class="required">*</span>
-    </div>
+    <h3><%=t('schedules.select_days')%></h3>
     <p class="field">
       <%= f.label :monday, :style => "position: absolute"  %>
       <%= f.check_box :monday, :style => "margin-left: 120px", :class=>"small-input" %>

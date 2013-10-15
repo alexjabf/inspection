@@ -1,4 +1,7 @@
 <div style="float:right; margin-top: 10px;">
+  <%=link_to :back, :title => t(:go_back) do%>
+    <img src="/assets/icons/blue/48x48/previous.png" alt=" <%=t(:go_back)%>" />
+  <%end%>
   <%if controller.action_name == "new" or controller.action_name == "create"%>
     <%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
       <%=link_to eval("#{controller_name}_path"), :title => t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize.gsub(" ", "")}")) do%>

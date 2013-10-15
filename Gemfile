@@ -30,7 +30,8 @@ group :development, :test do
 end
 
 gem 'jquery-rails'
-
+gem "i18n-missing_translations"
+gem 'i18n-tasks', '~> 0.1.0'#rake i18n:missing
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

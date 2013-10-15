@@ -1,0 +1,48 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@routes_history) do |f| %>
+<% if @routes_history.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@routes_history.errors.count, "error") %> prohibited this routes_history from being saved:</h2>
+
+  <ul>
+    <% @routes_history.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :driver_id %>
+    <%= f.text_field :driver_id, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :started_at %>
+    <%= f.datetime_select :started_at, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :finished_at %>
+    <%= f.datetime_select :finished_at, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :initial_km %>
+    <%= f.number_field :initial_km, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :final_km %>
+    <%= f.number_field :final_km, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :closed %>
+    <%= f.check_box :closed, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :weekday %>
+    <%= f.text_field :weekday, :class=>"text-input small-input" %>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

@@ -68,7 +68,7 @@
 
 
         <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
-        <% @models -= %w{Ability SchedulesRoute BrakesSystem Cabin CompactorDrawer DriveSystem ElectricalSystem HydraulicSystem} %>
+        <% @models -= %w{Ability BrakesSystem Cabin CompactorDrawer DriveSystem ElectricalSystem HydraulicSystem FailuresHistory} %>
         <% @models.each do |model|%>
           <% if can? :new, eval(model) or can? :index, eval(model)%>
             <li> 
@@ -87,14 +87,23 @@
           <%end%> 
         <%end%>
       <%end%>
-
-      <ul id="main-nav"> 
-        <li>
-          <a href="http://www.google.com" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
-            Monitor en Vivo
-          </a>       
-        </li>
-      </ul>
+      <%if signed_in?%>
+        <script>
+    $(function() {
+      $("#monitor_live").click(function open_win() {
+        myWindow = window.open("/monitor/live", "_blank", 'toolbar=no, scrollbars=yes, location=no, resizable=yes, directories=no, copyhistory=no, menubar=no');
+        myWindow.focus();
+      });
+    });
+        </script>
+        <%if current_user.role.super_admin == true or current_user.role.branch_admin == true or current_user.role.routes_admin == true%>
+          <ul id="main-nav"> 
+            <li>    
+              <%=link_to t(:live_monitor), "#", :id => "monitor_live", :class=>"nav-top-item no-submenu" %>
+            </li>
+          </ul>
+        <%end%>       
+      <%end%>    
 
     </ul> <!-- End #main-nav -->
 

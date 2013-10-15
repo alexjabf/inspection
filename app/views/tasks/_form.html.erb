@@ -1,0 +1,68 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@task) do |f| %>
+<% if @task.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+  <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <p class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :driver_id %>
+    <%= f.text_field :driver_id, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.text_field :branch_id, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :company_id %>
+    <%= f.text_field :company_id, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :completed %>
+    <%= f.check_box :completed, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :priority %>
+    <%= f.text_field :priority, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :scheduled_date %>
+    <%= f.date_select :scheduled_date, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :comments %>
+    <%= f.text_area :comments, :class=>"text-input small-input" %>
+  </p>
+  <p class="field">
+    <%= f.label :completed_at %>
+    <%= f.datetime_select :completed_at, :class=>"text-input small-input" %>
+  </p>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'button' %>
+</div>
+
+<% end %>

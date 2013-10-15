@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  routes_history: 
+  failure_id: 1
+  failure_type: MyString
+
+two:
+  routes_history: 
+  failure_id: 1
+  failure_type: MyString
