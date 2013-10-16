@@ -1,10 +1,9 @@
 class SchedulesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-    schedules
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }
@@ -26,7 +25,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/new.json
   def new
     @schedule = Schedule.new
-
+    @display = "none"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @schedule }
@@ -36,17 +35,17 @@ class SchedulesController < ApplicationController
   # GET /schedules/1/edit
   def edit
     @schedule = Schedule.find(params[:id])
-    @client_id = @schedule.client_id
+    @display = @schedule.client_id.blank? ? "block" : "none"
   end
 
   # POST /schedules
   # POST /schedules.json
   def create
     @schedule = Schedule.new(params[:schedule])
-    @client_id = @schedule.client_id
+    @display = @schedule.client_id.blank? ? "none" : "block"
     respond_to do |format|
       if @schedule.save
-                @schedule.update_attributes(:branch_id => @schedule.client_branch.branch_id, :company_id => @schedule.client_branch.company_id)
+        @schedule.update_attributes(:branch_id => @schedule.client_branch.branch_id, :company_id => @schedule.client_branch.company_id)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
         format.json { render json: @schedule, status: :created, location: @schedule }
       else
@@ -60,7 +59,7 @@ class SchedulesController < ApplicationController
   # PUT /schedules/1.json
   def update
     @schedule = Schedule.find(params[:id])
-    @client_id = params[:schedule][:client_id]
+    @display = params[:schedule][:client_id].blank? ? "block" : "none"
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
@@ -83,4 +82,15 @@ class SchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    schedules
+    drivers
+    branches
+    companies
+    clients
+    client_branches
+  end
+  
+  
 end

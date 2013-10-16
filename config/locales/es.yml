@@ -818,6 +818,10 @@ es:
       failure_type: "Tipo de Falla"
       tasks: "Tareas"      
       id: 'Id: '
+      company_id: 'Compañía: '             
+      branch_id: 'Sucursal: '   
+      client_id: 'Cliente: '         
+      client_branch_id: 'Sucursal del Cliente: '     
       driver_id: 'Conductor: '
       started_at: 'Iniciada: '
       finished_at: 'Terminada: '
@@ -829,6 +833,10 @@ es:
       updated_at: 'Actualizada el: '
     index:
       id: 'Id'
+      company_id: 'Compañía'             
+      branch_id: 'Sucursal'   
+      client_id: 'Cliente'         
+      client_branch_id: 'Sucursal del Cliente'      
       driver_id: 'Conductor'
       started_at: 'Iniciada'
       finished_at: 'Terminada'
@@ -842,6 +850,7 @@ es:
     show:
       id: 'Id: '
       routes_history_id: 'Historial de Ruta: '
+      client_id: 'Cliente: '      
       client_branch_id: 'Sucursal del Cliente: '
       branch_id: 'Sucursal: '
       company_id: 'Compañía: '
@@ -852,6 +861,7 @@ es:
     index:
       id: 'Id'
       routes_history_id: 'Historial de Ruta'
+      client_id: 'Cliente'       
       client_branch_id: 'Sucursal del Cliente'
       branch_id: 'Sucursal'
       company_id: 'Compañía'
@@ -1236,6 +1246,10 @@ es:
         updated_at: 'Actualizado el: '
       routes_history:
         id: 'Id: '
+        company_id: 'Compañía: '             
+        branch_id: 'Sucursal: '   
+        client_id: 'Cliente: '         
+        client_branch_id: 'Sucursal del Cliente: '        
         driver_id: 'Conductor: '
         started_at: 'Iniciada: '
         finished_at: 'Terminada: '
@@ -1248,9 +1262,10 @@ es:
       schedules_history:
         id: 'Id: '
         routes_history_id: 'Historial de Ruta: '
+        company_id: 'Compañía: '             
+        branch_id: 'Sucursal: '   
+        client_id: 'Cliente: '         
         client_branch_id: 'Sucursal del Cliente: '
-        branch_id: 'Sucursal: '
-        company_id: 'Compañía: '
         visited: 'Visitada?: '
         visited_at: 'Visitada el: '
         created_at: 'Registrada el: '

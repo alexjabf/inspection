@@ -339,6 +339,10 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
 
   create_table "routes_histories", :force => true do |t|
     t.integer  "driver_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.integer  "client_id"
+    t.integer  "client_branch_id"
     t.datetime "started_at"
     t.datetime "finished_at"
     t.integer  "initial_km"
@@ -347,12 +351,16 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.string   "start_longitude"
     t.string   "end_latitude"
     t.string   "end_longitude"
-    t.boolean  "closed",          :default => false, :null => false
+    t.boolean  "closed",           :default => false, :null => false
     t.string   "weekday"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
+  add_index "routes_histories", ["branch_id"], :name => "index_routes_histories_on_branch_id"
+  add_index "routes_histories", ["client_branch_id"], :name => "index_routes_histories_on_client_branch_id"
+  add_index "routes_histories", ["client_id"], :name => "index_routes_histories_on_client_id"
+  add_index "routes_histories", ["company_id"], :name => "index_routes_histories_on_company_id"
   add_index "routes_histories", ["driver_id"], :name => "index_routes_histories_on_driver_id"
 
   create_table "schedules", :force => true do |t|
@@ -380,6 +388,7 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
 
   create_table "schedules_histories", :force => true do |t|
     t.integer  "routes_history_id"
+    t.integer  "client_id"
     t.integer  "client_branch_id"
     t.integer  "branch_id"
     t.integer  "company_id"
@@ -393,6 +402,7 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
 
   add_index "schedules_histories", ["branch_id"], :name => "index_schedules_histories_on_branch_id"
   add_index "schedules_histories", ["client_branch_id"], :name => "index_schedules_histories_on_client_branch_id"
+  add_index "schedules_histories", ["client_id"], :name => "index_schedules_histories_on_client_id"
   add_index "schedules_histories", ["company_id"], :name => "index_schedules_histories_on_company_id"
   add_index "schedules_histories", ["routes_history_id"], :name => "index_schedules_histories_on_routes_history_id"
 

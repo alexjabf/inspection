@@ -2,6 +2,7 @@ class CreateSchedulesHistories < ActiveRecord::Migration
   def change
     create_table :schedules_histories do |t|
       t.references :routes_history
+      t.references :client
       t.references :client_branch
       t.references :branch
       t.references :company
@@ -13,6 +14,7 @@ class CreateSchedulesHistories < ActiveRecord::Migration
       t.timestamps
     end
     add_index :schedules_histories, :routes_history_id
+    add_index :schedules_histories, :client_id#
     add_index :schedules_histories, :client_branch_id
     add_index :schedules_histories, :branch_id
     add_index :schedules_histories, :company_id

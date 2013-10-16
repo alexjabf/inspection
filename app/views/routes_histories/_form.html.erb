@@ -1,20 +1,36 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@routes_history) do |f| %>
-<% if @routes_history.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@routes_history.errors.count, "error") %> prohibited this routes_history from being saved:</h2>
+  <% if @routes_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@routes_history.errors.count, "error") %> prohibited this routes_history from being saved:</h2>
 
-  <ul>
-    <% @routes_history.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @routes_history.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :driver_id %>
-    <%= f.text_field :driver_id, :class=>"text-input small-input" %>
+    <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :client_id %>
+    <%= f.collection_select(:client_id, @clients, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :client_branch_id %>
+    <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
   </p>
   <p class="field">
     <%= f.label :started_at %>
@@ -36,13 +52,9 @@
     <%= f.label :closed %>
     <%= f.check_box :closed, :class=>"text-input small-input" %>
   </p>
-  <p class="field">
-    <%= f.label :weekday %>
-    <%= f.text_field :weekday, :class=>"text-input small-input" %>
-  </p>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 
 <% end %>

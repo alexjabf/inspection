@@ -1,32 +1,36 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@schedules_history) do |f| %>
-<% if @schedules_history.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@schedules_history.errors.count, "error") %> prohibited this schedules_history from being saved:</h2>
+  <% if @schedules_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedules_history.errors.count, "error") %> prohibited this schedules_history from being saved:</h2>
 
-  <ul>
-    <% @schedules_history.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @schedules_history.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :routes_history_id %>
-    <%= f.text_field :routes_history_id, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :client_branch_id %>
-    <%= f.text_field :client_branch_id, :class=>"text-input small-input" %>
-  </p>
-  <p class="field">
-    <%= f.label :branch_id %>
-    <%= f.text_field :branch_id, :class=>"text-input small-input" %>
+    <%= f.collection_select(:routes_history_id, @routes_histories, :id, :human_name, {:prompt => true}, :class =>'.small-input')%>
   </p>
   <p class="field">
     <%= f.label :company_id %>
-    <%= f.text_field :company_id, :class=>"text-input small-input" %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :client_id %>
+    <%= f.collection_select(:client_id, @clients, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :client_branch_id %>
+    <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
   </p>
   <p class="field">
     <%= f.label :visited %>
@@ -37,8 +41,8 @@
     <%= f.datetime_select :visited_at, :class=>"text-input small-input" %>
   </p>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 
 <% end %>

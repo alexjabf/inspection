@@ -31,6 +31,7 @@
         <%unless controller_name == "monitor"%>
           <!-- Page Head -->
           <%if signed_in?%>
+            <h2><%=t(:licensed_to) + " " + current_user.company.name%></h2><br>
             <h2><%=t(:welcome) + " " + current_user.fullname%></h2>
             <p id="page-intro"><%=t(:what_to_do)%></p>
             <ul class="shortcut-buttons-set" style> <!-- Replace the icons URL's with your own -->

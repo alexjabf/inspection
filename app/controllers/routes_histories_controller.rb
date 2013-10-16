@@ -1,11 +1,9 @@
 class RoutesHistoriesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-
-    @routes_histories = RoutesHistory.order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @routes_histories }
@@ -44,10 +42,10 @@ class RoutesHistoriesController < ApplicationController
   # POST /routes_histories.json
   def create
     @routes_history = RoutesHistory.new(params[:routes_history])
-
+    @routes_history.weekday = Time.now.strftime("%A").downcase
     respond_to do |format|
       if @routes_history.save
-        @schedules = eval("Schedule.where(:driver_id => #{@routes_history.driver_id}, :sunday => #{true})")
+        @schedules = eval("Schedule.where(:driver_id => #{@routes_history.driver_id}, :#{Time.now.strftime("%A").downcase} => #{true})")
         @schedules.each do |schedule|
           SchedulesHistory.create(:routes_history_id => @routes_history.id, :client_branch_id => schedule.client_branch_id, :branch_id => schedule.branch_id, :company_id => schedule.company_id)
         end
@@ -87,4 +85,15 @@ class RoutesHistoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    routes_histories
+    drivers
+    branches
+    companies
+    clients
+    client_branches
+  end
+  
+  
 end
