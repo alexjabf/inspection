@@ -4,8 +4,9 @@ class Schedule < ActiveRecord::Base
   belongs_to :driver
   belongs_to :client
   belongs_to :client_branch
-  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :client_branch_id
-  validates :client_id, :driver_id, :branch_id, :client_branch_id, :presence => true
+  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :company_id, :client_branch_id
+  validates :client_id, :driver_id, :client_branch_id, :presence => true
+  validates :branch_id, :company_id, :presence => true, :on => :update
   validates :client_id, :uniqueness => true
   validate :checkbox_validation
 

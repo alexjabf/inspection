@@ -46,6 +46,7 @@ class SchedulesController < ApplicationController
     @client_id = @schedule.client_id
     respond_to do |format|
       if @schedule.save
+                @schedule.update_attributes(:branch_id => @schedule.client_branch.branch_id, :company_id => @schedule.client_branch.company_id)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
         format.json { render json: @schedule, status: :created, location: @schedule }
       else
