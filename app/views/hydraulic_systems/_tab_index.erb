@@ -26,27 +26,27 @@
     </tfoot>
 
     <tbody>
-      <% @brakes_systems.each do |brakes_system| %>
+      <% @hydraulic_systems.each do |hydraulic_system| %>
         <tr>
           <td><input type="checkbox" /></td>
-          <%if can? :show, BrakesSystem %>
-            <td><%=link_to brakes_system.id, brakes_system, :class => 'button'%></td>
+          <%if can? :show, HydraulicSystem %>
+            <td><%=link_to hydraulic_system.id, hydraulic_system, :class => 'button'%></td>
           <%else%>
-            <td><%= label brakes_system.id, brakes_system.id, :class => 'button'%></td>
+            <td><%= label hydraulic_system.id, hydraulic_system.id, :class => 'button'%></td>
           <%end%>
 
 
-          <% @model = brakes_system %> 
+          <% @model = hydraulic_system %>                     
 
-          <td><%= brakes_system.truck.modelbrand %></td>
+          <td><%= hydraulic_system.truck.modelbrand %></td>
 
-          <td><%= brakes_system.driver.user.fullname %></td>
-          
-          <td><%= brakes_system.company.name %></td>
+          <td><%= hydraulic_system.driver.user.fullname %></td>
 
-          <td><%= brakes_system.branch.name %></td>
+          <td><%= hydraulic_system.company.name %></td>
 
-          <td><%= I18n.l brakes_system.created_at, :format => :long %></td>
+          <td><%= hydraulic_system.branch.name %></td>
+
+          <td><%= I18n.l hydraulic_system.created_at, :format => :long %></td>
 
           <%= render "layouts/index_links" %>
         <% end %>
@@ -55,5 +55,4 @@
   </table>
   <%= render "layouts/action_links" %>
 </div> 
-<%= render "layouts/second_tab" %>
 <br><br><br>

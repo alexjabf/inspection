@@ -1,13 +1,9 @@
-class BrakesSystemsController < ApplicationController
-  include DriversHelper
-  before_filter :get_data  
+class BrakesSystemsController < ApplicationController 
+  before_filter :get_data, :except => [:show, :destroy]  
   before_filter :authenticate_user!
   load_and_authorize_resource
 
   def index
-
-    @brakes_systems = current_user.role.super_admin == true ? BrakesSystem.order('id DESC').paginate(:page => params[:page]) : BrakesSystem.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @brakes_systems }
@@ -87,7 +83,10 @@ class BrakesSystemsController < ApplicationController
   end
   
   def get_data
-    get_drivers
+    brakes_systems
+    drivers
+    branches
+    companies
   end
   
 end

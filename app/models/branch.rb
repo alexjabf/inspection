@@ -6,7 +6,6 @@ class Branch < ActiveRecord::Base
   has_many :trucks, :dependent => :destroy
   has_many :cellphones, :dependent => :destroy
   has_many :drivers, :dependent => :destroy
-  has_many :routes, :dependent => :destroy
   has_many :users, :dependent => :destroy
   has_many :clients, :dependent => :destroy
   has_many :client_branches, :dependent => :destroy     

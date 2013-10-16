@@ -1,13 +1,9 @@
 class DriveSystemsController < ApplicationController
-  include DriversHelper
-  before_filter :get_data
+  before_filter :get_data, :except => [:show, :destroy]  
   before_filter :authenticate_user!
   load_and_authorize_resource
 
   def index
-
-    @drive_systems = current_user.role.super_admin == true ? DriveSystem.order('id DESC').paginate(:page => params[:page]) : DriveSystem.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @drive_systems }
@@ -30,7 +26,7 @@ class DriveSystemsController < ApplicationController
   # GET /drive_systems/new.json
   def new
     @drive_system = DriveSystem.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @drive_system }
@@ -87,7 +83,10 @@ class DriveSystemsController < ApplicationController
   end
   
   def get_data
-    get_drivers
+    drive_systems
+    drivers
+    branches
+    companies
   end
   
 end

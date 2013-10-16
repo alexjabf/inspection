@@ -1,15 +1,12 @@
 class DriversController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-
-    @drivers = current_user.role.super_admin == true ? Driver.order('id DESC').paginate(:page => params[:page]) : Driver.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @drivers }
-
     end
   end
 
@@ -44,9 +41,9 @@ class DriversController < ApplicationController
   # POST /drivers.json
   def create
     @driver = Driver.new(params[:driver])
-
     respond_to do |format|
       if @driver.save
+        @driver.update_attributes(:branch_id => @driver.user.branch_id, :company_id => @driver.user.company_id)
         format.html { redirect_to @driver, notice: 'Driver was successfully created.' }
         format.json { render json: @driver, status: :created, location: @driver }
       else
@@ -63,6 +60,7 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.update_attributes(params[:driver])
+        @driver.update_attributes(:branch_id => @driver.user.branch_id, :company_id => @driver.user.company_id)
         format.html { redirect_to @driver, notice: 'Driver was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,4 +81,11 @@ class DriversController < ApplicationController
       format.json { head :no_content }
     end
   end
+    
+  def get_data
+    drivers
+    trucks
+    users
+  end
+  
 end

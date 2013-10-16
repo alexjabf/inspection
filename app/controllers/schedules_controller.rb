@@ -3,13 +3,11 @@ class SchedulesController < ApplicationController
   load_and_authorize_resource
 
   def index
-
-    @schedules = current_user.role.super_admin == true ? Schedule.order('id DESC').paginate(:page => params[:page]) : Schedule.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+    schedules
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }
-
     end
   end
 

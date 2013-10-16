@@ -6,6 +6,9 @@
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
         <th><%= t'.truck_id' %></th>  
+        <th><%= t'.company_id' %></th> 
+        <th><%= t'.branch_id' %></th> 
+        <th><%= t'.created_at' %></th>
       </tr>
 
     </thead>
@@ -23,25 +26,33 @@
     </tfoot>
 
     <tbody>
-      <% @hydraulic_systems.each do |hydraulic_system| %>
+      <% @electrical_systems.each do |electrical_system| %>
         <tr>
           <td><input type="checkbox" /></td>
-          <%if can? :show, HydraulicSystem %>
-            <td><%=link_to hydraulic_system.id, hydraulic_system, :class => 'button'%></td>
+          <%if can? :show, ElectricalSystem %>
+            <td><%=link_to electrical_system.id, electrical_system, :class => 'button'%></td>
           <%else%>
-            <td><%= label hydraulic_system.id, hydraulic_system.id, :class => 'button'%></td>
+            <td><%= label electrical_system.id, electrical_system.id, :class => 'button'%></td>
           <%end%>
 
 
-          <% @model = hydraulic_system %>                     
+          <% @model = electrical_system %> 
 
-          <td><%= hydraulic_system.truck.modelbrand %></td>
+          <td><%= electrical_system.truck.modelbrand %></td>
 
-          <td><%= hydraulic_system.driver.user.fullname %></td>
+          <td><%= electrical_system.driver.user.fullname %></td>
+          
+          <td><%= electrical_system.company.name %></td>
+
+          <td><%= electrical_system.branch.name %></td>
+
+          <td><%= I18n.l electrical_system.created_at, :format => :long %></td>
+
           <%= render "layouts/index_links" %>
         <% end %>
       </tr>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>
-</div>
+</div> 
+<br><br><br>

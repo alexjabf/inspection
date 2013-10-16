@@ -1,11 +1,9 @@
 class BillsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-
-    @bills = current_user.role.super_admin == true ? Bill.order('id DESC').paginate(:page => params[:page]) : Bill.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bills }
@@ -28,7 +26,6 @@ class BillsController < ApplicationController
   # GET /bills/new.json
   def new
     @bill = Bill.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @bill }
@@ -83,4 +80,11 @@ class BillsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    bills
+    branches
+    companies
+  end
+  
 end

@@ -1,16 +1,16 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@bill) do |f| %>
-<% if @bill.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
 
-  <ul>
-    <% @bill.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @bill.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :name %>
@@ -65,13 +65,16 @@
     <%= f.text_field :client_id, :class=>"text-input small-input" %>
   </p>
   <p class="field">
-    <%= f.label :branch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
-    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
   </p>
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button' %>
-</div>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
+  </p>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
 
 <% end %>
 <div>

@@ -38,7 +38,7 @@
           </li>
         <%end%>
 
-        <% if current_user.role.super_admin or current_user.role.branch_admin or current_user.role.routes_admin%>
+        <% if current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin or current_user.role.routes_admin%>
           <li> 
             <a href="#" class="nav-top-item" onclick="setCurrentClass('welcomes');" id="welcomes"> <!-- Add the class "current" to current menu item -->
               <%=  t(:truck_failures)%>

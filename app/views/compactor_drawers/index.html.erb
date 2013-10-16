@@ -6,6 +6,8 @@
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
         <th><%= t'.truck_id' %></th> 
+        <th><%= t'.company_id' %></th> 
+        <th><%= t'.branch_id' %></th> 
         <th><%= t'.created_at' %></th>
       </tr>
 
@@ -39,6 +41,10 @@
           <td><%= compactor_drawer.truck.modelbrand %></td>
 
           <td><%= compactor_drawer.driver.user.fullname %></td>
+          
+          <td><%= compactor_drawer.company.name %></td>
+
+          <td><%= compactor_drawer.branch.name %></td>
 
           <td><%= I18n.l compactor_drawer.created_at, :format => :long %></td>
 

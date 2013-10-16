@@ -51,10 +51,14 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.text     "observations"
     t.integer  "driver_id"
     t.integer  "truck_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
+  add_index "brakes_systems", ["branch_id"], :name => "index_brakes_systems_on_branch_id"
+  add_index "brakes_systems", ["company_id"], :name => "index_brakes_systems_on_company_id"
   add_index "brakes_systems", ["driver_id"], :name => "index_brakes_systems_on_driver_id"
   add_index "brakes_systems", ["truck_id"], :name => "index_brakes_systems_on_truck_id"
 
@@ -89,10 +93,14 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.text     "observations"
     t.integer  "driver_id"
     t.integer  "truck_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "cabins", ["branch_id"], :name => "index_cabins_on_branch_id"
+  add_index "cabins", ["company_id"], :name => "index_cabins_on_company_id"
   add_index "cabins", ["driver_id"], :name => "index_cabins_on_driver_id"
   add_index "cabins", ["truck_id"], :name => "index_cabins_on_truck_id"
 
@@ -178,10 +186,14 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.text     "observations"
     t.integer  "driver_id"
     t.integer  "truck_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "compactor_drawers", ["branch_id"], :name => "index_compactor_drawers_on_branch_id"
+  add_index "compactor_drawers", ["company_id"], :name => "index_compactor_drawers_on_company_id"
   add_index "compactor_drawers", ["driver_id"], :name => "index_compactor_drawers_on_driver_id"
   add_index "compactor_drawers", ["truck_id"], :name => "index_compactor_drawers_on_truck_id"
 
@@ -215,10 +227,14 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.text     "observations"
     t.integer  "driver_id"
     t.integer  "truck_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "drive_systems", ["branch_id"], :name => "index_drive_systems_on_branch_id"
+  add_index "drive_systems", ["company_id"], :name => "index_drive_systems_on_company_id"
   add_index "drive_systems", ["driver_id"], :name => "index_drive_systems_on_driver_id"
   add_index "drive_systems", ["truck_id"], :name => "index_drive_systems_on_truck_id"
 
@@ -243,10 +259,14 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.text     "observations"
     t.integer  "driver_id"
     t.integer  "truck_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "electrical_systems", ["branch_id"], :name => "index_electrical_systems_on_branch_id"
+  add_index "electrical_systems", ["company_id"], :name => "index_electrical_systems_on_company_id"
   add_index "electrical_systems", ["driver_id"], :name => "index_electrical_systems_on_driver_id"
   add_index "electrical_systems", ["truck_id"], :name => "index_electrical_systems_on_truck_id"
 
@@ -288,10 +308,14 @@ ActiveRecord::Schema.define(:version => 20131015164446) do
     t.text     "observations"
     t.integer  "driver_id"
     t.integer  "truck_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "hydraulic_systems", ["branch_id"], :name => "index_hydraulic_systems_on_branch_id"
+  add_index "hydraulic_systems", ["company_id"], :name => "index_hydraulic_systems_on_company_id"
   add_index "hydraulic_systems", ["driver_id"], :name => "index_hydraulic_systems_on_driver_id"
   add_index "hydraulic_systems", ["truck_id"], :name => "index_hydraulic_systems_on_truck_id"
 

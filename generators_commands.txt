@@ -29,3 +29,6 @@ rails g scaffold schedules_history routes_history:references client_branch:refer
 rails g model failures_history routes_history:references failure_id:integer failure_type:string
 
 rails g scaffold task name:string driver:references branch:references company:references completed:boolean priority:string scheduled_date:date latitude:float longitude:float description:text comments:text completed_at:datetime
+
+
+Todas las fallas, routes_histories

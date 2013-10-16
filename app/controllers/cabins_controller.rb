@@ -1,13 +1,9 @@
-class CabinsController < ApplicationController
-  include DriversHelper
-  before_filter :get_data  
+class CabinsController < ApplicationController 
+  before_filter :get_data, :except => [:show, :destroy]  
   before_filter :authenticate_user!
   load_and_authorize_resource
 
   def index
-
-    @cabins = current_user.role.super_admin == true ? Cabin.order('id DESC').paginate(:page => params[:page]) : Cabin.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cabins }
@@ -87,7 +83,10 @@ class CabinsController < ApplicationController
   end
   
   def get_data
-    get_drivers
+    cabins
+    drivers
+    branches
+    companies
   end
   
 end

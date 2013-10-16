@@ -12,7 +12,6 @@
     </div>
   <% end %>
 
-  
   <p class="field">
     <%= f.label :user_id %>
     <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, :class =>'small-input')%>
@@ -20,11 +19,6 @@
   <p class="field">
     <%= f.label :truck_id %>
     <%= f.collection_select(:truck_id, @trucks, :id, :modelbrand, {:prompt => true}, :class =>'small-input')%>
-  </p>
-  <p class="field">
-    <%= f.label :branch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
-    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
   </p>
 
   <div class="form-actions">

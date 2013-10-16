@@ -10,10 +10,15 @@ class CreateHydraulicSystems < ActiveRecord::Migration
       t.text :observations
       t.references :driver
       t.references :truck
-
+      t.references :company
+      t.references :branch
+      t.references :company
+      t.references :branch      
       t.timestamps
     end
     add_index :hydraulic_systems, :driver_id
     add_index :hydraulic_systems, :truck_id
+    add_index :hydraulic_systems, :company_id
+    add_index :hydraulic_systems, :branch_id    
   end
 end

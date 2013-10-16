@@ -1,18 +1,13 @@
 class RolesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-
-    @roles = current_user.role.super_admin == true ? Role.order('id DESC').paginate(:page => params[:page]) : Role.where("super_admin = false and (branch_admin = true or routes_admin = true or driver = true or company_id = #{current_user.company_id})").order('id DESC').paginate(:page => params[:page]) 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @roles }
-
     end
-
-
   end
 
   # GET /roles/1
@@ -85,5 +80,13 @@ class RolesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+      
+  def get_data
+    roles
+    branches
+    companies
+  end
+  
   
 end

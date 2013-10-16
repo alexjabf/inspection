@@ -61,22 +61,22 @@
       </p>
       <p class="field">
         <%= f.label :company_id %>
-        <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+        <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
       </p>
       <p class="field">
         <%= f.label :branch_id %>
-        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
       </p>
-      <%if @user.id != current_user.id and controller.action_name == "edit" or controller.action_name == "update"%>
+      <%if (@user.id != current_user.id and controller.action_name == "edit" or controller.action_name == "update") or (controller.action_name == "new" or controller.action_name == "create")%>
         <p class="field">
           <%= f.label :role_id %>
           <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, :class =>'.small-input')%>
         </p>
+        <p class="field">
+          <%= f.label :active %>
+          <%= f.check_box :active %>
+        </p>
       <%end%>
-      <p class="field">
-        <%= f.label :active %>
-        <%= f.check_box :active %>
-      </p>
     </div>
   </div>
   <p class="form-actions">

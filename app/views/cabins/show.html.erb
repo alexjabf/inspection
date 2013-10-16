@@ -9,9 +9,14 @@
     </tr>
     <tr>
       <td>
-        <b><%= t'.driver_id' %></b> <%= @cabin.driver.user.fullname %>
+        <b><%= t'.branch_id' %></b> <%= @cabin.branch.name %>
       </td>
     </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @cabin.company.name %>
+      </td>
+    </tr>  
     <tr>
       <td>
         <b><%= t'.truck_id' %></b> <%= t(@cabin.truck.modelbrand.to_s) %>

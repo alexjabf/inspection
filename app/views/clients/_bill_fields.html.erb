@@ -99,5 +99,5 @@
   </p>
   <p class="field">
     <%= f.label :branch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
   </p>

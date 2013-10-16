@@ -55,16 +55,16 @@
       </p>
       <p class="field">
         <%= f.label :company_id %>
-        <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+        <%= f.collection_select(:company_id, companies, :id, :name, {:prompt => true}, :class =>'.small-input')%>
       </p>
       <p class="field">
         <%= f.label :branch_id %>
-        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+        <%= f.collection_select(:branch_id, branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
       </p>
       <%unless @user.id == current_user.id%>
         <p class="field">
           <%= f.label :role_id %>
-          <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, :class =>'.small-input')%>
+          <%= f.collection_select(:role_id, roles, :id, :name, {:prompt => true}, :class =>'.small-input')%>
         </p>
       <%end%>
       <p class="field">
@@ -80,9 +80,8 @@
         <%= f.text_field :password_confirmation, :class=>"text-input small-input" %> 
       </p>
       <p class="field">
-        <%= f.label :current_password %> 
-        <i>(we need your current password to confirm your changes)</i>
-        <%= f.password_field :current_password %>
+        <%= f.label :current_password %>         
+        <%= f.password_field :current_password, :class=>"text-input small-input"  %><i>(we need your current password to confirm your changes)</i>
       </p>      
     </div>
   </div>

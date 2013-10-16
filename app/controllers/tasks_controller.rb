@@ -1,11 +1,9 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-
-    @tasks = current_user.role.super_admin == true ? Task.order('id DESC').paginate(:page => params[:page]) : Task.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -83,4 +81,12 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    tasks
+    drivers
+    branches
+    companies
+  end
+  
 end

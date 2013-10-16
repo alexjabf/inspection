@@ -1,16 +1,16 @@
 <%= render "layouts/first_tab" %>
 <%= form_for(@cellphone) do |f| %>
-<% if @cellphone.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@cellphone.errors.count, "error") %> prohibited this cellphone from being saved:</h2>
+  <% if @cellphone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cellphone.errors.count, "error") %> prohibited this cellphone from being saved:</h2>
 
-  <ul>
-    <% @cellphone.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @cellphone.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p class="field">
     <%= f.label :phone_number %>
@@ -49,14 +49,17 @@
     <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, :class =>'.small-input')%>
   </p>
   <p class="field">
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
     <%= f.label :branch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
-    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
   </p>
 
-<div class="form-actions">
-  <%= f.submit nil, :class => 'button custom-submit' %>
-</div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button custom-submit' %>
+  </div>
 <% end %>
 <div>
   <%= render "layouts/action_links" %>

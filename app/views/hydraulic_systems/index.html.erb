@@ -6,6 +6,8 @@
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
         <th><%= t'.truck_id' %></th> 
+        <th><%= t'.company_id' %></th> 
+        <th><%= t'.branch_id' %></th> 
         <th><%= t'.created_at' %></th>
       </tr>
 
@@ -39,6 +41,10 @@
           <td><%= hydraulic_system.truck.modelbrand %></td>
 
           <td><%= hydraulic_system.driver.user.fullname %></td>
+
+          <td><%= hydraulic_system.company.name %></td>
+
+          <td><%= hydraulic_system.branch.name %></td>
 
           <td><%= I18n.l hydraulic_system.created_at, :format => :long %></td>
 

@@ -45,9 +45,12 @@
     <%= f.text_area :description, :class=>"text-input small-input" %>
   </p>
   <p class="field">
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
     <%= f.label :branch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, :class =>'.small-input')%>
-    <%= f.hidden_field :company_id, :class=>"text-input small-input", :value=>current_user.company_id %>  
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
   </p>
 
   <div class="form-actions">

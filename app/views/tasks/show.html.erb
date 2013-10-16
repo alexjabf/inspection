@@ -59,7 +59,7 @@
       </tr>
           <tr>
         <td>
-          <b><%= t'.completed_at' %></b> <%= I18n.l  @task.completed_at, format: :long %>
+          <b><%= t'.completed_at' %></b> <%= I18n.l  @task.completed_at, format: :long if @task.completed_at%>
         </td>
       </tr>
       </table>

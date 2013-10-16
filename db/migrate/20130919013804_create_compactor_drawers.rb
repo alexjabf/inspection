@@ -10,10 +10,13 @@ class CreateCompactorDrawers < ActiveRecord::Migration
       t.text :observations
       t.references :driver
       t.references :truck
-
+      t.references :company
+      t.references :branch
       t.timestamps
     end
     add_index :compactor_drawers, :driver_id
     add_index :compactor_drawers, :truck_id    
+    add_index :compactor_drawers, :company_id
+    add_index :compactor_drawers, :branch_id    
   end
 end
