@@ -32,6 +32,7 @@ es:
   new_route: "Crear Ruta"
   truck_failures: "Fallas de Camiónes"
   at_least_one_is_required: "Al menos un día es requerido."
+  go_back: "Regresar"
   date:
     abbr_day_names:
     - dom
@@ -242,7 +243,8 @@ es:
       protected: "Protegido: "
       description: "Descripción: "
       super_admin: "Súper Administrador: "
-      branch_admin: "Administrador de Oficina: "
+      company_admin: "Administrador Compañía: "
+      branch_admin: "Administrador de Sucursal de Proveedor: "
       routes_admin: "Administrador de Logistica: "
       driver: "Conductor: "
       created_at: "Registrado el: "
@@ -252,6 +254,7 @@ es:
       protected: "Protegido"
       description: "Descripción"
       super_admin: "Súper Administrador"
+      company_admin: "Administrador Compañía"      
       branch_admin: "Administrador de Oficinar"
       routes_admin: "Administrador de Logistica"
       driver: "Conductor"
@@ -317,7 +320,7 @@ es:
       zip: "Código Postal: "
       country: "País: "
       client_id: "Cliente: "
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       company_id: "Compañía: "      
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -335,7 +338,7 @@ es:
       zip: "Código Postal"
       country: "País"
       client_id: "Cliente"
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       company_id: "Compañía: "      
       created_at: "Registrado el"
       updated_at: "Actualizado el"
@@ -355,7 +358,7 @@ es:
       state: "Estado: "
       zip: "Código Postal: "
       country: "País: "
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       company_id: "Compañía: "
       description: "Descripción: "
       created_at: "Registrado el: "
@@ -375,7 +378,7 @@ es:
       state: "Estado"
       zip: "Código Postal"
       country: "País"
-      branch_id: "Oficina: "      
+      branch_id: "Sucursal de Proveedor: "      
       company_id: "Compañía"
       description: "Descripción"
       created_at: "Registrado el"
@@ -501,7 +504,7 @@ es:
     show:
       user_id: "Usuario: "
       truck_id: "Camión: "
-      branch_id: "Oficina: "        
+      branch_id: "Sucursal de Proveedor: "        
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "      
     index:
@@ -522,7 +525,7 @@ es:
       description: "Descripción: "
       user_id: "Usuario: "
       company_id: "Compañía: "        
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "      
     index:
@@ -548,7 +551,7 @@ es:
       referrer_url: "Url Referida: "
       original_path: "Url de Origen: "
       environment: "Ambiente de Desarrollo: "
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       description: "Descripción: "
       backtrace: "Descripción Completa: "
       error_time: "Tiempo del Error: "
@@ -570,7 +573,7 @@ es:
       updated_at: "Actualizado el"           
   schedules:
     show:
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       driver_id: "Conductor: "
       client_id: "Cliente: "
       truck_id: "Camión: " 
@@ -615,7 +618,7 @@ es:
       wheels_no: "No. de Llantas: "
       other: "Otro: "
       identifier: "Identificador: "
-      branch_id: "Oficina: "
+      branch_id: "Sucursal de Proveedor: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index:
@@ -643,8 +646,10 @@ es:
       observations: 'Observaciones: '
       truck_id: 'Camión: '
       driver_id: 'Conductor: '
-      created_at: 'Registrada el: '
-      updated_at: 'Actualizada el: '
+      branch_id: "Sucursal de Proveedor: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
+      updated_at: 'Actualizado el: '
     index:
       car_jack: 'Gatos'
       hoses: 'Mangueras'
@@ -655,8 +660,10 @@ es:
       observations: 'Observaciones'
       truck_id: 'Camión'
       driver_id: 'Conductor'
-      created_at: 'Registrada el'
-      updated_at: 'Actualizada el'
+      branch_id: "Sucursal de Proveedor"
+      company_id: "Compañía"      
+      created_at: "Registrado el"
+      updated_at: 'Actualizado el'
   drive_systems:
     show:
       engine: 'Motor: '
@@ -669,7 +676,9 @@ es:
       observations: 'Observaciones: '
       truck_id: 'Camión: '
       driver_id: 'Conductor: '
-      created_at: 'Registrado el: '
+      branch_id: "Sucursal de Proveedor: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
       updated_at: 'Actualizado el: '
     index:
       engine: 'Motor'
@@ -682,7 +691,9 @@ es:
       observations: 'Observaciones'
       truck_id: 'Camión'
       driver_id: 'Conductor'
-      created_at: 'Registrado el'
+      branch_id: "Sucursal de Proveedor"
+      company_id: "Compañía"      
+      created_at: "Registrado el"
       updated_at: 'Actualizado el'
   electrical_systems:
     show:
@@ -692,7 +703,9 @@ es:
       observations: 'Observaciones: '
       truck_id: 'Camión: '
       driver_id: 'Conductor: '
-      created_at: 'Registrado el: '
+      branch_id: "Sucursal de Proveedor: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
       updated_at: 'Actualizado el: '
     index:
       start_up: 'Start Up'
@@ -701,7 +714,9 @@ es:
       observations: 'Observaciones'
       truck_id: 'Camión'
       driver_id: 'Conductor'
-      created_at: 'Registrado el'
+      branch_id: "Sucursal de Proveedor"
+      company_id: "Compañía"      
+      created_at: "Registrado el"
       updated_at: 'Actualizado el'
   compactor_drawers:
     show:
@@ -714,7 +729,9 @@ es:
       observations: 'Observaciones: '
       truck_id: 'Camión: '
       driver_id: 'Conductor: '
-      created_at: 'Registrado el: '
+      branch_id: "Sucursal de Proveedor: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
       updated_at: 'Actualizado el: '
     index:
       iron: 'Plancha: '
@@ -726,7 +743,9 @@ es:
       observations: 'Observaciones'
       truck_id: 'Camión'
       driver_id: 'Conductor'
-      created_at: 'Registrado el'
+      branch_id: "Sucursal de Proveedor"
+      company_id: "Compañía"      
+      created_at: "Registrado el"
       updated_at: 'Actualizado el'
   brakes_systems:
     show:
@@ -743,7 +762,9 @@ es:
       observations: 'Observaciones: '
       truck_id: 'Camión: '
       driver_id: 'Conductor: '
-      created_at: 'Registrado el: '
+      branch_id: "Sucursal de Proveedor: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
       updated_at: 'Actualizado el: '
     index:
       compressor: 'Compresor'
@@ -759,7 +780,9 @@ es:
       observations: 'Observaciones'
       truck_id: 'Camión'
       driver_id: 'Conductor'
-      created_at: 'Registrado el'
+      branch_id: "Sucursal de Proveedor"
+      company_id: "Compañía"      
+      created_at: "Registrado el"
       updated_at: 'Actualizado el'
   cabins:
     show:
@@ -771,7 +794,9 @@ es:
       observations: 'Observaciones: '
       truck_id: 'Camión: '
       driver_id: 'Conductor: '
-      created_at: 'Registrado el: '
+      branch_id: "Sucursal de Proveedor: "
+      company_id: "Compañía: "      
+      created_at: "Registrado el: "
       updated_at: 'Actualizado el: '
     index:
       crystals: 'Cristales'
@@ -782,12 +807,119 @@ es:
       observations: 'Observaciones'
       truck_id: 'Camión'
       driver_id: 'Conductor'
-      created_at: 'Registrado el'
+      branch_id: "Sucursal de Proveedor"
+      company_id: "Compañía"      
+      created_at: "Registrado el"
       updated_at: 'Actualizado el'
-    #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
+  routes_histories:
+    show:
+      client_branches: "Sucursales de Clientes"
+      failures: "Fallas Mecánicas"
+      failure_type: "Tipo de Falla"
+      tasks: "Tareas"      
+      id: 'Id: '
+      company_id: 'Compañía: '             
+      branch_id: 'Sucursal: '   
+      client_id: 'Cliente: '         
+      client_branch_id: 'Sucursal del Cliente: '     
+      driver_id: 'Conductor: '
+      started_at: 'Iniciada: '
+      finished_at: 'Terminada: '
+      initial_km: 'Km Inicial: '
+      final_km: 'Km Final: '
+      closed: 'Cerrada: '
+      weekday: 'Día: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      id: 'Id'
+      company_id: 'Compañía'             
+      branch_id: 'Sucursal'   
+      client_id: 'Cliente'         
+      client_branch_id: 'Sucursal del Cliente'      
+      driver_id: 'Conductor'
+      started_at: 'Iniciada'
+      finished_at: 'Terminada'
+      initial_km: 'Km Inicial'
+      final_km: 'Km Final'
+      closed: 'Cerrada'
+      weekday: 'Día'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  schedules_histories:
+    show:
+      id: 'Id: '
+      routes_history_id: 'Historial de Ruta: '
+      client_id: 'Cliente: '      
+      client_branch_id: 'Sucursal del Cliente: '
+      branch_id: 'Sucursal: '
+      company_id: 'Compañía: '
+      visited: 'Visitada?: '
+      visited_at: 'Visitada el: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      id: 'Id'
+      routes_history_id: 'Historial de Ruta'
+      client_id: 'Cliente'       
+      client_branch_id: 'Sucursal del Cliente'
+      branch_id: 'Sucursal'
+      company_id: 'Compañía'
+      visited: 'Visitada?'
+      visited_at: 'Visitada el'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  tasks:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      driver_id: 'Conductor: '
+      branch_id: 'Sucursal: '
+      company_id: 'Compañía: '
+      completed: 'Completeda?: '
+      priority: 'Prioridad: '
+      scheduled_date: 'Programada el: '
+      latitude: 'Latitude: '
+      longitude: 'Longitude: '
+      description: 'Descripción: '
+      comments: 'Comentarios: '
+      completed_at: 'Completada el: '
+      created_at: 'Registrada el: '
+      updated_at: 'Actualizada el: '
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      driver_id: 'Conductor'
+      branch_id: 'Sucursal'
+      company_id: 'Compañía'
+      completed: 'Completeda?'
+      priority: 'Prioridad'
+      scheduled_date: 'Programada el'
+      latitude: 'Latitude'
+      longitude: 'Longitude'
+      description: 'Descripción'
+      comments: 'Comentarios'
+      completed_at: 'Completada el'
+      created_at: 'Registrada el'
+      updated_at: 'Actualizada el'
+  #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
   activerecord:
     models:
+      registration: "Registro"
+      registrations: "Registros"
+      session: "Inicio de Sesión"
+      sessions: "Inicio de Sesión"
+      welcome: "Bienvenido!"
+      welcomes: "Bienvenido!"
+      comment: "Comentario"
+      comments: "Comentarios"
+      password: "Contraseña"     
+      passwords: "Contraseñas"
+      confirmation: "Confirmación"
+      confirmations: "Confirmacións"
+      unlock: "Desbloquear Cuenta"      
+      unlocks: "Desbloquear Cuentas"      
       user: Usuario
       users: Usuarios
       role: Rol
@@ -826,6 +958,12 @@ es:
       brakes_systems: 'Fallas de Sistemas De Frenos'
       cabin: 'Falla de Cabina'
       cabins: 'Fallas de Cabinas'
+      routes_history: 'Historial de Ruta'
+      routes_histories: 'Historial de Rutas'
+      schedules_history: 'Historial de Visita'
+      schedules_histories: 'Historial de Visitas'
+      task: 'Tarea'
+      tasks: 'Tareas'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT 
       
     attributes:
@@ -856,7 +994,8 @@ es:
         protected: "Protegido: "
         description: "Descripción: "
         super_admin: "Súper Administrador: "
-        branch_admin: "Administrador de Oficina: "
+        company_admin: "Administrador Compañía: "        
+        branch_admin: "Administrador de Sucursal de Proveedor: "
         routes_admin: "Administrador de Logistica: "
         driver: "Conductor: "
         created_at: "Registrado el: "
@@ -875,7 +1014,7 @@ es:
         zip: "Código Postal: "
         country: "País: "
         client_id: "Cliente: "
-        branch_id: "Oficina: "
+        branch_id: "Sucursal de Proveedor: "
         company_id: "Compañía: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
@@ -894,7 +1033,7 @@ es:
         state: "Estado: "
         zip: "Código Postal: "
         country: "País: "
-        branch_id: "Oficina: "
+        branch_id: "Sucursal de Proveedor: "
         company_id: "Compañía: "
         description: "Descripción: "
         created_at: "Registrado el: "
@@ -959,7 +1098,7 @@ es:
       driver:
         user_id: "Usuario: "
         truck_id: "Camión: "
-        branch_id: "Oficina: "        
+        branch_id: "Sucursal de Proveedor: "        
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "         
       cellphone:
@@ -973,7 +1112,7 @@ es:
         description: "Descripción: "
         user_id: "Usuario: "
         company_id: "Compañía: "    
-        branch_id: "Oficina: "
+        branch_id: "Sucursal de Proveedor: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       error_report: 
@@ -984,14 +1123,14 @@ es:
         referrer_url: "Url Referida: "
         original_path: "Url de Origen: "
         environment: "Ambiente de Desarrollo: "
-        branch_id: "Oficina: "
+        branch_id: "Sucursal de Proveedor: "
         description: "Descripción: "
         backtrace: "Descripción Completa: "
         error_time: "Tiempo del Error: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "               
       schedule:
-        branch_id: "Oficina: "
+        branch_id: "Sucursal de Proveedor: "
         driver_id: "Conductor: "
         client_id: "Cliente: "
         truck_id: "Camión: " 
@@ -1017,7 +1156,7 @@ es:
         wheels_no: "No. de Llantas: "
         other: "Otro: "
         identifier: "Identificador: "
-        branch_id: "Oficina: "
+        branch_id: "Sucursal de Proveedor: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       hydraulic_system:
@@ -1030,8 +1169,10 @@ es:
         observations: 'Observaciones: '
         truck_id: 'Camión: '
         driver_id: 'Conductor: '
-        created_at: 'Registrado el'
-        updated_at: 'Actualizado el'
+        branch_id: "Sucursal de Proveedor: "
+        company_id: "Compañía: "      
+        created_at: "Registrada el: "
+        updated_at: 'Actualizado el: '
       drive_system:
         engine: 'Motor: '
         bands: 'Bandas: '
@@ -1043,8 +1184,10 @@ es:
         observations: 'Observaciones: '
         truck_id: 'Camión: '
         driver_id: 'Conductor: '
-        created_at: 'Registrado el'
-        updated_at: 'Actualizado el'
+        branch_id: "Sucursal de Proveedor: "
+        company_id: "Compañía: "      
+        created_at: "Registrada el: "
+        updated_at: 'Actualizado el: '
       electrical_system:
         start_up: 'Encendido: '
         accumulator: 'Acumulador: '
@@ -1052,7 +1195,9 @@ es:
         observations: 'Observaciones: '
         truck_id: 'Camión: '
         driver_id: 'Conductor: '
-        created_at: 'Registrado el: '
+        branch_id: "Sucursal de Proveedor: "
+        company_id: "Compañía: "      
+        created_at: "Registrada el: "
         updated_at: 'Actualizado el: '
       compactor_drawer:
         iron: 'Plancha: '
@@ -1064,8 +1209,10 @@ es:
         observations: 'Observaciones: '
         truck_id: 'Camión: '
         driver_id: 'Conductor: '
-        created_at: 'Registrado el'
-        updated_at: 'Actualizado el'
+        branch_id: "Sucursal de Proveedor: "
+        company_id: "Compañía: "      
+        created_at: "Registrada el: "
+        updated_at: 'Actualizado el: '
       brakes_system:
         compressor: 'Compresor: '
         bands: 'Bandas: '
@@ -1080,8 +1227,10 @@ es:
         observations: 'Observaciones: '
         truck_id: 'Camión: '
         driver_id: 'Conductor: '
-        created_at: 'Registrado el'
-        updated_at: 'Actualizado el'
+        branch_id: "Sucursal de Proveedor: "
+        company_id: "Compañía: "      
+        created_at: "Registrada el: "
+        updated_at: 'Actualizado el: '
       cabin:
         crystals: 'Cristales'
         mirrors: 'Espejos'
@@ -1091,15 +1240,59 @@ es:
         observations: 'Observaciones'
         truck_id: 'Camión: '
         driver_id: 'Conductor: '
-        created_at: 'Registrado el'
-        updated_at: 'Actualizado el'
+        branch_id: "Sucursal de Proveedor: "
+        company_id: "Compañía: "      
+        created_at: "Registrada el: "
+        updated_at: 'Actualizado el: '
+      routes_history:
+        id: 'Id: '
+        company_id: 'Compañía: '             
+        branch_id: 'Sucursal: '   
+        client_id: 'Cliente: '         
+        client_branch_id: 'Sucursal del Cliente: '        
+        driver_id: 'Conductor: '
+        started_at: 'Iniciada: '
+        finished_at: 'Terminada: '
+        initial_km: 'Km Inicial: '
+        final_km: 'Km Final: '
+        closed: 'Cerrada: '
+        weekday: 'Día: '
+        created_at: 'Registrada el: '
+        updated_at: 'Actualizada el: '
+      schedules_history:
+        id: 'Id: '
+        routes_history_id: 'Historial de Ruta: '
+        company_id: 'Compañía: '             
+        branch_id: 'Sucursal: '   
+        client_id: 'Cliente: '         
+        client_branch_id: 'Sucursal del Cliente: '
+        visited: 'Visitada?: '
+        visited_at: 'Visitada el: '
+        created_at: 'Registrada el: '
+        updated_at: 'Actualizada el: '
+      task:
+        id: 'Id: '
+        name: 'Nombre: '
+        driver_id: 'Conductor: '
+        branch_id: 'Sucursal'
+        company_id: 'Compañía'
+        completed: 'Completeda?: '
+        priority: 'Prioridad: '
+        scheduled_date: 'Programada el: '
+        latitude: 'Latitude: '
+        longitude: 'Longitude: '
+        description: 'Descripción: '
+        comments: 'Comentarios: '
+        completed_at: 'Completada el: '
+        created_at: 'Registrada el: '
+        updated_at: 'Actualizada el: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     errors: 
       template:
         header:
-          one: "Un error evitó que este elemento ( %{model}) fuera registrado:"
-          other: "%{count} errores evitaron que este elemento ( %{model}) fuera registrado:"
+          one: "Un error evitó que este %{model} fuera registrado:"
+          other: "%{count} errores evitaron que este %{model} fuera registrado:"
         body: "Se encontraron problemas con los siguientes campos:"
       messages:
         invalid_attachment_size: " sobrepasa el límite de tamaño permitido, elija un archivo diferente."

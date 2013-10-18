@@ -1,11 +1,11 @@
 class BranchesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
+    branches
 
-    @branches = current_user.role.super_admin == true ? Branch.order('id DESC').paginate(:page => params[:page]) : Branch.where(:company_id => current_user.branch.company_id).order('id DESC').paginate(:page => params[:page])
-    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @branches }
@@ -85,4 +85,10 @@ class BranchesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_data
+    branches
+    companies
+  end
+  
 end

@@ -22,7 +22,7 @@ test:
   schema: development
   port: 5432
   username: postgres
-  password: alexjabf990480as
+  password: postgres
 
 
 production:

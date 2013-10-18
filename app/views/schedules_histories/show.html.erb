@@ -1,0 +1,43 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>
+        <b><%= t'.routes_history_id' %></b> <%= @schedules_history.routes_history_id %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.client_id' %></b> <%= @schedules_history.client.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.client_branch_id' %></b> <%= @schedules_history.client_branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.company_id' %></b> <%= @schedules_history.company.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.branch_id' %></b> <%= @schedules_history.branch.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.visited' %></b> <%= @schedules_history.visited %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t'.visited_at' %></b> <%= @schedules_history.visited_at %>
+      </td>
+    </tr>
+  </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

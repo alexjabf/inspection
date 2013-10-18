@@ -1,0 +1,33 @@
+<%= render "layouts/first_tab" %>
+<%= form_for(@schedules_history) do |f| %>
+  <% if @schedules_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedules_history.errors.count, "error") %> prohibited this schedules_history from being saved:</h2>
+
+      <ul>
+        <% @schedules_history.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="field">
+    <%= f.label :routes_history_id %>
+    <%= f.collection_select(:routes_history_id, @routes_histories, :id, :human_name, {:prompt => true}, :class =>'.small-input')%>
+  </p>
+  <%if controller.action_name == "edit" or controller.action_name == "update"%>
+    <p class="field">
+      <%= f.label :visited %>
+      <%= f.check_box :visited, :class=>"text-input small-input" %>
+    </p>
+    <p class="field">
+      <%= f.label :visited_at %>
+      <%= f.datetime_select :visited_at, :class=>"text-input small-input" %>
+    </p>
+  <%end%>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+  </div>
+
+<% end %>

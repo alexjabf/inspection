@@ -16,3 +16,19 @@ rails g scaffold schedule branch:references driver:references client_branch:refe
 
 rails g scaffold roles name:string protected:boolean super_admin:boolean clinic_manager:boolean doctor:boolean secretary:boolean patient:boolean description:text 
 rails g scaffold user first_name:string last_name:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string role:references active:boolean
+
+
+rails g scaffold error_reeports ser:string controller_name:string action_name:string line_number:string referrer_url:string original_path:string environment:string branch:references description:text backtrace:text error_time:date
+
+rails g user:references email:string comment:text app_name:string 
+
+rails g scaffold routes_history driver:references started_at:datetime finished_at:datetime initial_km:integer final_km:integer closed:boolean
+
+rails g scaffold schedules_history routes_history:references client_branch:references branch:references company:references visited:boolean visited_at:datetime
+
+rails g model failures_history routes_history:references failure_id:integer failure_type:string
+
+rails g scaffold task name:string driver:references branch:references company:references completed:boolean priority:string scheduled_date:date latitude:float longitude:float description:text comments:text completed_at:datetime
+
+
+Todas las fallas, routes_histories

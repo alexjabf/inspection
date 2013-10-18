@@ -1,7 +1,5 @@
-<div class="notification" style="margin-bottom: 40px; text-align: center">
-  <div>
-    <p>Sign In</p>
-  </div>
+<div class="notification" style="margin-bottom: 40px; text-align: center; padding: 10px 10px 10px 0px;">
+  <p><%=t(:signin)%></p>
 </div>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -19,8 +17,8 @@
   <div class="clear"></div>
   <p id="remember-password">
     <% if devise_mapping.rememberable? -%>
-    <p id="remember-password">
-      <input id="user_remember_me" name="user[remember_me]" type="checkbox"/> <%= t(:remember_me) %>
+    <p id="remember-password" style="float:left;">
+     <%= t(:remember_me) %> <input id="user_remember_me" name="user[remember_me]" type="checkbox" style="margin-top: 6px; margin-left: 10px;"/> 
     </p>
   <% end -%>
   </p>

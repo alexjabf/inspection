@@ -1,0 +1,77 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+                  <th><%= t'.name' %></th>
+                  <th><%= t'.driver' %></th>
+                  <th><%= t'.branch' %></th>
+                  <th><%= t'.company' %></th>
+                  <th><%= t'.completed' %></th>
+                  <th><%= t'.priority' %></th>
+                  <th><%= t'.scheduled_date' %></th>
+                  <th><%= t'.latitude' %></th>
+                  <th><%= t'.longitude' %></th>
+                  <th><%= t'.description' %></th>
+                  <th><%= t'.comments' %></th>
+                  <th><%= t'.completed_at' %></th>
+              </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @tasks.each do |task| %>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <%if can? :show, Task %>
+        <td><%=link_to task.id, task, :class => 'button'%></td>
+        <%else%>
+        <td><%= label task.id, task.id, :class => 'button'%></td>
+        <%end%>
+        
+                  
+            <% @model = task %> 
+                    
+          <td><%= task.name %></td>
+                            
+          <td><%= task.driver %></td>
+                            
+          <td><%= task.branch %></td>
+                            
+          <td><%= task.company %></td>
+                            
+          <td><%= task.completed %></td>
+                            
+          <td><%= task.priority %></td>
+                            
+          <td><%= task.scheduled_date %></td>
+                            
+          <td><%= task.latitude %></td>
+                            
+          <td><%= task.longitude %></td>
+                            
+          <td><%= task.description %></td>
+                            
+          <td><%= task.comments %></td>
+                            
+          <td><%= task.completed_at %></td>
+                <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 

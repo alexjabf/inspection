@@ -2,7 +2,7 @@ class Devise::SessionsController < DeviseController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   prepend_before_filter :allow_params_authentication!, :only => [ :new, :create ]
   skip_before_filter :verify_authenticity_token
-
+  layout "devise"
 
   # GET /resource/sign_in
   def new
@@ -13,21 +13,32 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
-
-    if current_user.active == true
-      set_flash_message(:notice, :signed_in) if is_navigational_format?
+    if signed_in?
+      if current_user.active 
+        resource = warden.authenticate!(auth_options)
+        set_flash_message(:notice, :signed_in) if is_navigational_format?
+        sign_in(resource_name, resource)
+        if current_user.role.super_admin
+          session[:promp_company] = true
+          session[:promp_branch] = true
+        elsif current_user.role.company_admin
+          session[:promp_company] = false
+          session[:promp_branch] = true
+        else
+          session[:promp_company] = false
+          session[:promp_branch] = false
+        end
+        if request.format == "application/json"
+          render :json => current_user
+        else
+          respond_with resource, :location => after_sign_in_path_for(resource)
+        end
+      else
+        sign_out(current_user)
+        redirect_to new_user_session_path, :alert => t("errors.messages.account_inactive")
+      end
     else
-      sign_out(resource)
-      set_flash_message("Your account is inactive, pleaso contact your system administrator.")
-    end
-    
-    resource = warden.authenticate!(auth_options)
-    set_flash_message(:notice, :signed_in) if is_navigational_format?
-    sign_in(resource_name, resource)
-    if request.format == "application/json"
-      render :json => current_user
-    else
-      respond_with resource, :location => after_sign_in_path_for(resource)
+      redirect_to new_user_session_path, :alert => t("devise.failure.invalid")
     end
   end  
 

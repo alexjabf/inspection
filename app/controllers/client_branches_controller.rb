@@ -1,11 +1,9 @@
 class ClientBranchesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_data, :except => [:show, :destroy]
   load_and_authorize_resource
 
   def index
-
-    @client_branches = current_user.role.super_admin == true ? ClientBranch.order('id DESC').paginate(:page => params[:page]) : ClientBranch.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @client_branches }
@@ -85,12 +83,19 @@ class ClientBranchesController < ApplicationController
   end
   
   def get_client_branches
-    @client_branches = ClientBranch.where(:client_id => params[:client_id])
+    @client_branches = ClientBranch.where(:client_id => params[:client_id], :branch_id => current_user.branch_id)
     respond_to do |format|
       if params[:callback]
         format.json { render :json => @client_branches, :callback => params[:callback] }     
       end
     end
+  end
+  
+  def get_data
+    clients
+    client_branches
+    branches
+    companies
   end
   
 end

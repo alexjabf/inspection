@@ -1,0 +1,2 @@
+module SchedulesHistoriesHelper
+end

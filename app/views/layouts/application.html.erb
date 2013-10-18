@@ -13,46 +13,12 @@
     <%= csrf_meta_tags %>
 
 
-
-    <!--                       CSS                       -->
-
-    <!-- Reset Stylesheet -->
-    <link rel="stylesheet" href="/assets/stlysheets/reset.css" type="text/css" media="screen" />
-
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/stlysheets/application.css" type="text/css" media="screen" />
-
-    <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-    <link rel="stylesheet" href="/assets/stlysheets/invalid.css" type="text/css" media="screen" />	
-
-    <!-- Colour Schemes
-
-    Default colour scheme is green. Uncomment prefered stylesheet to use it.
-    
-    <link rel="stylesheet" href="/assets/blue.css" type="text/css" media="screen" />
-    
-    <link rel="stylesheet" href="/assets/red.css" type="text/css" media="screen" />  
-
-    -->
-
-    <!-- Internet Explorer Fixes Stylesheet -->
-
-    <!--[if lte IE 7]>
-            <link rel="stylesheet" href="/assets/ie.css" type="text/css" media="screen" />
-    <![endif]-->
-
-
-    <!--[if IE 6]>
-            <script type="text/javascript" src="/assets/DD_belatedPNG_0.0.7a.js"></script>
-            <script type="text/javascript">
-                    DD_belatedPNG.fix('.png_bg, img, li');
-            </script>
-    <![endif]-->
-
   </head>
 
   <body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
-      <%= render "layouts/sidebar"%>
+      <%unless controller_name == "monitor"%>
+        <%= render "layouts/sidebar"%>
+      <%end%>
       <div id="main-content"> <!-- Main Content Section with everything -->
 
         <noscript> <!-- Show a notification if the user has disabled javascript -->
@@ -62,71 +28,73 @@
             </div>
           </div>
         </noscript>
+        <%unless controller_name == "monitor"%>
+          <!-- Page Head -->
+          <%if signed_in?%>
+            <h2><%=t(:licensed_to) + " " + current_user.company.name%></h2><br>
+            <h2><%=t(:welcome) + " " + current_user.fullname%></h2>
+            <p id="page-intro"><%=t(:what_to_do)%></p>
+            <ul class="shortcut-buttons-set" style> <!-- Replace the icons URL's with your own -->
+              <%if can? :new, User %>
+                <li>
+                  <a class="shortcut-button" href="<%=new_user_registration_path%>"><span>
+                      <img src="/assets/icons/user_add.png" alt="icon" /><br />
+                      <%=t(:new_user)%>
+                    </span></a></li>
+              <%end%>
+              <%if can? :new, Client %>
+                <li><a class="shortcut-button" href="<%=new_client_path%>"><span>
+                      <img src="/assets/icons/business_user_add.png" alt="icon" /><br />
+                      <%=t(:new_client)%>
+                    </span></a></li>
+              <%end%>
+              <%if can? :new, Schedule %>
+                <li><a class="shortcut-button" href="<%=new_schedule_path%>"><span>
+                      <img src="/assets/icons/calendar_add.png" alt="icon" /><br />
+                      <%=t(:new_schedule)%>
+                    </span></a></li>
+              <%end%>
+              <li><a class="shortcut-button" href="#"><span>
+                    <img src="/assets/icons/map_add.png" alt="icon" /><br />
+                    <%=t(:new_route)%>
+                  </span></a></li>
+            <%else%>        
+              <h2><%=t(:welcome)%></h2>        
+            <%end%>
 
-        <!-- Page Head -->
-        <%if signed_in?%>
-          <h2><%=t(:welcome) + " " + current_user.fullname%></h2>
-          <p id="page-intro"><%=t(:what_to_do)%></p>
-          <ul class="shortcut-buttons-set" style> <!-- Replace the icons URL's with your own -->
-            <%if can? :new, User %>
-              <li>
-                <a class="shortcut-button" href="<%=new_user_registration_path%>"><span>
-                    <img src="/assets/icons/user_add.png" alt="icon" /><br />
-                    <%=t(:new_user)%>
-                  </span></a></li>
-            <%end%>
-            <%if can? :new, Client %>
-              <li><a class="shortcut-button" href="<%=new_client_path%>"><span>
-                    <img src="/assets/icons/business_user_add.png" alt="icon" /><br />
-                    <%=t(:new_client)%>
-                  </span></a></li>
-            <%end%>
-            <%if can? :new, Schedule %>
-              <li><a class="shortcut-button" href="<%=new_schedule_path%>"><span>
-                    <img src="/assets/icons/calendar_add.png" alt="icon" /><br />
-                    <%=t(:new_schedule)%>
-                  </span></a></li>
-            <%end%>
-            <li><a class="shortcut-button" href="#"><span>
-                  <img src="/assets/icons/map_add.png" alt="icon" /><br />
-                  <%=t(:new_route)%>
-                </span></a></li>
-          <%else%>        
-            <h2><%=t(:welcome)%></h2>        
+            <br /><br />
+
+          </ul><!-- End .shortcut-buttons-set -->
+
+          <div class="clear"></div> <!-- End .clear -->
+
+          <div class="content-box"><!-- Start Content Box -->
+
+            <div class="content-box-header">
+              <h3><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></h3>
+              <script>
+  <%if controller.action_name == "index" or !params[:page].blank?%>
+                  $("#tab-two").removeClass('default-tab');
+                  $("#tab-one").addClass('default-tab');
+                  $("#tab2").hide();
+                  $("#tab1").show();
+  <%else%>
+                  $("#tab-one").removeClass('default-tab');
+                  $("#tab-two").addClass('default-tab');
+                  $("#tab1").hide();
+                  $("#tab2").show();
+  <%end%>
+              </script>
+              <% unless controller_name == "welcome" %>
+                <ul class="content-box-tabs">
+                  <li><a href="#tab1"  id="tab-one"><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></a></li> <!-- href must be unique and match the id of target div -->
+                  <li><a href="#tab2"  id="tab-two"><%= eval("t('actions.new',  model: t('activerecord.models.#{controller_name.underscore.downcase.singularize.gsub(" ", "")}'))") %></a></li>
+                </ul>
+              <% end %>
+              <div class="clear"></div>
+
+            </div> <!-- End .content-box-header -->
           <%end%>
-
-          <br /><br />
-
-        </ul><!-- End .shortcut-buttons-set -->
-
-        <div class="clear"></div> <!-- End .clear -->
-
-        <div class="content-box"><!-- Start Content Box -->
-
-          <div class="content-box-header">
-            <h3><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></h3>
-            <script>
-<%if controller.action_name == "index" or !params[:page].blank?%>
-                $("#tab-two").removeClass('default-tab');
-                $("#tab-one").addClass('default-tab');
-                $("#tab2").hide();
-                $("#tab1").show();
-<%else%>
-                $("#tab-one").removeClass('default-tab');
-                $("#tab-two").addClass('default-tab');
-                $("#tab1").hide();
-                $("#tab2").show();
-<%end%>
-            </script>
-            <% unless controller_name == "welcome" %>
-              <ul class="content-box-tabs">
-                <li><a href="#tab1"  id="tab-one"><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></a></li> <!-- href must be unique and match the id of target div -->
-                <li><a href="#tab2"  id="tab-two"><%= eval("t('actions.new',  model: t('activerecord.models.#{controller_name.underscore.downcase.singularize.gsub(" ", "")}'))") %></a></li>
-              </ul>
-            <% end %>
-            <div class="clear"></div>
-
-          </div> <!-- End .content-box-header -->
           <div class="content-box-content">  
             <% if flash[:notice] %>
               <div class="notification success png_bg">
@@ -164,60 +132,60 @@
           </div> <!-- End .content-box-content -->
 
         </div> <!-- End .content-box -->
+        <%unless controller_name == "monitor"%>
+          <div class="content-box column-left">
 
-        <div class="content-box column-left">
+            <div class="content-box-header">
 
-          <div class="content-box-header">
+              <h3>Content box left</h3>
 
-            <h3>Content box left</h3>
+            </div> <!-- End .content-box-header -->
 
-          </div> <!-- End .content-box-header -->
+            <div class="content-box-content">
 
-          <div class="content-box-content">
+              <div class="tab-content default-tab">
 
-            <div class="tab-content default-tab">
+                <h4>Maecenas dignissim</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porta lectus. Maecenas dignissim enim quis ipsum mattis aliquet. Maecenas id velit et elit gravida bibendum. Duis nec rutrum lorem. Donec egestas metus a risus euismod ultricies. Maecenas lacinia orci at neque commodo commodo.
+                </p>
 
-              <h4>Maecenas dignissim</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porta lectus. Maecenas dignissim enim quis ipsum mattis aliquet. Maecenas id velit et elit gravida bibendum. Duis nec rutrum lorem. Donec egestas metus a risus euismod ultricies. Maecenas lacinia orci at neque commodo commodo.
-              </p>
+              </div> <!-- End #tab3 -->        
 
-            </div> <!-- End #tab3 -->        
+            </div> <!-- End .content-box-content -->
 
-          </div> <!-- End .content-box-content -->
+          </div> <!-- End .content-box -->
 
-        </div> <!-- End .content-box -->
+          <div class="content-box column-right">
 
-        <div class="content-box column-right">
+            <div class="content-box-header"> <!-- Add the class "closed" to the Content box header to have it closed by default -->
 
-          <div class="content-box-header"> <!-- Add the class "closed" to the Content box header to have it closed by default -->
+              <h3>Content box right</h3>
 
-            <h3>Content box right</h3>
+            </div> <!-- End .content-box-header -->
 
-          </div> <!-- End .content-box-header -->
+            <div class="content-box-content">
 
-          <div class="content-box-content">
+              <div class="tab-content default-tab">
 
-            <div class="tab-content default-tab">
+                <h4>This box is closed by default</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porta lectus. Maecenas dignissim enim quis ipsum mattis aliquet. Maecenas id velit et elit gravida bibendum. Duis nec rutrum lorem. Donec egestas metus a risus euismod ultricies. Maecenas lacinia orci at neque commodo commodo.
+                </p>
 
-              <h4>This box is closed by default</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porta lectus. Maecenas dignissim enim quis ipsum mattis aliquet. Maecenas id velit et elit gravida bibendum. Duis nec rutrum lorem. Donec egestas metus a risus euismod ultricies. Maecenas lacinia orci at neque commodo commodo.
-              </p>
+              </div> <!-- End #tab3 -->        
 
-            </div> <!-- End #tab3 -->        
+            </div> <!-- End .content-box-content -->
 
-          </div> <!-- End .content-box-content -->
+          </div> <!-- End .content-box -->
+          <div class="clear"></div>
 
-        </div> <!-- End .content-box -->
-        <div class="clear"></div>
-
-        <div id="footer">
-          <small>
-            &#169; Copyright 2009 Simpla Admin | Powered by <a href="http://themeforest.net/item/simpla-admin-flexible-user-friendly-admin-skin/46073">Simpla Admin</a> | <a href="#">Top</a>
-          </small>
-        </div><!-- End #footer -->
-
+          <div id="footer">
+            <small>
+              &#169; Copyright 2009 Simpla Admin | Powered by <a href="http://themeforest.net/item/simpla-admin-flexible-user-friendly-admin-skin/46073">Simpla Admin</a> | <a href="#">Top</a>
+            </small>
+          </div><!-- End #footer -->
+        <%end%>
       </div> <!-- End #main-content -->
 
     </div></body>

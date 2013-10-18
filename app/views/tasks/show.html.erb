@@ -1,0 +1,68 @@
+<%= render "layouts/first_tab" %>
+
+<div class="CSSTableGenerator" >
+  <table >
+          <tr>
+        <td>
+          <b><%= t'.name' %></b> <%= @task.name %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.driver_id' %></b> <%= @task.driver.user.fullname %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.branch_id' %></b> <%= @task.branch.name %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.company_id' %></b> <%= @task.company.name %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.completed' %></b> <%= t(@task.completed.to_s) %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.priority' %></b> <%= @task.priority %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.scheduled_date' %></b> <%= @task.scheduled_date %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.latitude' %></b> <%= @task.latitude %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.longitude' %></b> <%= @task.longitude %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.description' %></b> <%= @task.description %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.comments' %></b> <%= @task.comments %>
+        </td>
+      </tr>
+          <tr>
+        <td>
+          <b><%= t'.completed_at' %></b> <%= I18n.l  @task.completed_at, format: :long if @task.completed_at%>
+        </td>
+      </tr>
+      </table>
+  <%= render "layouts/action_links" %>
+</div>
+<br />

@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :branch
   belongs_to :company
-  attr_accessible :active, :address1, :address2, :city, :country, :first_name, :last_name, :phone1, :phone2, :state, :zip, :role_id, :branch_id, :username, :confirmed_at, :branch_id, :company_id
-  attr_accessor :login, :fullname
+  attr_accessible :active, :address1, :address2, :city, :country, :first_name, :last_name, :phone1, :phone2, :state, :zip, :role_id, :branch_id, :username, :confirmed_at, :branch_id, :company_id, :login
+  attr_accessor :login, :fullname, :login
   
   belongs_to :role
   belongs_to :branch
-  has_many :cellphones
+  has_many :cellphones, :dependent => :destroy
   has_many :drivers, :dependent => :destroy
   validates :first_name, :last_name, :presence => true
   validates :username, :uniqueness => true

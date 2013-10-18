@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  driver: 
+  started_at: 2013-10-15 00:56:08
+  finished_at: 2013-10-15 00:56:08
+  initial_km: 1
+  final_km: 1
+  closed: false
+  weekday: MyString
+
+two:
+  driver: 
+  started_at: 2013-10-15 00:56:08
+  finished_at: 2013-10-15 00:56:08
+  initial_km: 1
+  final_km: 1
+  closed: false
+  weekday: MyString

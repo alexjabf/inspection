@@ -4,8 +4,12 @@
       <tr>
         <th><input class="check-all" type="checkbox" /></th>
         <th><%= t'.id' %></th>
+                  <th><%= t'.name' %></th>
                   <th><%= t'.driver_id' %></th>
-                  <th><%= t'.truck_id' %></th>  
+                  <th><%= t'.completed' %></th>
+                  <th><%= t'.priority' %></th>
+                  <th><%= t'.scheduled_date' %></th>
+                  <th><%= t'.completed_at' %></th>
               </tr>
 
     </thead>
@@ -23,26 +27,34 @@
     </tfoot>
 
     <tbody>
-      <% @electrical_systems.each do |electrical_system| %>
+      <% @tasks.each do |task| %>
       <tr>
         <td><input type="checkbox" /></td>
-        <%if can? :show, ElectricalSystem %>
-        <td><%=link_to electrical_system.id, electrical_system, :class => 'button'%></td>
+        <%if can? :show, Task %>
+        <td><%=link_to task.id, task, :class => 'button'%></td>
         <%else%>
-        <td><%= label electrical_system.id, electrical_system.id, :class => 'button'%></td>
+        <td><%= label task.id, task.id, :class => 'button'%></td>
         <%end%>
         
                   
-            <% @model = electrical_system %> 
+            <% @model = task %> 
                     
-          <td><%= electrical_system.truck.modelbrand %></td>
-  
-          <td><%= electrical_system.driver.user.fullname %></td>
+          <td><%= task.name %></td>
+                            
+          <td><%= task.driver.user.fullname %></td>
+                            
+          <td><%= task.completed %></td>
+                            
+          <td><%= task.priority %></td>
+                            
+          <td><%= task.scheduled_date %></td>
 
+          <td><%= task.completed_at %></td>
                 <%= render "layouts/index_links" %>
         <% end %>
       </tr>
     </tbody>
   </table>
   <%= render "layouts/action_links" %>
-</div>
+</div> 
+<%= render "layouts/second_tab" %>

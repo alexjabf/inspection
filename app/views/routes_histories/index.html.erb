@@ -1,0 +1,69 @@
+<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+  <table>
+    <thead>
+      <tr>
+        <th><input class="check-all" type="checkbox" /></th>
+        <th><%= t'.id' %></th>
+        <th><%= t'.driver_id' %></th>
+        <th><%= t'.branch_id' %></th>
+        <th><%= t'.client_branch_id' %></th>
+        <th><%= t'.started_at' %></th>
+        <th><%= t'.finished_at' %></th>
+        <th><%= t'.initial_km' %></th>
+        <th><%= t'.final_km' %></th>
+        <th><%= t'.closed' %></th>
+        <th><%= t'.weekday' %></th>
+      </tr>
+
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="bulk-actions align-left">
+            <%= render "layouts/select_action" %>
+          </div>
+          <%= render "layouts/pagination" %>
+          <div class="clear"></div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @routes_histories.each do |routes_history| %>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <%if can? :show, RoutesHistory %>
+            <td><%=link_to routes_history.id, routes_history, :class => 'button'%></td>
+          <%else%>
+            <td><%= label routes_history.id, routes_history.id, :class => 'button'%></td>
+          <%end%>
+
+
+          <% @model = routes_history %> 
+
+          <td><%= routes_history.driver.user.fullname %></td>
+
+          <td><%= routes_history.branch.name %></td>
+
+          <td><%= routes_history.client_branch.name %></td>
+
+          <td><%= I18n.l routes_history.started_at, :format => :long unless routes_history.started_at.nil?%></td>
+
+          <td><%= I18n.l routes_history.finished_at, :format => :long unless routes_history.finished_at.nil?%></td>
+
+          <td><%= routes_history.initial_km %></td>
+
+          <td><%= routes_history.final_km %></td>
+
+          <td><%= t(routes_history.closed.to_s) %></td>
+
+          <td><%= t(routes_history.weekday.titlecase) %></td>
+          <%= render "layouts/index_links" %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= render "layouts/action_links" %>
+</div> 
+<%#= render "layouts/second_tab" %>

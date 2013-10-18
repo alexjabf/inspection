@@ -1,16 +1,17 @@
 require 'securerandom'
-class Devise::RegistrationsController < DeviseController
+class Devise::RegistrationsController < DeviseController 
   #Descomentar las lineas siguiente si se desea que los usuarios se registren ellos mismos
   #y quitar las acciones de :new y :create en la linea no comentada.
   #prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   #prepend_before_filter :authenticate_scope!, :only => [ :new, :create, :edit, :update, :destroy]
   #repend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, :only => [ :new, :create, :edit, :update, :destroy]
+  before_filter :get_data
   layout "application"
   # GET /resource/sign_up
   def new
-      resource = build_resource({})
-      respond_with resource
+    resource = build_resource({})
+    respond_with resource
   end
 
   # POST /resource
@@ -116,5 +117,12 @@ class Devise::RegistrationsController < DeviseController
     send(:"authenticate_#{resource_name}!", :force => true)
     self.resource = send(:"current_#{resource_name}")
   end
-
+  
+  def get_data
+    users
+    roles
+    branches
+    companies
+  end
+  
 end

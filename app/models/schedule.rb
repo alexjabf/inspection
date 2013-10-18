@@ -1,11 +1,13 @@
 class Schedule < ActiveRecord::Base
+  belongs_to :company  
   belongs_to :branch
   belongs_to :driver
   belongs_to :client
   belongs_to :client_branch
-  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :client_branch_id, :week_day
-  validates :client_id, :driver_id, :branch_id, :client_branch_id, :week_day, :presence => true
-  validates :client_id, :uniqueness => true
+  attr_accessible :friday, :monday, :saturday, :sunday, :thursday, :tuesday, :wednesday, :driver_id, :client_id, :branch_id, :company_id, :client_branch_id
+  validates :client_id, :driver_id, :client_branch_id, :presence => true
+  validates :branch_id, :company_id, :presence => true, :on => :update
+  validates :client_branch_id, :uniqueness => true
   validate :checkbox_validation
 
   def checkbox_validation
@@ -13,14 +15,18 @@ class Schedule < ActiveRecord::Base
   end
   
   def selected_days
-    client.name + " (" +
+    client_branch.name + " (" +
       " #{I18n.t('monday') + " " if monday}" +
       " #{I18n.t('tuesday') + " " if tuesday}" +
       " #{I18n.t('wednesday') + " " if wednesday}" +
       " #{I18n.t('thursday') + " " if thursday}" +
       " #{I18n.t('friday') + " " if friday}" +
       " #{I18n.t('saturday') + " " if saturday}" +
-      " #{I18n.t('sunday') + " " if sunday}"  + ")"
+      " #{I18n.t('sunday') + " " if sunday}"  + ") "
+  end
+  
+    def human_name
+    "(Id: " + id.to_s + ") " + I18n.t('schedules..show.client_branch_id') + selected_days + " - " + I18n.t('schedules.show.branch_id') + branch.name
   end
   
 end

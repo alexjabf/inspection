@@ -16,6 +16,7 @@
    });*/
 
   function getClientBranches(id) {
+    $('#schedule_client_branch_id').empty();
     var client_id = id;
     if (client_id) {
       function setBranchesSelect(client_branches) {
@@ -31,7 +32,6 @@
         var opt = document.createElement('option');
         opt.value = value;
         opt.text = text;
-        $('#schedule_client_branch_id').empty();
         //$('#schedule_client_branch_id')[0].options.length = 0;
         dropdown.options.add(opt);
       }
@@ -69,41 +69,24 @@
       <%= f.label :client_id %>
       <%= f.collection_select(:client_id, @clients, :id, :name, {:prompt => true}, :onchange => "getClientBranches(this.value)")%><span class="required">*</span>
     </p>
-    <%if controller.action_name == "new" or @client_id.nil?%>
-      <p class="field" style="display: none;" id="client_branches_cb">
-        <%@client_branches = ClientBranch.where(:client_id => "0")%>
-        <%= f.label :client_branch_id %>
-        <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
-      </p>
-    <%elsif !@client_id.nil?%>
-      <p class="field" id="client_branches_cb">
-        <%@client_branches = ClientBranch.where(:client_id => @client_id)%>
-        <%= f.label :client_branch_id %>
-        <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
-      </p>
-    <%end%>
+
+    <p class="field" id="client_branches_cb">
+      <%#if action_name == "new" or action_name == "create"%>
+        <%#@client_branches = ClientBranch.where(:client_id => @client_id)%>
+      <%#else%>
+        <%#@client_branches = ClientBranch.where(:client_id => @schedule.client_id)%>
+      <%#end%>
+      <%= f.label :client_branch_id %>
+      <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {:prompt => true})%><span class="required">*</span>
+    </p>
+
     <p class="field">
       <%= f.label :driver_id %>
-      <%= f.collection_select(:driver_id, @drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}) %><span class="required">*</span>
-    </p>
-    <p class="field">
-      <%= f.label :brahch_id %>
-      <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}) %><span class="required">*</span>
+      <%= f.collection_select(:driver_id, drivers.map { |driver| [driver.id, driver.user.fullname] }, :first, :last, {:prompt => true}) %><span class="required">*</span>
     </p>
   </fieldset>
   <fieldset class="right-custom-column">
-    <div class="field">
-      <%= f.label :week_day %>
-      <%= f.select :week_day, options_for_select([ 
-          [t('Monday')],
-          [t('Tuesday')],
-          [t('Wednesday')],
-          [t('Thursday')],
-          [t('Friday')],
-          [t('Saturday')],
-          [t('Sunday')]
-        ]), {:prompt => true}%> <span class="required">*</span>
-    </div>
+    <h3><%=t('schedules.select_days')%></h3>
     <p class="field">
       <%= f.label :monday, :style => "position: absolute"  %>
       <%= f.check_box :monday, :style => "margin-left: 120px", :class=>"small-input" %>

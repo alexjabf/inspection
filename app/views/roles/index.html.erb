@@ -6,6 +6,7 @@
         <th><%= t'.id' %></th>
         <th><%= t'.name' %></th>
         <th><%= t'.super_admin' %></th>
+        <th><%= t'.company_admin' %></th>        
         <th><%= t'.branch_admin' %></th>
         <th><%= t'.routes_admin' %></th>
         <th><%= t'.driver' %></th>
@@ -42,6 +43,8 @@
 
           <td><%= t(role.super_admin.to_s) %></td>
 
+          <td><%= t(role.company_admin.to_s) %></td>          
+          
           <td><%= t(role.branch_admin.to_s) %></td>
 
           <td><%= t(role.routes_admin.to_s) %></td>
