@@ -48,9 +48,9 @@
 
           <td><%= routes_history.client_branch.name %></td>
 
-          <td><%= routes_history.started_at %></td>
+          <td><%= I18n.l routes_history.started_at, :format => :long unless routes_history.started_at.nil?%></td>
 
-          <td><%= routes_history.finished_at %></td>
+          <td><%= I18n.l routes_history.finished_at, :format => :long unless routes_history.finished_at.nil?%></td>
 
           <td><%= routes_history.initial_km %></td>
 
@@ -58,7 +58,7 @@
 
           <td><%= t(routes_history.closed.to_s) %></td>
 
-          <td><%= routes_history.weekday %></td>
+          <td><%= t(routes_history.weekday.titlecase) %></td>
           <%= render "layouts/index_links" %>
         <% end %>
       </tr>

@@ -85,6 +85,7 @@ class SchedulesHistoriesController < ApplicationController
   
   def get_data
     schedules_histories
+    routes_histories
     drivers
     branches
     companies

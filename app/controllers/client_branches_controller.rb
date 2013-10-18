@@ -83,7 +83,7 @@ class ClientBranchesController < ApplicationController
   end
   
   def get_client_branches
-    @client_branches = ClientBranch.where(:client_id => params[:client_id])
+    @client_branches = ClientBranch.where(:client_id => params[:client_id], :branch_id => current_user.branch_id)
     respond_to do |format|
       if params[:callback]
         format.json { render :json => @client_branches, :callback => params[:callback] }     
