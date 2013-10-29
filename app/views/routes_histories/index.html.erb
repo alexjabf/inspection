@@ -6,7 +6,6 @@
         <th><%= t'.id' %></th>
         <th><%= t'.driver_id' %></th>
         <th><%= t'.branch_id' %></th>
-        <th><%= t'.client_branch_id' %></th>
         <th><%= t'.started_at' %></th>
         <th><%= t'.finished_at' %></th>
         <th><%= t'.initial_km' %></th>
@@ -45,8 +44,6 @@
           <td><%= routes_history.driver.user.fullname %></td>
 
           <td><%= routes_history.branch.name %></td>
-
-          <td><%= routes_history.client_branch.name %></td>
 
           <td><%= I18n.l routes_history.started_at, :format => :long unless routes_history.started_at.nil?%></td>
 

@@ -112,12 +112,12 @@
       </tr>
       <tr>
         <td>
-          <b><%= t'.started_at' %></b> <%= I18n.l routes_history.started_at, :format => :long  %>
+          <b><%= t'.started_at' %></b> <%= I18n.l routes_history.started_at, :format => :long  unless routes_history.started_at.blank?  %>
         </td>
       </tr>
       <tr>
         <td>
-          <b><%= t'.finished_at' %></b> <%= I18n.l routes_history.finished_at, :format => :long  %>
+          <b><%= t'.finished_at' %></b> <%= I18n.l routes_history.finished_at, :format => :long  unless routes_history.finished_at.blank?%>
         </td>
       </tr>
       <tr>
@@ -180,7 +180,7 @@
 
           <td><%= t(schedules_history.visited.to_s) %></td>
 
-          <td><%= I18n.l schedules_history.visited_at, :format => :long %></td>
+          <td><%= I18n.l schedules_history.visited_at, :format => :long unless schedules_history.visited_at.nil?%></td>
         <% end %>
       </tr>
     </tbody>
@@ -221,9 +221,9 @@
 
             <td><%= task.priority %></td>
 
-            <td><%= task.scheduled_date %></td>
+            <td><%= I18n.l task.scheduled_date, :format => :long unless task.scheduled_date.nil? %></td>
 
-            <td><%= task.completed_at %></td>
+            <td><%= I18n.l task.completed_at, :format => :long unless task.completed_at.nil? %></td>
           <% end %>
         </tr>
       </tbody>

@@ -26,7 +26,7 @@ class Schedule < ActiveRecord::Base
   end
   
     def human_name
-    "(Id: " + id.to_s + ") " + I18n.t('schedules..show.client_branch_id') + selected_days + " - " + I18n.t('schedules.show.branch_id') + branch.name
+    "(Id: " + id.to_s + ") " + I18n.t('schedules.show.branch_id') + branch.name + " - " + I18n.t('schedules.show.driver_id') + ": " + driver.driver_name 
   end
   
 end

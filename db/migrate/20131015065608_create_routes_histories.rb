@@ -4,8 +4,6 @@ class CreateRoutesHistories < ActiveRecord::Migration
       t.references :driver
       t.references :company
       t.references :branch
-      t.references :client
-      t.references :client_branch
       t.datetime :started_at
       t.datetime :finished_at
       t.integer :initial_km
@@ -20,9 +18,7 @@ class CreateRoutesHistories < ActiveRecord::Migration
       t.timestamps
     end
     add_index :routes_histories, :driver_id
-    add_index :routes_histories, :company_id#
-    add_index :routes_histories, :branch_id#
-    add_index :routes_histories, :client_id#
-    add_index :routes_histories, :client_branch_id#
+    add_index :routes_histories, :company_id
+    add_index :routes_histories, :client_branch_id
   end
 end

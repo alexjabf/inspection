@@ -13,8 +13,8 @@
   <% end %>
 
   <p class="field">
-    <%= f.label :schedule_id %>
-    <%= f.collection_select(:schedule_id, @schedules, :id, :human_name, {:prompt => true}, :class =>'.small-input')%>
+    <%= f.label :driver_id %>
+    <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
   </p>
 
   <p class="field">

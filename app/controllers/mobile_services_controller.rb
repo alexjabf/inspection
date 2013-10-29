@@ -9,7 +9,7 @@ class MobileServicesController < ApplicationController
 
   def get_driver_info
     @driver = Driver.find_by_user_id(params[:user_id])
-    render json: @driver.blank? ?  {'status' => t('driver_not_found')} : [@driver, @driver.truck, @driver.company, @driver.branch]
+    render json: @driver.blank? ?  {'status' => t('driver_not_found')} : [@driver, @driver.user, @driver.truck, @driver.company, @driver.branch]
   end
  
   def get_driver_schedule
@@ -26,17 +26,22 @@ class MobileServicesController < ApplicationController
     render json: @schedules.blank? ?  {'status' => t('schedule_not_found')} : schedules 
   end
   
+  def start_route
+    
+  end
+  
+
   
   def detect_platform
-    #    if request.env['HTTP_USER_AGENT'] == ""
-    #      access = true
-    #    else
-    #      access = false
-    #    end
-    #    unless access
-    #      flash[:alert] = t('no_access')
-    #      redirect_to root_path
-    #    end
+    #        if request.env['HTTP_USER_AGENT'] == ""
+    #          access = true
+    #        else
+    #          access = false
+    #        end
+    #        unless access
+    #          flash[:alert] = t('no_access')
+    #          redirect_to root_path
+    #        end
   end
   
 end

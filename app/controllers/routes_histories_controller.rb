@@ -44,10 +44,8 @@ class RoutesHistoriesController < ApplicationController
     @routes_history = RoutesHistory.new(params[:routes_history])
     @schedule = Schedule.find_by_id(@routes_history.schedule_id)
     @routes_history.weekday = Time.now.strftime("%A").downcase
-    @routes_history.company_id = @schedule.company_id
-    @routes_history.branch_id = @schedule.branch_id
-    @routes_history.client_id = @schedule.client_id
-    @routes_history.client_branch_id = @schedule.client_branch_id
+    @routes_history.company_id = @schedule.driver.branch_id
+    @routes_history.branch_id = @schedule.driver.company_id
     @routes_history.driver_id = @schedule.driver_id
     respond_to do |format|
       if @routes_history.save
