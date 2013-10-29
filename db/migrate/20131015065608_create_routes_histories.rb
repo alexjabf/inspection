@@ -19,6 +19,6 @@ class CreateRoutesHistories < ActiveRecord::Migration
     end
     add_index :routes_histories, :driver_id
     add_index :routes_histories, :company_id
-    add_index :routes_histories, :client_branch_id
+    add_index :routes_histories, :branch_id
   end
 end
