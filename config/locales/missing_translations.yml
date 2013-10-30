@@ -34,9 +34,12 @@ es:
       page_entries_info:
         single_page_html: Single Page Html
   messages:
+    alerts:
+      route_started_at: 'Ruta iniciada el '
     errors:
       final_initial_km: Final Initial Km
       access_denied: Access Denied
+      start_route_error: 'Error: La ruta no pudo ser iniciada '
   sign_in: Sign In
   signin: Signin
   remember_me: Remember Me
