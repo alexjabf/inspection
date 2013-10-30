@@ -13,6 +13,15 @@
   <% end %>
 
   <p class="field">
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
+  </p>
+  <p class="field">
+    <%= f.label :branch_id %>
+    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
+  </p>
+
+  <p class="field">
     <%= f.label :name %>
     <%= f.text_field :name, :class=>"text-input small-input" %>
   </p>
@@ -72,15 +81,6 @@
     <%= f.label :description %>
     <%= f.text_area :description, :class=>"text-input small-input" %>
   </p>
-  <p class="field">
-    <%= f.label :company_id %>
-    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => session[:promp_company]}, :class =>'.small-input')%>
-  </p>
-  <p class="field">
-    <%= f.label :branch_id %>
-    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => session[:promp_branch]}, :class =>'.small-input')%>
-  </p>
-
   <div class="form-actions">
     <%= f.submit nil, :class => 'button' %>
   </div>

@@ -12,10 +12,6 @@
     </div>
   <% end %>
 
-  <p class="field">
-    <%= f.label :routes_history_id %>
-    <%= f.collection_select(:routes_history_id, @routes_histories, :id, :human_name, {:prompt => true}, :class =>'.small-input')%>
-  </p>
   <%if controller.action_name == "edit" or controller.action_name == "update"%>
     <p class="field">
       <%= f.label :visited %>

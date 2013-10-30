@@ -14,9 +14,11 @@
         <img src="/assets/icons//blue/48x48/database_up.png" alt="<%=t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize.gsub(" ", "")}"))%>" />
       <%end%>
     <%end%>
-    <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-      <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
-        <img src="/assets/icons//blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
+    <%unless controller_name == "schedules_histories"%>
+      <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+        <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
+          <img src="/assets/icons//blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
+        <%end%>
       <%end%>
     <%end%>
     <%if can? :show, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
@@ -30,9 +32,11 @@
         <img src="/assets/icons//blue/48x48/database_up.png" alt="<%=t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize.gsub(" ", "")}"))%>" />
       <%end%>
     <%end%>
-    <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-      <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
-        <img src="/assets/icons//blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
+    <%unless controller_name == "schedules_histories"%>
+      <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+        <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
+          <img src="/assets/icons//blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
+        <%end%>
       <%end%>
     <%end%>
     <%if can? :edit, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
@@ -46,9 +50,11 @@
       <%end%>
     <%end%>
   <%elsif controller.action_name == "index" %>
-    <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
-      <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
-        <img src="/assets/icons/blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
+    <%unless controller_name == "schedules_histories"%>
+      <%if can? :new, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+        <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) do%>
+          <img src="/assets/icons/blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"))%>" />
+        <%end%>
       <%end%>
     <%end%>
   <%end%>

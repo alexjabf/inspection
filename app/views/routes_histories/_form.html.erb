@@ -17,6 +17,19 @@
     <%= f.collection_select(:driver_id, @drivers, :id, :driver_name, {:prompt => true}, :class =>'.small-input')%>
   </p>
 
+  <div class="field">
+    <%= f.label :weekday %>
+    <%= f.select :weekday, options_for_select([ 
+        [t(:Monday), "monday"],
+        [t(:Tuesday), "tuesday"],
+        [t(:Wednesday), "wednesday"],
+        [t(:Thursday), "thursday"],
+        [t(:Friday), "friday"],
+        [t(:Saturday), "saturday"],
+        [t(:Sunday), "sunday"],
+        ]), :prompt => true%>
+  </div>
+
   <p class="field">
     <%= f.label :started_at %>
     <%= f.datetime_select :started_at, :class=>"text-input small-input" %>

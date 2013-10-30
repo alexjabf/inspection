@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'i18n/missing_translations'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -11,6 +12,7 @@ end
 
 module Inspection
   class Application < Rails::Application
+  config.app_middleware.use(I18n::MissingTranslations) if Rails.env.development?
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

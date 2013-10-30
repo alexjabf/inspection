@@ -248,8 +248,8 @@ es:
       routes_admin: "Administrador de Logistica: "
       driver: "Conductor: "
       created_at: "Registrado el: "
-      updated_at: "Actualizado el: "
-    index:
+      updated_at: "Actualizado el: " 
+    [index tab_index]:  
       name: "Nombre"
       protected: "Protegido"
       description: "Descripción"
@@ -423,6 +423,7 @@ es:
       created_at: "Registrado el"
       updated_at: "Actualizado el"      
   companies:
+    tab_index:    
     show:
       name: "Nombre: "
       contact_name: "Contacto: " 

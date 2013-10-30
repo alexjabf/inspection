@@ -9,7 +9,7 @@ class MobileServicesController < ApplicationController
 
   def get_driver_info
     @driver = Driver.find_by_user_id(params[:user_id])
-    render json: @driver.blank? ?  {'status' => t('driver_not_found')} : [@driver, @driver.user, @driver.truck, @driver.company, @driver.branch]
+    render json: @driver.blank? ?  {'status' => t('messages.info.driver_not_found')} : [@driver, @driver.user, @driver.truck, @driver.company, @driver.branch]
   end
  
   def get_driver_schedule
@@ -23,14 +23,27 @@ class MobileServicesController < ApplicationController
     schedules.each do |s|
       p s
     end
-    render json: @schedules.blank? ?  {'status' => t('schedule_not_found')} : schedules 
+    render json: @schedules.blank? ?  {'status' => t('messages.info.schedule_not_found')} : schedules 
   end
   
   def start_route
     
   end
   
+  def routes
+    @routes_history = RoutesHistory.new(params[:routes_history])
 
+    if @routes_history.save
+      @schedules = eval("Schedule.where(:driver_id #{@routes_history.driver_id}, :#{Time.now.strftime("%A").downcase} => #{true})")
+      @schedules.each do |schedule|
+        SchedulesHistory.create(:routes_history_id => @routes_history.id, :client_id => schedule.client_id, :client_branch_id => schedule.client_branch_id, :branch_id => schedule.branch_id, :company_id => schedule.company_id)
+      end
+      render json: t('route_started_at') + (I18n.l Time.now, :format => :long)
+    else
+      render json: t('start_route_error') + (I18n.l Time.now, :format => :long)
+    end
+
+  end
   
   def detect_platform
     #        if request.env['HTTP_USER_AGENT'] == ""

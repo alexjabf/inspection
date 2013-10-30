@@ -42,14 +42,12 @@ class RoutesHistoriesController < ApplicationController
   # POST /routes_histories.json
   def create
     @routes_history = RoutesHistory.new(params[:routes_history])
-    @schedule = Schedule.find_by_id(@routes_history.schedule_id)
-    @routes_history.weekday = Time.now.strftime("%A").downcase
-    @routes_history.company_id = @schedule.driver.branch_id
-    @routes_history.branch_id = @schedule.driver.company_id
-    @routes_history.driver_id = @schedule.driver_id
+    @driver = Driver.find_by_id(@routes_history.driver_id)
+    @routes_history.company_id = @driver.branch_id
+    @routes_history.branch_id = @driver.company_id
     respond_to do |format|
       if @routes_history.save
-        @schedules = eval("Schedule.where(:driver_id => #{@routes_history.driver_id}, :#{Time.now.strftime("%A").downcase} => #{true})")
+        @schedules = eval("Schedule.where(:driver_id => #{@routes_history.driver_id}, :#{@routes_history.weekday} => #{true})")
         @schedules.each do |schedule|
           SchedulesHistory.create(:routes_history_id => @routes_history.id, :client_id => schedule.client_id, :client_branch_id => schedule.client_branch_id, :branch_id => schedule.branch_id, :company_id => schedule.company_id)
         end

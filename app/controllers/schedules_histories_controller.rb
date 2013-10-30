@@ -26,12 +26,8 @@ class SchedulesHistoriesController < ApplicationController
   # GET /schedules_histories/new
   # GET /schedules_histories/new.json
   def new
-    @schedules_history = SchedulesHistory.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @schedules_history }
-    end
+    flash[:error] = t("messages.errors.access_denied")
+    redirect_to root_path
   end
 
   # GET /schedules_histories/1/edit

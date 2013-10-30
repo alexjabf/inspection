@@ -1,0 +1,77 @@
+---
+es:
+  licensed_to: Licensed To
+  destroy: Destroy
+  will_paginate:
+    schedules_history:
+      page_entries_info:
+        single_page_html: Single Page Html
+    routes_history:
+      page_entries_info:
+        single_page_html: Single Page Html
+    cellphone:
+      page_entries_info:
+        single_page_html: Single Page Html
+    client_branch:
+      page_entries_info:
+        single_page_html: Single Page Html
+    entry:
+      page_entries_info:
+        single_page_html: Single Page Html
+    bill:
+      page_entries_info:
+        single_page_html: Single Page Html
+    schedule:
+      page_entries_info:
+        single_page_html: Single Page Html
+    truck:
+      page_entries_info:
+        single_page_html: Single Page Html
+    company:
+      page_entries_info:
+        single_page_html: Single Page Html
+    role:
+      page_entries_info:
+        single_page_html: Single Page Html
+  messages:
+    errors:
+      final_initial_km: Final Initial Km
+      access_denied: Access Denied
+  sign_in: Sign In
+  signin: Signin
+  remember_me: Remember Me
+  devise:
+    confirmations:
+      resend: Resend
+    unlock:
+      resend: Resend
+  live_monitor: Live Monitor
+  bills:
+    index:
+      id: Id
+    tab_index:
+      id: Id
+      name: Name
+      rfc: Rfc
+      phone1: Phone1
+      address1: Address1
+      address2: Address2
+      city: City
+      state: State
+      client_id: Client Id
+  tasks:
+    tab_index:
+      id: Id
+      name: Name
+      driver: Driver
+      branch: Branch
+      company: Company
+      completed: Completed
+      priority: Priority
+      scheduled_date: Scheduled Date
+      latitude: Latitude
+      longitude: Longitude
+      description: Description
+      comments: Comments
+      completed_at: Completed At
+  start_route_error: Start Route Error
