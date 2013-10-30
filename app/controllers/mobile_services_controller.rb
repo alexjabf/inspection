@@ -34,6 +34,7 @@ class MobileServicesController < ApplicationController
   def routes
     @routes_history = RoutesHistory.new(params[:routes_history])
     @routes_history.started_at = Time.now
+    @routes_history.weekday = Time.now.strftime("%A").downcase
     respond_to do |format|
       if @routes_history.save
         @schedules = eval("Schedule.where(:driver_id #{@routes_history.driver_id}, :#{Time.now.strftime("%A").downcase} => #{true})")
