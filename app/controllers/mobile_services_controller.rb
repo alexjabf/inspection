@@ -38,7 +38,7 @@ class MobileServicesController < ApplicationController
       @schedules.each do |schedule|
         SchedulesHistory.create(:routes_history_id => @routes_history.id, :client_id => schedule.client_id, :client_branch_id => schedule.client_branch_id, :branch_id => schedule.branch_id, :company_id => schedule.company_id)
       end
-      render json: t('route_started_at') + (I18n.l Time.now, :format => :long)
+      render json: {'routes_history' => {'response' => ('route_started_at') + (I18n.l Time.now, :format => :long), 'route' => @routes_history}}
     else
       render json: t('start_route_error') + (I18n.l Time.now, :format => :long)
     end
