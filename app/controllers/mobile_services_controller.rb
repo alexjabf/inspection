@@ -33,17 +33,17 @@ class MobileServicesController < ApplicationController
   
   def routes
     @routes_history = RoutesHistory.new(params[:routes_history])
-
-    if @routes_history.save
-      @schedules = eval("Schedule.where(:driver_id #{@routes_history.driver_id}, :#{Time.now.strftime("%A").downcase} => #{true})")
-      @schedules.each do |schedule|
-        SchedulesHistory.create(:routes_history_id => @routes_history.id, :client_id => schedule.client_id, :client_branch_id => schedule.client_branch_id, :branch_id => schedule.branch_id, :company_id => schedule.company_id)
+    respond_to do |format|
+      if @routes_history.save
+        @schedules = eval("Schedule.where(:driver_id #{@routes_history.driver_id}, :#{Time.now.strftime("%A").downcase} => #{true})")
+        @schedules.each do |schedule|
+          SchedulesHistory.create(:routes_history_id => @routes_history.id, :client_id => schedule.client_id, :client_branch_id => schedule.client_branch_id, :branch_id => schedule.branch_id, :company_id => schedule.company_id)
+        end
+        format.json  { render :nothing => :true, :status => {'routes_history' => {'response' => ('messages.alerts.route_started_at') + (I18n.l Time.now, :format => :long), 'route' => @routes_history}}}
+      else
+        render json: t('messages.errors.start_route_error') + (I18n.l Time.now, :format => :long)
       end
-      render json: {'routes_history' => {'response' => ('messages.alerts.route_started_at') + (I18n.l Time.now, :format => :long), 'route' => @routes_history}}
-    else
-      render json: t('messages.errors.start_route_error') + (I18n.l Time.now, :format => :long)
     end
-
   end
   
   def detect_platform

@@ -78,3 +78,19 @@ es:
       comments: Comments
       completed_at: Completed At
   start_route_error: Start Route Error
+  routes_histories:
+    tab_index:
+      id: Id
+      driver: Driver
+      started_at: Started At
+      finished_at: Finished At
+      initial_km: Initial Km
+      final_km: Final Km
+      closed: Closed
+      weekday: Weekday
+    show:
+      name: Name
+      completed: Completed
+      priority: Priority
+      scheduled_date: Scheduled Date
+      completed_at: Completed At
