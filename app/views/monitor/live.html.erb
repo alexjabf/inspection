@@ -1,4 +1,3 @@
-<% @routes_histories = RoutesHistory.where(:closed => false)%>
 <style>
   #main-content{
     width: 100%;
@@ -21,6 +20,46 @@
   }
 
   setTimeout(refresh, 10000);
+</script>
+
+<script>
+  $(function() {
+    $('#container2').highcharts({
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+      },
+      title: {
+        text: 'Tareas Agrupadas por Conductor'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.y}</b>'
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            color: '#000000',
+            connectorColor: '#000000',
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+          type: 'pie',
+          name: 'No. de Tareas',
+          data:
+                  [
+<% @routes_histories.each do |routes_history| %>
+                      ['<%=routes_history.driver.driver_name%>', <%=routes_history.driver.tasks.count%>],
+<%end%>
+                  ]
+        }]
+    });
+  });
 </script>
 
 <script type="text/javascript">
@@ -55,192 +94,175 @@
           data:
                   [
 <% @routes_histories.each do |routes_history| %>
-                      ['<%=routes_history.driver.user.fullname%>', <%=routes_history.schedules_histories.count%>],
+                      ['<%=routes_history.driver.driver_name%>', <%=routes_history.schedules_histories.count%>],
 <%end%>
                   ]
         }]
     });
   });
-
-  $(function() {
-    $('#container2').highcharts({
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false
-      },
-      title: {
-        text: 'Tareas Agrupadas por Conductor'
-      },
-      tooltip: {
-        pointFormat: '{series.name}: <b>{point.y}</b>'
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            color: '#000000',
-            connectorColor: '#000000',
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-          }
-        }
-      },
-      series: [{
-          type: 'pie',
-          name: 'No. de Tareas',
-          data:
-                  [
-<% @routes_histories.each do |routes_history| %>
-                      ['<%=routes_history.driver.user.fullname%>', <%=routes_history.driver.tasks.count%>],
-<%end%>
-                  ]
-        }]
-    });
-  });
-
 </script>
 
-<%@routes_histories.each do |routes_history| %>
-  <div class="CSSTableGenerator" >
-    <table >
-      <tr>
-        <td>
-          <b><%= t'.driver_id' %></b> <%= routes_history.driver.user.fullname %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= t'.started_at' %></b> <%= I18n.l routes_history.started_at, :format => :long  unless routes_history.started_at.blank?  %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= t'.finished_at' %></b> <%= I18n.l routes_history.finished_at, :format => :long  unless routes_history.finished_at.blank?%>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= t'.initial_km' %></b> <%= routes_history.initial_km %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= t'.final_km' %></b> <%= routes_history.final_km %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= t'.closed' %></b> <%= t(routes_history.closed.to_s) %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= t'.weekday' %></b> <%= t(routes_history.weekday.titlecase) %>
-        </td>
-      </tr>
-    </table>
-  </div>
+<div class="custom-column-left">
+  <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+<div class="custom-column-right">
+  <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
 
-  <h3><%= t'.client_branches' %></h3>
+<% @routes_histories.each do |routes_history| %>
+  <%@routes_history = routes_history%>
+  <div class="content-box closed-box" >
+    <div class="content-box-header">
 
-  <table>
-    <thead>
-      <tr>
-        <th><input class="check-all" type="checkbox" /></th>
-        <th><%= t'schedules_histories.index.id' %></th>
-        <th><%= t'schedules_histories.index.client_branch_id' %></th>
-        <th><%= t'schedules_histories.index.branch_id' %></th>
-        <th><%= t'schedules_histories.index.company_id' %></th>
-        <th><%= t'schedules_histories.index.visited' %></th>
-        <th><%= t'schedules_histories.index.visited_at' %></th>
-      </tr>
+      <h3><%= t(".driver") + routes_history.driver.driver_name%></h3>
 
-    </thead>
+    </div> <!-- End .content-box-header -->
 
-    <tbody>
-      <% routes_history.schedules_histories.each do |schedules_history| %>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <%if can? :show, SchedulesHistory %>
-            <td><%=link_to schedules_history.id, schedules_history, :class => 'button'%></td>
-          <%else%>
-            <td><%= label schedules_history.id, schedules_history.id, :class => 'button'%></td>
-          <%end%>
+    <div class="content-box-content custom-column-left">
+      <div class="tab-content default-tab">
+        <div class="CSSTableGenerator" >
+          <table >
+            <tr>
+              <td>
+                <b><%= t'.driver_id' %></b> <%= @routes_history.driver.user.fullname %>
+              </td>
+            <tr>
+              <td>
+                <b><%= t'.company_id' %></b> <%= @routes_history.company.name %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.branch_id' %></b> <%= @routes_history.branch.name %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.started_at' %></b> <%= I18n.l @routes_history.started_at, :format => :long unless @routes_history.started_at.nil? %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.finished_at' %></b> <%= I18n.l @routes_history.finished_at, :format => :long unless @routes_history.finished_at.nil?  %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.initial_km' %></b> <%= @routes_history.initial_km %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.final_km' %></b> <%= @routes_history.final_km %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.closed' %></b> <%= t(@routes_history.closed.to_s) %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><%= t'.weekday' %></b> <%= t(@routes_history.weekday.titlecase) %>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <h4><%=t(".client_branches")%></h4>
+
+        <table>
+          <thead>
+            <tr>
+              <th><%= t'schedules_histories.index.id' %></th>
+              <th><%= t'schedules_histories.index.client_branch_id' %></th>
+              <th><%= t'schedules_histories.index.branch_id' %></th>
+              <th><%= t'schedules_histories.index.visited' %></th>
+              <th><%= t'schedules_histories.index.visited_at' %></th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+            <% @routes_history.schedules_histories.each do |schedules_history| %>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <%if can? :show, SchedulesHistory %>
+                  <td><%=link_to schedules_history.id, schedules_history, :class => 'button'%></td>
+                <%else%>
+                  <td><%= label schedules_history.id, schedules_history.id, :class => 'button'%></td>
+                <%end%>
 
 
-          <% @model = schedules_history %> 
+                <% @model = schedules_history %> 
 
-          <td><%= schedules_history.client_branch.name %></td>
+                <td><%= schedules_history.client_branch.name %></td>
 
-          <td><%= schedules_history.branch.name %></td>
+                <td><%= schedules_history.branch.name %></td>
 
-          <td><%= schedules_history.company.name %></td>
+                <td><%= t(schedules_history.visited.to_s) %></td>
 
-          <td><%= t(schedules_history.visited.to_s) %></td>
+                <td><%= I18n.l schedules_history.visited_at, :format => :long unless schedules_history.visited_at.nil? %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>    
 
-          <td><%= I18n.l schedules_history.visited_at, :format => :long unless schedules_history.visited_at.nil?%></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-  <br><br>
 
-  <h3><%= t'.tasks' %></h3>
+        <h4><%= t'.tasks' %></h4>
 
-  <div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
-    <table>
-      <thead>
-        <tr>
-          <th><%= t'.id' %></th>
-          <th><%= t'.name' %></th>
-          <th><%= t'.driver_id' %></th>
-          <th><%= t'.completed' %></th>
-          <th><%= t'.priority' %></th>
-          <th><%= t'.scheduled_date' %></th>
-          <th><%= t'.completed_at' %></th>
-        </tr>
+        <div class="tab-content default-tab"> <!-- This is the target div. id must match the href of this div's tab -->
+          <table>
+            <thead>
+              <tr>
+                <th><%= t'.id' %></th>
+                <th><%= t'.name' %></th>
+                <th><%= t'.driver_id' %></th>
+                <th><%= t'.completed' %></th>
+                <th><%= t'.priority' %></th>
+                <th><%= t'.scheduled_date' %></th>
+                <th><%= t'.completed_at' %></th>
+              </tr>
 
-      </thead>
+            </thead>
 
-      <tbody>
-        <% Task.where(:driver_id => routes_history.driver.id, :scheduled_date => Date.today).each do |task| %>
-          <tr>
-            <%if can? :show, Task %>
-              <td><%=link_to task.id, task, :class => 'button'%></td>
-            <%else%>
-              <td><%= label task.id, task.id, :class => 'button'%></td>
-            <%end%>
+            <tbody>
+              <% Task.where(:driver_id => @routes_history.driver.id, :scheduled_date => Date.today).each do |task| %>
+                <tr>
+                  <%if can? :show, Task %>
+                    <td><%=link_to task.id, task, :class => 'button'%></td>
+                  <%else%>
+                    <td><%= label task.id, task.id, :class => 'button'%></td>
+                  <%end%>
 
-            <td><%= task.name %></td>
+                  <td><%= task.name %></td>
 
-            <td><%= task.driver.user.fullname %></td>
+                  <td><%= task.driver.user.fullname %></td>
 
-            <td><%= t(task.completed.to_s) %></td>
+                  <td><%= t(task.completed.to_s) %></td>
 
-            <td><%= task.priority %></td>
+                  <td><%= task.priority %></td>
 
-            <td><%= I18n.l task.scheduled_date, :format => :long unless task.scheduled_date.nil? %></td>
+                  <td><%= task.scheduled_date %></td>
 
-            <td><%= I18n.l task.completed_at, :format => :long unless task.completed_at.nil? %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
-  </div> 
-  <br><br>
+                  <td><%= task.completed_at %></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-  <table>
-    <h3><%= t'.failures' %></h3>
-    <tbody>
-      <% routes_history.failures_histories.each do |failures_history| %>
-        <tr>
-          <td><%= link_to t("activerecord.models.#{failures_history.failure_type.underscore}"),  eval("#{failures_history.failure_type.underscore}_path(:id => #{failures_history.failure_id})")%></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-
-<%end%>
-  </div>
+        <table>
+          <h3><%= t'.failures' %></h3>
+          <tbody>
+            <% @routes_history.failures_histories.each do |failures_history| %>
+              <tr>
+                <td><%= link_to t("activerecord.models.#{failures_history.failure_type.underscore}"),  eval("#{failures_history.failure_type.underscore}_path(:id => #{failures_history.failure_id})")%></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!-- End #tab3 -->    
+    </div> <!-- End .content-box-content -->
+  </div> <!-- End .content-box -->
+<% end %>

@@ -9,7 +9,7 @@ class RoutesHistory < ActiveRecord::Base
   attr_accessible :closed, :final_km, :finished_at, :initial_km, :started_at, :weekday, :driver_id, :start_latitude, :start_longitude, :end_latitude, :end_longitude, :branch_id, :company_id
   validates :initial_km, :started_at, :weekday, :driver_id, :presence => true
   validates :final_km, :presence => true, :on => :update
-  validate :final_initial_km if :final_km
+  validate :final_initial_km, :on => :update
 
   def final_initial_km
     unless final_km.nil?

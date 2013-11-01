@@ -33,13 +33,22 @@ es:
     role:
       page_entries_info:
         single_page_html: Single Page Html
+    error_report:
+      page_entries_info:
+        single_page_html: Single Page Html
   messages:
     alerts:
       route_started_at: 'Ruta iniciada el '
+      route_ended_at: 'Ruta terminada el '
     errors:
       final_initial_km: Final Initial Km
       access_denied: Access Denied
-      start_route_error: 'Error: La ruta no pudo ser iniciada '
+      start_route_error: 'Error: La ruta no pudo ser iniciada. Contacte a su administrador.'
+      end_route_error: 'Error: La ruta no pudo ser terminada. Contacte a su administrador.'
+      route_started_at: Route Started At
+    info:
+      schedule_not_found: Schedule Not Found
+    route_started_at: Route Started At
   sign_in: Sign In
   signin: Signin
   remember_me: Remember Me
@@ -94,3 +103,53 @@ es:
       priority: Priority
       scheduled_date: Scheduled Date
       completed_at: Completed At
+  error_reports:
+    index:
+      id: Id
+    tab_index:
+      id: Id
+      user: User
+      line_number: Line Number
+      referrer_url: Referrer Url
+      original_path: Original Path
+  schedules:
+    tab_index:
+      id: Id
+      branch: Branch
+      driver: Driver
+      client: Client
+      monday: Monday
+      tuesday: Tuesday
+      wednesday: Wednesday
+      thursday: Thursday
+      friday: Friday
+      saturday: Saturday
+      sunday: Sunday
+    select_days: Select Days
+    index:
+      id: Id
+  monitor:
+    live:
+      driver_id: Driver Id
+      started_at: Started At
+      finished_at: Finished At
+      initial_km: Initial Km
+      final_km: Final Km
+      closed: Closed
+      weekday: Weekday
+      client_branches: Client Branches
+      tasks: Tasks
+      id: Id
+      name: Name
+      completed: Completed
+      priority: Priority
+      scheduled_date: Scheduled Date
+      completed_at: Completed At
+      failures: Failures
+      branch_id: Branch Id
+      driver: Driver
+      company_id: Company Id
+  activerecord:
+    models:
+      monitors: Monitors
+      monitor: Monitor

@@ -30,5 +30,6 @@ rails g model failures_history routes_history:references failure_id:integer fail
 
 rails g scaffold task name:string driver:references branch:references company:references completed:boolean priority:string scheduled_date:date latitude:float longitude:float description:text comments:text completed_at:datetime
 
+rails g scaffold visitor ip:string host:string port:integer address:string city:string state:string region_code:string country:string country:string country_code:string time_zone:string latitude:string longitude:string 
 
 Todas las fallas, routes_histories

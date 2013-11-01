@@ -240,6 +240,16 @@ a.remove-link:hover {
     float: right;
 }
 
+.custom-column-left {
+    width: 48%;
+    float: left;
+}
+
+.custom-column-right {
+    width: 48%;
+    float: right;
+}
+
 #page-intro {
     font-size: 17px;
     padding: 0 0 20px 0;
